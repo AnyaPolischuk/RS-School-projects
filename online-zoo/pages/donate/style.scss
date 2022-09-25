@@ -618,6 +618,9 @@ footer {
 }
 
 .input-footer {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     width: 205px;
     height: 20px;
     background: black;
