@@ -84,7 +84,7 @@ body {
 .menu__link {
   text-decoration: none;
   padding-left: 58px;
-  font-family: 'Roboto';
+  font-family: Roboto;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
@@ -107,7 +107,7 @@ body {
 
 .nav__link {
   text-decoration: none;
-  font-family: 'Roboto';
+  font-family: Roboto;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
@@ -850,7 +850,7 @@ footer {
   color: #BDBDBD;
   padding: 10px;
   outline: none;
-  font-family: 'Roboto';
+  font-family: Roboto;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -869,7 +869,7 @@ footer {
   border-radius: 5px;
   border: 1px #333B41 solid;
   margin-left: 10px;
-  font-family: 'Roboto';
+  font-family: Roboto;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
