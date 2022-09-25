@@ -12,12 +12,16 @@ $color-gray_smoky: #ABABAB;
 $color-light_gray: #F1F3F2;
 $color-frosted_glass_white: #FDFDFF;
 
+html {
+    scroll-behavior: smooth;
+}
 
 body {
     color: #EAF7FE;
     font-family: $font;
     background-color: white;
     font-size: 16px;
+    
 }
 
 /*HEADER*/ 
@@ -25,7 +29,6 @@ body {
     background-color: black;
     width: 100%;
     height: 80px;  
-
 }
 
 .nav {
@@ -34,7 +37,6 @@ body {
     flex-direction: row;
     justify-content: start;
     align-items: center;
-    
     margin: 0 auto;
 }
 
@@ -52,8 +54,16 @@ body {
     font-size: 19px;
     line-height: 120%;
     text-align: center;
-    color: #FFFFFF;
+    
     padding-top: 5px;
+}
+
+.nav__itemlink {
+    text-decoration: none;
+    color: #FFFFFF;
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 .nav__bamboo {
@@ -70,8 +80,6 @@ body {
     display: flex;
     flex-direction: row;
     padding-left: 5px;
-    
-    
 }
 
 .menu__item {
@@ -87,10 +95,19 @@ body {
     font-size: 16px;
     line-height: 140%;
     color: white;
+    &:hover {
+        color: #F9804B;
+        cursor: pointer;
+    }
+}
+
+.menu__link_active {
+    color: #F9804B;
 }
 
 .nav__designed {
     margin-left: 37.6%;
+    
 }
 
 .nav__designedby {
@@ -105,6 +122,10 @@ body {
     font-size: 16px;
     line-height: 140%;
     color: white;
+    &:hover {
+        color: #F9804B;
+        cursor: pointer;
+    }
 }
 
 
@@ -117,10 +138,6 @@ body {
     max-width: 1600px;
     height: 700px;
     margin: 0 auto;
-}
-
-.main-page {
-    
 }
 
 .watch-online {
@@ -168,6 +185,13 @@ body {
     border-radius: 25px;
     color: white;
     margin-right: 100px;
+    &:hover {
+        background: #E47209;
+        cursor: pointer;
+    }
+    &:active {
+        background: $color-green;
+    }
 }
 
 
@@ -254,6 +278,9 @@ body {
     background: $color-orange;
     border-radius: 50%;
     border: 0 white solid;
+    &:active {
+        background: $color-green;
+    }
 }
 
 .pets__cards {
@@ -265,13 +292,18 @@ body {
 }
 
 .pet-card {
-    
     border-radius: 5px;
     border: 1px #FA6F32 solid;
+    position: relative;
+    overflow: hidden;
 }
 
 .pet-card__photo {
     border-radius: 5px 5px 0 0;
+    transition: all 1s;
+    // &:hover {
+    //     transform: scale(1.03);
+    // }
 }
 
 .pet-card__info {
@@ -306,6 +338,47 @@ body {
     right: 12px;
 }
 
+.pet-shadow {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+    left: 0;
+    top: 100%;
+    transition: 0.5s;
+}
+
+.pet-shadow__text {
+    position: absolute;
+    top: 70%;
+    left: 5%;
+    color: white;
+    font-size: 17px;
+    .pet-shadow__title {
+        margin: 0;
+        text-transform: uppercase;
+    }
+    .pet-shadow__native {
+        margin-top: 10px;
+    }
+    
+}
+
+.pet-card:hover .pet-shadow {
+    top: 0;
+    left: 0;
+}
+
+.pet-card:hover .pet-card__text{
+    opacity: 0;
+}
+
+.pet-card:hover .pet-card__photo {
+    transform: scale(1.03);
+}
+
+
 .chose-bnt {
    // margin-left: 42.5%;
    margin: 0 auto;
@@ -336,7 +409,7 @@ body {
 
 .pets-bottom__image2 {
     right: 0;
-    top: -45px;
+    top: -41px;
 }
 
 /*PICK FRIEND*/
@@ -397,6 +470,13 @@ body {
     font-weight: 400;
     max-width: 863px;
     margin-top: 10px;
+}
+
+.pick-text__link {
+    color: $color-black_blue;
+    text-decoration: none;                      
+    border-bottom: 1px solid #FE9013; 
+    padding-bottom: 1px; 
 }
 
 .pick-cards {
@@ -474,7 +554,7 @@ body {
     max-width: 1600px;
     margin: 0 auto;
     position: relative;
-    z-index: -2;
+   // z-index: -2;
 }
 
 .testim {
@@ -499,31 +579,34 @@ body {
 
 .testim-content__cards {
     display: flex;
+    flex-direction: row;
     max-width: 1160px;
     justify-content: space-between;
     gap: 0 30px;
 }
 
-// .gradient {
-//     background: $color-orang_grad;
-//     width: 272px;
-//     max-height: 395px;
-//     border-radius: 20px;
-// }
+.testim-card-gradient {
+    width: 268px;
+    height: 391px;
+    background: $color-pink_gradient;
+    border-radius: 20px;
+    position: relative;
+}
 
 .testim-card {
-    width: 268px;
-    max-height: 391px;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+
+    width: 264px;
+    height: 387px;
     border-radius: 20px;
     background: $color-light_gray;
-    border: 2px orange solid;
-    
 }
 
 .testim-card__info {
     display: flex;
-    margin-bottom: 10px;
-    
+    margin-bottom: 10px; 
 }
 
 .testim-card__icon {
@@ -533,8 +616,7 @@ body {
 .testim-card__user {
     display: flex;
     flex-direction: column;
-    padding: 15px 0 0 10px;
-    
+    padding: 15px 0 0 10px; 
 }
 
 .testim-card__name {
@@ -560,7 +642,6 @@ body {
     max-width: 237px;
     max-height: 307px;
     padding-left: 16px;
-    
 }
 
 .testim-card__text {
@@ -571,6 +652,8 @@ body {
     color: #767474;
     margin: 0;
 }
+
+
 
 .testim__progress {
     width: 600px;
@@ -597,9 +680,9 @@ body {
 
 .testim__leaf {
     position: absolute;
-    z-index: -1;
     right: 0;
-    top: 644px;
+    top: 648px;
+    
 }
 
 /*FOOTER*/
@@ -663,6 +746,12 @@ footer {
     padding-top: 5px;
 }
 
+.footer-alink {
+    text-decoration: none;
+    color: white;
+
+}
+
 .footer-link {
     display: flex;
     align-items: center;
@@ -675,6 +764,10 @@ footer {
     font-weight: 400;
     font-size: 16px;
     line-height: 140%;
+    &:hover {
+        cursor: pointer;
+        color: #F9804B;
+    }
 }
 
 .footer-menu {
@@ -695,6 +788,14 @@ footer {
     line-height: 140%;
     color: white;
     //margin-right: 53px;
+    &:hover {
+        cursor: pointer;
+        color: #F9804B;
+    }
+}
+
+.footer-menu__link_active {
+    color: #F9804B;
 }
 
 .footer__form {
@@ -725,16 +826,34 @@ footer {
     border-radius: 2px;
     color: #BDBDBD;
     padding: 10px;
+    outline: none;
+    &:focus {
+        border: 0.7px $color-green solid;
+        
+        
+    }
 }
+
+// .input-footer:focus {
+//     border: 0.7px $color-green solid;
+// }
 
 .footer__sumbit {
     width: 129px;
     height: 42px;
     background: $color-light_gray;
-    color: $color-green;
+    color: $color-black_blue;
     border-radius: 5px;
-    border: 1px $color-green solid;
+    border: 1px $color-black_blue solid;
     margin-left: 10px;
+    &:active {
+        color: $color-green;
+        border: 1px $color-green solid;
+    }
+    &:focus {
+        color: $color-green;
+        border: 1px $color-green solid;
+    }
 }
 
 .footer__designed {
