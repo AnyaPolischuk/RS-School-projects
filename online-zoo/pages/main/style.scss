@@ -816,6 +816,7 @@ footer {
 
 .footer-input {
     display: flex;
+    
 }
 
 .input-footer {
@@ -827,6 +828,11 @@ footer {
     color: #BDBDBD;
     padding: 10px;
     outline: none;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
     &:focus {
         border: 0.7px $color-green solid;
         
@@ -846,6 +852,11 @@ footer {
     border-radius: 5px;
     border: 1px $color-black_blue solid;
     margin-left: 10px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
     &:active {
         color: $color-green;
         border: 1px $color-green solid;
