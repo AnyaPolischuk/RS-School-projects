@@ -850,6 +850,11 @@ footer {
   color: #BDBDBD;
   padding: 10px;
   outline: none;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
 }
 
 .input-footer:focus {
@@ -864,6 +869,11 @@ footer {
   border-radius: 5px;
   border: 1px #333B41 solid;
   margin-left: 10px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
 }
 
 .footer__sumbit:active {
