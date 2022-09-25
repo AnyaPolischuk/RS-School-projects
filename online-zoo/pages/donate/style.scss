@@ -438,6 +438,7 @@ input[type='number'] {
     font-size: 16px;
     line-height: 140%;
     color: #333B41;
+    font-family: $font;
 }
 
 .pick-another__label {
@@ -459,6 +460,7 @@ input[type='number'] {
     border-radius: 25px;
     color: white;
     margin-right: 100px;
+    font-family: $font;
     &:hover {
         background: #E47209;
         cursor: pointer;
