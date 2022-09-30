@@ -59,7 +59,7 @@ body {
 }
 
 @media (max-width: 768px) {
-  .nav__logo {
+  .nav__logo_640 {
     margin-left: 20px;
   }
 }
@@ -78,7 +78,7 @@ body {
 }
 
 @media (max-width: 768px) {
-  .nav__item {
+  .nav__item_640 {
     border: 0;
     font-size: 12px;
     width: 47px;
@@ -103,7 +103,7 @@ body {
 }
 
 @media (max-width: 768px) {
-  .nav__bamboo {
+  .nav__bamboo_640 {
     top: 15px;
     left: 6px;
     width: 4.54px;
@@ -935,6 +935,12 @@ body {
   }
 }
 
+@media (max-width: 640px) {
+  .wrapper-pick {
+    padding: 19px 0 20px 0;
+  }
+}
+
 .pick {
   max-width: 1160px;
   max-height: 835px;
@@ -973,6 +979,14 @@ body {
   }
 }
 
+@media (max-width: 640px) {
+  .pick-text {
+    max-width: 600px;
+    padding: 0;
+    margin: 0 auto;
+  }
+}
+
 .pick-text__title {
   color: #FE9013;
   font-style: normal;
@@ -991,6 +1005,13 @@ body {
   }
 }
 
+@media (max-width: 640px) {
+  .pick-text__title {
+    font-size: 42px;
+    padding: 10px 0 0 0;
+  }
+}
+
 .pick-text__subtitle {
   padding-top: 5px;
   padding-bottom: 20px;
@@ -1003,6 +1024,12 @@ body {
 @media (max-width: 1350px) {
   .pick-text__subtitle {
     margin: 15px 0 0 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .pick-text__subtitle {
+    font-size: 22px;
   }
 }
 
@@ -1044,6 +1071,12 @@ body {
   }
 }
 
+@media (max-width: 640px) {
+  .pick-cards__title {
+    margin: 24px 0 14px 0;
+  }
+}
+
 .pick-cards__wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1058,14 +1091,8 @@ body {
 @media (max-width: 850px) {
   .pick-cards__wrapper {
     max-width: 586px;
-    margin-left: 5%;
-  }
-}
-
-@media (max-width: 640px) {
-  .pick-cards__wrapper {
-    margin-left: 20px;
     position: relative;
+    margin: 0 auto;
   }
 }
 
@@ -1147,6 +1174,12 @@ body {
   }
 }
 
+@media (max-width: 640px) {
+  .pick-friend__btn {
+    margin: 30px auto 60px;
+  }
+}
+
 /*TESTIMONIALS*/
 .testim-wrapper {
   background: white;
@@ -1192,6 +1225,12 @@ body {
   }
 }
 
+@media (max-width: 950px) {
+  .testim-content__title {
+    margin: 60px 0 30px 0;
+  }
+}
+
 .testim-content__cards {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1213,6 +1252,16 @@ body {
   }
 }
 
+@media (max-width: 950px) {
+  .testim-content__cards {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 15px;
+  }
+}
+
 .testim-card-gradient {
   width: 268px;
   height: 391px;
@@ -1224,6 +1273,13 @@ body {
 @media (max-width: 1300px) {
   .testim-card-gradient {
     width: 293px;
+  }
+}
+
+@media (max-width: 950px) {
+  .testim-card-gradient {
+    width: 600px;
+    height: 109px;
   }
 }
 
@@ -1249,6 +1305,13 @@ body {
   }
 }
 
+@media (max-width: 950px) {
+  .testim-card {
+    width: 596px;
+    height: 105px;
+  }
+}
+
 .testim-card__info {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1258,6 +1321,12 @@ body {
 
 .testim-card__icon {
   padding: 15px 0 0 15px;
+}
+
+@media (max-width: 950px) {
+  .testim-card__icon {
+    padding: 10px 0 0 10px;
+  }
 }
 
 .testim-card__user {
@@ -1296,6 +1365,13 @@ body {
   padding-left: 16px;
 }
 
+@media (max-width: 950px) {
+  .testim-card__wrapper {
+    max-width: 553px;
+    height: 38px;
+  }
+}
+
 .testim-card__text {
   font-style: normal;
   font-weight: 300;
@@ -1322,6 +1398,12 @@ body {
   }
 }
 
+@media (max-width: 950px) {
+  .testim__progress {
+    display: none;
+  }
+}
+
 .testim__progbar {
   width: 115px;
   height: 6px;
@@ -1345,6 +1427,14 @@ body {
 @media (max-width: 1300px) {
   .testim__btn {
     margin: 20px 0 140px 30px;
+  }
+}
+
+@media (max-width: 950px) {
+  .testim__btn {
+    display: block;
+    margin: 40px auto 80px;
+    width: 240px;
   }
 }
 
@@ -1379,6 +1469,25 @@ body {
   }
 }
 
+@media (max-width: 950px) {
+  .testim__leaf_1000 {
+    display: none;
+  }
+}
+
+.testim__leaf_640 {
+  display: none;
+}
+
+@media (max-width: 950px) {
+  .testim__leaf_640 {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 533px;
+  }
+}
+
 /*FOOTER*/
 footer {
   width: 100%;
@@ -1408,6 +1517,14 @@ footer {
 @media (max-width: 1100px) {
   .footer {
     position: relative;
+  }
+}
+
+@media (max-width: 900px) {
+  .footer {
+    max-width: 93.75%;
+    padding: 0;
+    margin: 0 auto;
   }
 }
 
@@ -1447,6 +1564,24 @@ footer {
 .footer-alink {
   text-decoration: none;
   color: white;
+}
+
+@media (max-width: 900px) {
+  .footer-alink {
+    display: none;
+  }
+}
+
+.footer-alink_640 {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .footer-alink_640 {
+    display: block;
+    text-decoration: none;
+    color: white;
+  }
 }
 
 .footer-link {
@@ -1491,6 +1626,25 @@ footer {
   }
 }
 
+@media (max-width: 900px) {
+  .footer-menu {
+    display: none;
+  }
+}
+
+.footer-menu_640 {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .footer-menu_640 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 37px;
+  }
+}
+
 .footer-menu__link {
   display: block;
   text-decoration: none;
@@ -1522,6 +1676,23 @@ footer {
   }
 }
 
+@media (max-width: 900px) {
+  .footer__form {
+    position: static;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+    gap: 20px;
+  }
+}
+
 .footer__title {
   font-style: normal;
   font-weight: 400;
@@ -1530,10 +1701,22 @@ footer {
   margin: 40px 0 14px 0;
 }
 
+@media (max-width: 900px) {
+  .footer__title {
+    display: none;
+  }
+}
+
 .footer-input {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+@media (max-width: 900px) {
+  .footer-input {
+    display: none;
+  }
 }
 
 .input-footer {
@@ -1592,6 +1775,12 @@ footer {
   }
 }
 
+@media (max-width: 900px) {
+  .footer__designed {
+    padding: 0;
+  }
+}
+
 .footer__designedby {
   display: block;
   text-decoration: none;
@@ -1610,10 +1799,22 @@ footer {
   }
 }
 
+@media (max-width: 900px) {
+  .footer__designedby {
+    position: static;
+  }
+}
+
 @media (max-width: 1000px) {
   .footer__designedby_2 {
     position: absolute;
     bottom: -65px;
+  }
+}
+
+@media (max-width: 900px) {
+  .footer__designedby_2 {
+    position: static;
   }
 }
 /*# sourceMappingURL=style.css.map */

@@ -58,6 +58,9 @@ body {
     @media (max-width: 1200px) { 
         margin-left: 30px;
     }
+}
+
+.nav__logo_640 {
     @media (max-width: 768px) {
         margin-left: 20px;
     }
@@ -74,6 +77,9 @@ body {
     line-height: 120%;
     text-align: center;
     padding-top: 5px;
+}
+
+.nav__item_640 {
     @media (max-width: 768px) {
         border: 0;
         font-size: 12px;
@@ -95,6 +101,9 @@ body {
     position: absolute;
     top: 38px;
     left: 10px;
+}
+
+.nav__bamboo_640 {
     @media (max-width: 768px) {
         top: 15px;
         left: 6px;
@@ -734,6 +743,9 @@ body {
     @media (max-width: 1350px) {
         padding: 29px 0 50px 0;
     }
+    @media (max-width: 640px) {
+        padding: 19px 0 20px 0;
+    }
 }
 
 .pick {
@@ -759,6 +771,11 @@ body {
     @media (max-width: 1350px) {
         padding: 0 48px 0 49px;
     }
+    @media (max-width: 640px) {
+        max-width: 600px;
+        padding: 0;
+        margin: 0 auto;
+    }
 }
 
 .pick-text__title {
@@ -773,7 +790,10 @@ body {
     padding-right: 95px;
     @media (max-width: 1350px) { 
         padding: 31px 0 0 0;
-        //padding-right: 0;
+    }
+    @media (max-width: 640px) {
+        font-size: 42px;
+        padding: 10px 0 0 0;
     }
 }
 
@@ -786,6 +806,9 @@ body {
     line-height: 120%;
     @media (max-width: 1350px) { 
         margin: 15px 0 0 0;
+    }
+    @media (max-width: 640px) {
+        font-size: 22px;
     }
 }
 
@@ -826,6 +849,9 @@ body {
     @media (max-width: 1350px) { 
         padding-top: 5px;
     }
+    @media (max-width: 640px) {
+        margin: 24px 0 14px 0;
+    }
     
 }
 
@@ -836,11 +862,8 @@ body {
     justify-content: space-between;
     @media (max-width: 850px) {
         max-width: 586px;
-        margin-left: 5%;
-    }
-    @media (max-width: 640px) {
-        margin-left: 20px;
         position: relative;
+        margin: 0 auto;
     }
 }
 
@@ -916,6 +939,9 @@ body {
    @media (max-width: 1350px) { 
     margin: 55px auto 50px; 
 }
+    @media (max-width: 640px) {
+        margin: 30px auto 60px;
+    }
 }
 
 /*TESTIMONIALS*/
@@ -951,6 +977,9 @@ body {
     @media (max-width: 1350px) {
         margin: 100px 0 30px 0;
     }
+    @media (max-width: 950px) {
+        margin: 60px 0 30px 0;
+    }
 }
 
 .testim-content__cards {
@@ -962,6 +991,10 @@ body {
     @media (max-width: 1300px) {
         max-width: 940px;
     }
+    @media (max-width: 950px) {
+        flex-direction: column;
+        gap: 15px;
+    }
 }
 
 .testim-card-gradient {
@@ -972,6 +1005,10 @@ body {
     position: relative;
     @media (max-width: 1300px) {
         width: 293px;
+    }
+    @media (max-width: 950px) {
+        width: 600px;
+        height: 109px;
     }
 }
 
@@ -993,6 +1030,10 @@ body {
     @media (max-width: 1300px) {
         width: 289px;
     }
+    @media (max-width: 950px) {
+        width: 596px;
+        height: 105px;
+    }
 }
 
 .testim-card__info {
@@ -1002,6 +1043,9 @@ body {
 
 .testim-card__icon {
     padding: 15px 0 0 15px;
+    @media (max-width: 950px) {
+        padding: 10px 0 0 10px;
+    }
 }
 
 .testim-card__user {
@@ -1033,6 +1077,10 @@ body {
     max-width: 237px;
     max-height: 307px;
     padding-left: 16px;
+    @media (max-width: 950px) {
+        max-width: 553px;
+        height: 38px;
+    }
 }
 
 .testim-card__text {
@@ -1056,6 +1104,9 @@ body {
         height: 7px;
         width: 390px;
     }
+    @media (max-width: 950px) {
+        display: none;
+    }
 }
 
 .testim__progbar {
@@ -1075,6 +1126,11 @@ body {
     margin-bottom: 180px;
     @media (max-width: 1300px) {
         margin: 20px 0 140px 30px;
+    }
+    @media (max-width: 950px) {
+        display: block;
+        margin: 40px auto 80px;
+        width: 240px;
     }
 }
 
@@ -1098,6 +1154,20 @@ body {
         right: 0;
         top: 605px;
      }
+     @media (max-width: 950px) {
+        display: none;
+     }
+}
+
+.testim__leaf_640 {
+    display: none;
+    @media (max-width: 950px) {
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 533px
+
+    }
 }
 
 /*FOOTER*/
@@ -1121,6 +1191,11 @@ footer {
     }
     @media (max-width: 1100px) {
         position: relative;
+    }
+    @media (max-width: 900px) {
+        max-width: 93.75%;
+        padding: 0;
+        margin: 0 auto;
     }
 }
 
@@ -1172,7 +1247,18 @@ footer {
 .footer-alink {
     text-decoration: none;
     color: white;
+    @media (max-width: 900px) {
+        display: none;
+    }
+}
 
+.footer-alink_640 {
+    display: none;
+    @media (max-width: 900px) {
+        display: block;
+        text-decoration: none;
+        color: white;
+    }
 }
 
 .footer-link {
@@ -1203,6 +1289,17 @@ footer {
         padding-left: 0;
         padding-right: 320px;
     }
+    @media (max-width: 900px) {
+        display: none;
+    }
+}
+
+.footer-menu_640 {
+    display: none;
+    @media (max-width: 900px) {
+        display: flex;
+        gap: 37px;
+    }
 }
 
 .footer-menu__link {
@@ -1230,6 +1327,13 @@ footer {
         top: 0;
         right: 50px;
     }
+    @media (max-width: 900px) {
+        position: static;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 20px;
+    }
 }
 
 .footer__title {
@@ -1238,6 +1342,9 @@ footer {
     font-size: 24px;
     line-height: 120%;
     margin: 40px 0 14px 0;
+    @media (max-width: 900px) {
+        display: none;
+    }
 }
 
 .footer__formtext {
@@ -1246,6 +1353,9 @@ footer {
 
 .footer-input {
     display: flex;
+    @media (max-width: 900px) {
+        display: none;
+    }
     
 }
 
@@ -1300,6 +1410,9 @@ footer {
     @media (max-width: 1000px) {
         position: relative;
     }
+    @media (max-width: 900px) {
+        padding: 0;
+    }
 }
 
 .footer__designedby {
@@ -1315,6 +1428,10 @@ footer {
         position: absolute;
         right: -25px;
     }
+    @media (max-width: 900px) {
+        position: static;
+
+    }
     
 }
 
@@ -1322,5 +1439,9 @@ footer {
     @media (max-width: 1000px) {
         position: absolute;
         bottom: -65px;
+    }
+    @media (max-width: 900px) {
+        position: static;
+        
     }
 }
