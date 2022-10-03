@@ -12,10 +12,17 @@
 <body>
     <header class="header">
         <nav class="nav">
-            <div class="nav__logo">
-                <h1 class="nav__item"><a href="index.html" class="nav__itemlink">PetStory online</a></h1>
-                <img class="nav__bamboo" src="../../assets/icons/bamboo.svg" alt="bamboo">
+            <div class="nav__logo nav__logo_640">
+                <h1 class="nav__item nav__item_640"><a href="index.html" class="nav__itemlink">PetStory online</a></h1>
+                <img class="nav__bamboo nav__bamboo_640" src="../../assets/icons/bamboo.svg" alt="bamboo">
             </div>
+
+            <div class="menu-burger">
+                <span class="menu-burger__line menu-burger__line_first"></span>
+                <span class="menu-burger__line menu-burger__line_second"></span>
+                <span class="menu-burger__line menu-burger__line_third"></span>
+            </div>
+
             <div class="nav__list">
                 <ul class="menu">
                     <li class="menu__item"><a href="index.html" class="menu__link menu__link_active">About</a></li>
@@ -35,19 +42,27 @@
 
     
     <section class="main-page">
-        <div class="watch-online">
-            <div class="watch-online__circle">
-                <div class="watch-online__title">Watch your <span class="watch-online__title_colored">favorite</span> animal online</div>
+        <div class="main-page__bg"> 
+             <div class="watch-online">
+                <div class="watch-online__circle">
+                    <div class="watch-online__title">Watch your <span class="watch-online__title_colored">favorite</span> animal online</div>
+                </div>
+                
+                <button class="watch-online__btn button">WATCH ONLINE</button>
             </div>
-            
-            <button class="watch-online__btn button">WATCH ONLINE</button>
         </div>
+        
     </section>
+
+    <button class="watch-online__btn button watch-online__btn_320">WATCH ONLINE</button>
 
     <div class="wrapper">
         <section class="backstage">
             <div class="backstage__wrapper">
+                
                 <img src="../../assets/images/bamboo-cap.jpg" alt="bamboo-cap" class="backstage__img">
+                <img src="../../assets/images/bamboo-cap_small_desctop.png" alt="bamboo-cap_small_desctop" class="backstage__img_1100px">
+                
                 <div class="backstage__info">
                     <h2 class="backstage__title">The Backstage of the Wilderness World.</h2>
                     <p class="backstage__text">The site was founded on the basis of a volunteer movement to protect and care for animals.</p>
@@ -56,6 +71,8 @@
                 </div>
             </div>
             <img src="../../assets/images/flower_photo_1.jpg" alt="flower" class="backstage__flower">
+            <img src="../../assets/images/flower_photo_640.png" alt="flower" class="backstage__flower_640">
+            <img src="../../assets/images/flower_photo_320.png" alt="flower" class="backstage__flower_320">
         </section>
     </div>
 
@@ -86,7 +103,7 @@
                             <h4 class="pet-card__title">Eagles</h4>
                             <p class="pet-card__native">Native to South America</p>
                         </div>
-                        <img src="../../assets/icons/meet-fish_icon.svg" class="pet-card__icon"></img>
+                        <img src="../../assets/icons/meet-fish_icon.svg" class="pet-card__icon pet-card__icon_fish"></img>
                     </div>
                     <div class="pet-shadow">
                         <div class="pet-shadow__text">
@@ -95,7 +112,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="pet-card">
+                <div class="pet-card pet-card__invisible">
                     <img src="../../assets/images/animal_3.jpg" alt="animal_3" class="pet-card__photo">
                     <div class="pet-card__info">
                         <div class="pet-card__text">
@@ -111,6 +128,12 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="pet-buttons">
+                    <button class="pets__btn_1000 pets__btn"><img src="../../assets/icons/btn_left.svg" alt="btn_left"></button>
+                    <button class="pets__btn_1000 pets__btn"><img src="../../assets/icons/btn_right.svg" alt="btn_right"></button>
+                </div>
+
                 <div class="pet-card">
                     <img src="../../assets/images/animal_4.jpg" alt="animal_4" class="pet-card__photo">
                     <div class="pet-card__info">
@@ -134,7 +157,7 @@
                             <h4 class="pet-card__title">cheetahs</h4>
                             <p class="pet-card__native">Native to Africa</p>
                         </div>
-                        <img src="../../assets/icons/meet-fish_icon.svg" class="pet-card__icon"></img>
+                        <img src="../../assets/icons/meet-fish_icon.svg" class="pet-card__icon pet-card__icon_fish"></img>
                     </div>
                     <div class="pet-shadow">
                         <div class="pet-shadow__text">
@@ -143,14 +166,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="pet-card">
+                <div class="pet-card pet-card__invisible">
                     <img src="../../assets/images/animal_6.jpg" alt="animal_6" class="pet-card__photo">
                     <div class="pet-card__info">
                         <div class="pet-card__text">
                             <h4 class="pet-card__title">Penguins</h4>
                             <p class="pet-card__native">Native to Antarctica</p>
                         </div>
-                        <img src="../../assets/icons/meet-fish_icon.svg" class="pet-card__icon"></img>
+                        <img src="../../assets/icons/meet-fish_icon.svg" class="pet-card__icon pet-card__icon_fish"></img>
                     </div>
                     <div class="pet-shadow">
                         <div class="pet-shadow__text">
@@ -164,6 +187,7 @@
         </div>
         <div class="pets-bottom">
             <img class="pets-bottom__image pets-bottom__image1" src="../../assets/images/palm_photo.png" alt="palm_photo">
+            <img class="pets-bottom__image pets-bottom__image1_1000" src="../../assets/images/palm_photo_1000.svg" alt="palm_photo_1000">
             <button class="chose-bnt button">choose your favorite</button>
             <img class="pets-bottom__image pets-bottom__image2" src="../../assets/images/strelitzia_photo.png" alt="strelitzia_photo">
         </div>
@@ -187,6 +211,7 @@
                         <p class="pick-card__text">Pay with card</p>
                     </div>
                     <img src="../../assets/icons/arrow.svg" alt="arrow" class="pick-card__arrow">
+                    <img src="../../assets/icons/arrow_640.svg" alt="arrow_640" class="pick-card__arrow_640">
                     <div class="pick-card">
                         <div class="pick-card__item">
                             <img class="pick-card__icon pick-card__icon2" src="../../assets/icons/zoo.svg" alt="zoo">
@@ -194,6 +219,7 @@
                         <p class="pick-card__text">Payment goes to the zoo</p>
                     </div>
                     <img src="../../assets/icons/arrow.svg" alt="arrow" class="pick-card__arrow">
+                    <img src="../../assets/icons/arrow_640.svg" alt="arrow_640" class="pick-card__arrow_640 pick-card__arrow_640_2">
                     <div class="pick-card">
                         <div class="pick-card__item">
                             <img class="pick-card__icon pick-card__icon3" src="../../assets/icons/monkey.svg" alt="monkey">
@@ -267,7 +293,7 @@
                         </div>
                     </div>
                     
-                    <div class="testim-card-gradient">
+                    <div class="testim-card-gradient testim-card-gradient_none">
                         <div class="testim-card">
                             <div class="testim-card__info">
                                 <img class="testim-card__icon" src="../../assets/icons/user_4.svg" alt="user_4">
@@ -292,6 +318,9 @@
             <button class="testim__btn button">leave feedback</button>
         </div>
         <img class="testim__leaf" src="../../assets/images/leav_photo-test.png" alt="leav_photo-test">
+        <img class="testim__leaf_1000" src="../../assets/images/leav_photo_1000.svg" alt="leav_photo_1000">
+        <img class="testim__leaf_640" src="../../assets/images/leav_photo_640.png" alt="leav_photo_640">
+        <img class="testim__leaf_320" src="../../assets/images/leav_photo_320.png" alt="leav_photo_320">
     </section>
 
     <footer id="contact">
@@ -301,9 +330,59 @@
                     <h1 class="footer__name nav__item"><a href="index.html" class="nav__itemlink">PetStory online</a></h1>
                     <img class="footer__bamboo" src="../../assets/icons/bamboo.svg" alt="bamboo">
                 </div>
+
+                <!-- start for 320px -->
+                <div class="footer-links_320">
+                    <a href="https://www.facebook.com/" class="footer-alink_320">
+                        <div class="footer-link">
+                            <div class="footer__circle">
+                                <img class="footet__icon" src="../../assets/icons/facebook.svg" alt="facebook">
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <a href="https://twitter.com" class="footer-alink_320">
+                        <div class="footer-link">
+                            <div class="footer__circle">
+                                <img class="footet__icon" src="../../assets/icons/twitter.svg" alt="twitter">
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <a href="https://www.instagram.com" class="footer-alink_320">
+                        <div class="footer-link">
+                            <div class="footer__circle">
+                                <img class="footet__icon" src="../../assets/icons/instagram.svg" alt="instagram">
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <a href="https://www.youtube.com" class="footer-alink_320">
+                        <div class="footer-link">
+                            <div class="footer__circle">
+                                <img class="footet__icon" src="../../assets/icons/youtube.svg" alt="youtube">
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <!-- end for 320px -->
+
+            
                 <form action="../donate/index.html" target="_blank">
                     <button class="footer__button button">donate for volunteers</button>
                 </form>
+
+                <div class="footer__designed footer__designed_320">
+                    <a href="" class="footer__designedby">Designed by Alisa Samborskaya</a>
+                    <a href="" class="footer__designedby footer__designedby_2">©RSSchool & ©Yem Digital 2021</a>
+                 </div>
+
+                <div class="footer-menu_640">
+                    <a href="" class="footer-menu__link footer-menu__link_active">About</a>
+                    <a href="" class="footer-menu__link">Map</a>
+                    <a href="" class="footer-menu__link">Zoos</a>
+                    <a href="" class="footer-menu__link">Contact us</a>
+                </div>
                 
                 <a href="https://www.facebook.com/" class="footer-alink">
                     <div class="footer-link">
@@ -356,9 +435,42 @@
                     </form>
                     <input class="footer__sumbit" type="submit" value="Submit">
                 </div>
+
+                <a href="https://www.facebook.com/" class="footer-alink_640">
+                    <div class="footer-link">
+                        <div class="footer__circle">
+                            <img class="footet__icon" src="../../assets/icons/facebook.svg" alt="facebook">
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="https://twitter.com" class="footer-alink_640">
+                    <div class="footer-link">
+                        <div class="footer__circle">
+                            <img class="footet__icon" src="../../assets/icons/twitter.svg" alt="twitter">
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="https://www.instagram.com" class="footer-alink_640">
+                    <div class="footer-link">
+                        <div class="footer__circle">
+                            <img class="footet__icon" src="../../assets/icons/instagram.svg" alt="instagram">
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="https://www.youtube.com" class="footer-alink_640">
+                    <div class="footer-link">
+                        <div class="footer__circle">
+                            <img class="footet__icon" src="../../assets/icons/youtube.svg" alt="youtube">
+                        </div>
+                    </div>
+                </a>
+
                  <div class="footer__designed">
                     <a href="" class="footer__designedby">Designed by Alisa Samborskaya</a>
-                    <a href="" class="footer__designedby">©RSSchool & ©Yem Digital 2021</a>
+                    <a href="" class="footer__designedby footer__designedby_2">©RSSchool & ©Yem Digital 2021</a>
                  </div>
                 
             </div>
