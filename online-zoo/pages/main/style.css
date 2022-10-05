@@ -190,6 +190,13 @@ body {
   }
 }
 
+.nav__logo_active .nav__bamboo_640 {
+  -webkit-filter: invert(40%) sepia(90%) saturate(1000%);
+          filter: invert(40%) sepia(90%) saturate(1000%);
+  top: 16px;
+  left: 16px;
+}
+
 @media (max-width: 768px) {
   .nav__list {
     width: 100%;
@@ -914,6 +921,11 @@ body {
   }
 }
 
+.pets-carousel {
+  width: 1158px;
+  overflow: hidden;
+}
+
 .pets__cards {
   max-width: 1160px;
   display: -webkit-box;
@@ -921,7 +933,7 @@ body {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  gap: 20px 27px;
+  gap: 20px 30px;
   padding: 0 20px 0 20px;
 }
 
@@ -969,6 +981,8 @@ body {
   border-radius: 5px 5px 0 0;
   -webkit-transition: all 1s;
   transition: all 1s;
+  width: 336px;
+  height: 336px;
 }
 
 @media (max-width: 1350px) {

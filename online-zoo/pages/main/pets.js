@@ -1,0 +1,88 @@
+const pets = [
+    {
+      "animal": "GIANT PANDAS",
+      "img": "../../assets/images/animal_1.jpg",
+      "live": "Native to Southwest China",
+      "feedimg": "../../assets/icons/banana-bamboo_icon.svg",
+      "description": "Jennifer is a sweet 2 months old Labrador that is patiently waiting to find a new forever home. This girl really enjoys being able to go outside to run and play, but won't hesitate to play up a storm in the house if she has all of her favorite toys.",
+    },
+    
+    {
+        "animal": "EAGLES",
+        "img": "../../assets/images/animal_2.jpg",
+        "live": "Native to South America",
+        "feedimg": "../../assets/icons/meet-fish_icon.svg",
+        "description": "Jennifer is a sweet 2 months old Labrador that is patiently waiting to find a new forever home. This girl really enjoys being able to go outside to run and play, but won't hesitate to play up a storm in the house if she has all of her favorite toys.",
+      },
+      {
+        "animal": "CHEETANS",
+        "img": "../../assets/images/animal_3.jpg",
+        "live": "Native to Africa",
+        "feedimg": "../../assets/icons/meet-fish_icon.svg",
+        "description": "Jennifer is a sweet 2 months old Labrador that is patiently waiting to find a new forever home. This girl really enjoys being able to go outside to run and play, but won't hesitate to play up a storm in the house if she has all of her favorite toys.",
+      },
+      {
+        "animal": "TWO_TOELD SLOTH",
+        "img": "../../assets/images/animal_4.jpg",
+        "live": "Mesoamerica, South Amarica",
+        "feedimg": "../../assets/icons/banana-bamboo_icon.svg",
+        "description": "Jennifer is a sweet 2 months old Labrador that is patiently waiting to find a new forever home. This girl really enjoys being able to go outside to run and play, but won't hesitate to play up a storm in the house if she has all of her favorite toys.",
+      },
+      
+      {
+        "animal": "GORILLAS",
+        "img": "../../assets/images/animal_5.jpg",
+        "live": "Native to Congo",
+        "feedimg": "../../assets/icons/banana-bamboo_icon.svg",
+        "description": "Jennifer is a sweet 2 months old Labrador that is patiently waiting to find a new forever home. This girl really enjoys being able to go outside to run and play, but won't hesitate to play up a storm in the house if she has all of her favorite toys.",
+      },
+      {
+        "animal": "ALLIGATORS",
+        "img": "../../assets/images/animal_6.jpg",
+        "live": "Native to Southeastern U.S.",
+        "feedimg": "../../assets/icons/meet-fish_icon.svg",
+        "description": "Jennifer is a sweet 2 months old Labrador that is patiently waiting to find a new forever home. This girl really enjoys being able to go outside to run and play, but won't hesitate to play up a storm in the house if she has all of her favorite toys.",
+      },
+      {
+        "animal": "PENGUINS",
+        "img": "../../assets/images/animal_7.jpg",
+        "live": "Native to Antarctica",
+        "feedimg": "../../assets/icons/meet-fish_icon.svg",
+        "description": "Jennifer is a sweet 2 months old Labrador that is patiently waiting to find a new forever home. This girl really enjoys being able to go outside to run and play, but won't hesitate to play up a storm in the house if she has all of her favorite toys.",
+      },
+      {
+        "animal": "GORILLAS",
+        "img": "../../assets/images/animal_8.jpg",
+        "live": "Native to Congo",
+        "feedimg": "../../assets/icons/banana-bamboo_icon.svg",
+        "description": "Jennifer is a sweet 2 months old Labrador that is patiently waiting to find a new forever home. This girl really enjoys being able to go outside to run and play, but won't hesitate to play up a storm in the house if she has all of her favorite toys.",
+      },
+    //   {
+    //     "animal": "GIANT PANDAS",
+    //     "img": "../../assets/images/animal_1.jpg",
+    //     "live": "Native to Southwest China",
+    //     "feedimg": "../../assets/icons/banana-bamboo_icon.svg",
+    //     "description": "Jennifer is a sweet 2 months old Labrador that is patiently waiting to find a new forever home. This girl really enjoys being able to go outside to run and play, but won't hesitate to play up a storm in the house if she has all of her favorite toys.",
+    //   },
+    //   {
+    //     "animal": "GIANT PANDAS",
+    //     "img": "../../assets/images/animal_1.jpg",
+    //     "live": "Native to Southwest China",
+    //     "feedimg": "../../assets/icons/banana-bamboo_icon.svg",
+    //     "description": "Jennifer is a sweet 2 months old Labrador that is patiently waiting to find a new forever home. This girl really enjoys being able to go outside to run and play, but won't hesitate to play up a storm in the house if she has all of her favorite toys.",
+    //   },
+    //   {
+    //     "animal": "GIANT PANDAS",
+    //     "img": "../../assets/images/animal_1.jpg",
+    //     "live": "Native to Southwest China",
+    //     "feedimg": "../../assets/icons/banana-bamboo_icon.svg",
+    //     "description": "Jennifer is a sweet 2 months old Labrador that is patiently waiting to find a new forever home. This girl really enjoys being able to go outside to run and play, but won't hesitate to play up a storm in the house if she has all of her favorite toys.",
+    //   },
+    //   {
+    //     "animal": "GIANT PANDAS",
+    //     "img": "../../assets/images/animal_1.jpg",
+    //     "live": "Native to Southwest China",
+    //     "feedimg": "../../assets/icons/banana-bamboo_icon.svg",
+    //     "description": "Jennifer is a sweet 2 months old Labrador that is patiently waiting to find a new forever home. This girl really enjoys being able to go outside to run and play, but won't hesitate to play up a storm in the house if she has all of her favorite toys.",
+    //   },
+  ]

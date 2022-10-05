@@ -171,6 +171,12 @@ header {
     }
 }
 
+.nav__logo_active .nav__bamboo_640 {
+    filter: invert(40%) sepia(90%) saturate(1000%);
+    top: 16px;
+    left: 16px;
+}
+
 .nav__list {
     @media (max-width: 768px) {
         width: 100%;

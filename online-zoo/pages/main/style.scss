@@ -170,6 +170,12 @@ header {
     }
 }
 
+.nav__logo_active .nav__bamboo_640 {
+    filter: invert(40%) sepia(90%) saturate(1000%);
+    top: 16px;
+    left: 16px;
+}
+
 .nav__list {
     @media (max-width: 768px) {
         width: 100%;
@@ -709,11 +715,16 @@ header {
     }
 }
 
+.pets-carousel {
+    width: 1158px;
+    overflow: hidden;
+}
+
 .pets__cards {
     max-width: 1160px;
     display: flex;
     flex-wrap: wrap;
-    gap: 20px 27px;
+    gap: 20px 30px;
     padding:  0 20px 0 20px;
     @media (max-width: 1350px) {
         max-width: 960px;
@@ -746,6 +757,8 @@ header {
 .pet-card__photo {
     border-radius: 5px 5px 0 0;
     transition: all 1s;
+    width: 336px;
+    height: 336px;
     @media (max-width: 1350px) {
         max-width: 294px;
         height: 294px;
