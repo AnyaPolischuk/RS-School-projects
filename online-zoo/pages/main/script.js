@@ -1,7 +1,8 @@
+// Подсвечивание активной ссылки меню
+
 const navLinks = document.querySelectorAll('.menu__link');
 const footerLinks = document.querySelectorAll('.footer-menu__link');
 
-// Подсвечивание активной ссылки меню
 navLinks.forEach(link => {
     if (link.getAttribute('href') === window.location.pathname) {
         link.classList.add('menu__link_active');
@@ -14,6 +15,7 @@ footerLinks.forEach(link => {
         link.classList.add('footer-menu__link_active');
     }
 })
+
 
 
 // Бургер меню
@@ -39,9 +41,7 @@ shadow.addEventListener('click', openAndCloseMenu);
 // Carousel
 const petsWrapper = document.querySelector('.pets__wrapper');
 
-console.log(pets[0].animal);
-
-let indexesOfArrays = [0, 1, 2, 3, 4, 5, 6, 7]
+let indexesOfArrays = [0, 1, 2, 3, 4, 5, 6]
 
 //перемешиваем массив с индексами
 function shuffleArray() {
@@ -54,27 +54,48 @@ function shuffleArray() {
 
 let shuffledArray = shuffleArray();
 
-//console.log(shuffleArray());
-//console.log(shuffleArray());
-//console.log(shuffleArray()[1]);
+const petsCardsLeft = document.getElementById('pets__cards_left');
+const petsCardsActive = document.getElementById('pets__cards_active');
+const petsCardsRight = document.getElementById('pets__cards_right');
+
+const petsCardsLeft2 = document.getElementById('pets__cards_left2');
+const petsCardsActive2 = document.getElementById('pets__cards_active2');
+const petsCardsRight2 = document.getElementById('pets__cards_right2');
+
+const BTN_LEFT = document.querySelector('#btn-left');
+const BTN_RIGHT = document.querySelector('#btn-right');
+
+const BTN_LEFT1000 = document.querySelector('#bnt-left1000');
+const BTN_RIGHT1000 = document.querySelector('#bnt-right1000');
+
+const CAROUSEL = document.querySelector('.pets-carousel'); 
+const CAROUSEL2 = document.querySelector('.pets-carousel2');
+
+//  количество карточек в замисимости от размера экрана
+function findAmountOfCards() {
+    let amountOfCards;
+    if (window.innerWidth <= 900) {
+        amountOfCards = 2;
+    } else {
+        amountOfCards = 3;
+    }
+    
+    return amountOfCards;
+}
 
 // Создаем карты с животными на странице
-
-const petsCards = document.querySelector('.pets__cards');
-// сделать аналогично для left и right
-
-
-function createCard() {
+function createCard(pet) {
     let array = shuffleArray();
     let animalCards = [];
+    let cardsOnPage = findAmountOfCards();
 
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < cardsOnPage; i++) {
         let petCard = document.createElement('div');
         petCard.classList.add('pet-card');
         
         let petImg = document.createElement('img');
         petImg.classList.add('pet-card__photo');
-        petImg.src = `${pets[array[i]].img}`;
+        petImg.src = `${pet[array[i]].img}`;
 
         let petCardInfo = document.createElement('div');
         petCardInfo.classList.add('pet-card__info');
@@ -88,16 +109,16 @@ function createCard() {
 
         let petCardTitle = document.createElement('h4');
         petCardTitle.classList.add('pet-card__title');
-        petCardTitle.innerHTML = `${pets[array[i]].animal}`;
+        petCardTitle.innerHTML = `${pet[array[i]].animal}`;
         petCardText.append(petCardTitle);
 
         let petCardNative = document.createElement('p');
         petCardNative.classList.add('pet-card__native');
-        petCardNative.innerHTML = `${pets[array[i]].live}`;
+        petCardNative.innerHTML = `${pet[array[i]].live}`;
         petCardText.append(petCardNative);
 
         let petCardIcon = document.createElement('img');
-        petCardIcon.src = `${pets[array[i]].feedimg}`;
+        petCardIcon.src = `${pet[array[i]].feedimg}`;
         petCardIcon.classList.add('pet-card__icon')
         petCardInfo.append(petCardIcon);
 
@@ -111,25 +132,168 @@ function createCard() {
 
         let petShadowTitle = document.createElement('h4');
         petShadowTitle.classList.add('pet-shadow__title');
-        petShadowTitle.innerHTML = `${pets[array[i]].animal}`;
+        petShadowTitle.innerHTML = `${pet[array[i]].animal}`;
         petShadowText.append(petShadowTitle);
 
         let petShadowNative = document.createElement('p');
         petShadowNative.classList.add('pet-shadow__native');
-        petShadowNative.innerHTML = `${pets[array[i]].live}`;
+        petShadowNative.innerHTML = `${pet[array[i]].live}`;
         petShadowText.append(petShadowNative);
 
 
-        animalCards.push(petCard)
+        animalCards.push(petCard);
 
     }
-    return animalCards
+    return animalCards;
     //return array;
 }
 
-petsCards.append(...createCard());
+petsCardsLeft.append(...createCard(pets1));
+petsCardsActive.append(...createCard(pets1));
+petsCardsRight.append(...createCard(pets1));
 
-//console.log(createCard());
-//console.log(createCard());
+petsCardsLeft2.append(...createCard(pets2));
+petsCardsActive2.append(...createCard(pets2));
+petsCardsRight2.append(...createCard(pets2));
+
+
+
+const moveLeft = () => {  // функция перелистывания
+    petsCardsLeft.innerHTML = '';
+    petsCardsLeft2.innerHTML = '';
+    petsCardsLeft.append(...createCard(pets1));
+    petsCardsLeft2.append(...createCard(pets2));
+
+    CAROUSEL.classList.add('transition-left');
+    CAROUSEL2.classList.add('transition-left');
+
+    if (window.innerWidth > 1350) {
+        BTN_LEFT.removeEventListener('click', moveLeft); //убираем возможность перелистывать карусель во время анимации
+        BTN_RIGHT.removeEventListener('click', moveRight);
+    } else {
+        BTN_LEFT1000.removeEventListener('click', moveLeft); //убираем возможность перелистывать карусель во время анимации
+        BTN_RIGHT1000.removeEventListener('click', moveRight);
+    }
+}
+
+const moveRight = () => {
+    petsCardsRight.innerHTML = '';
+    petsCardsRight2.innerHTML = '';
+    petsCardsRight.append(...createCard(pets1));
+    petsCardsRight2.append(...createCard(pets2));
+
+    CAROUSEL.classList.add('transition-right');
+    CAROUSEL2.classList.add('transition-right');
+
+    if (window.innerWidth > 1350) {
+        BTN_RIGHT.removeEventListener('click', moveRight);
+        BTN_LEFT.removeEventListener('click', moveLeft);
+    } else {
+        BTN_RIGHT1000.removeEventListener('click', moveRight);
+        BTN_LEFT1000.removeEventListener('click', moveLeft);
+    }
+
+
+}
+
+BTN_LEFT.addEventListener('click', moveLeft);
+BTN_RIGHT.addEventListener('click', moveRight);
+
+BTN_LEFT1000.addEventListener('click', moveLeft);
+BTN_RIGHT1000.addEventListener('click', moveRight);
+
+
+
+CAROUSEL.addEventListener('animationend', (animationEvent) => { // конец анимации
+    let currentActive = petsCardsActive.innerHTML;
+    let currentActive2 = petsCardsActive2.innerHTML;
+
+    if (window.innerWidth > 1350) {
+        if (animationEvent.animationName === 'move-left') {
+            CAROUSEL.classList.remove('transition-left');
+            CAROUSEL2.classList.remove('transition-left');
+    
+            petsCardsActive.innerHTML = petsCardsLeft.innerHTML; // теперь активный элемент сменился
+            petsCardsLeft.innerHTML = petsCardsRight.innerHTML;
+            petsCardsRight.innerHTML = currentActive;
+    
+            petsCardsActive2.innerHTML = petsCardsLeft2.innerHTML; // теперь активный элемент сменился
+            petsCardsLeft2.innerHTML = petsCardsRight2.innerHTML;
+            petsCardsRight2.innerHTML = currentActive2;
+    
+         } else {
+            CAROUSEL.classList.remove('transition-right');
+            CAROUSEL2.classList.remove('transition-right');
+    
+            petsCardsActive.innerHTML = petsCardsRight.innerHTML;
+            petsCardsRight.innerHTML = petsCardsLeft.innerHTML;
+            petsCardsLeft.innerHTML = currentActive;
+    
+            petsCardsActive2.innerHTML = petsCardsRight2.innerHTML;
+            petsCardsRight2.innerHTML = petsCardsLeft2.innerHTML;
+            petsCardsLeft2.innerHTML = currentActive2;
+        }
+      
+        BTN_LEFT.addEventListener('click', moveLeft); //возвращаем возможность тыкать на кнопку
+        BTN_RIGHT.addEventListener('click', moveRight);
+    } 
+    else if (window.innerWidth > 900 && window.innerWidth < 1350) {
+        if (animationEvent.animationName === 'move-left1000') {
+            CAROUSEL.classList.remove('transition-left');
+            CAROUSEL2.classList.remove('transition-left');
+    
+            petsCardsActive.innerHTML = petsCardsLeft.innerHTML; // теперь активный элемент сменился
+            petsCardsLeft.innerHTML = petsCardsRight.innerHTML;
+            petsCardsRight.innerHTML = currentActive;
+    
+            petsCardsActive2.innerHTML = petsCardsLeft2.innerHTML; // теперь активный элемент сменился
+            petsCardsLeft2.innerHTML = petsCardsRight2.innerHTML;
+            petsCardsRight2.innerHTML = currentActive2;
+    
+         } else {
+            CAROUSEL.classList.remove('transition-right');
+            CAROUSEL2.classList.remove('transition-right');
+    
+            petsCardsActive.innerHTML = petsCardsRight.innerHTML;
+            petsCardsRight.innerHTML = petsCardsLeft.innerHTML;
+            petsCardsLeft.innerHTML = currentActive;
+    
+            petsCardsActive2.innerHTML = petsCardsRight2.innerHTML;
+            petsCardsRight2.innerHTML = petsCardsLeft2.innerHTML;
+            petsCardsLeft2.innerHTML = currentActive2;
+        }
+        BTN_LEFT1000.addEventListener('click', moveLeft); //возвращаем возможность тыкать на кнопку
+        BTN_RIGHT1000.addEventListener('click', moveRight);
+    }
+
+    else if (window.innerWidth <= 900) {
+        if (animationEvent.animationName === 'move-left640') {
+            CAROUSEL.classList.remove('transition-left');
+            CAROUSEL2.classList.remove('transition-left');
+    
+            petsCardsActive.innerHTML = petsCardsLeft.innerHTML; // теперь активный элемент сменился
+            petsCardsLeft.innerHTML = petsCardsRight.innerHTML;
+            petsCardsRight.innerHTML = currentActive;
+    
+            petsCardsActive2.innerHTML = petsCardsLeft2.innerHTML; // теперь активный элемент сменился
+            petsCardsLeft2.innerHTML = petsCardsRight2.innerHTML;
+            petsCardsRight2.innerHTML = currentActive2;
+    
+         } else {
+            CAROUSEL.classList.remove('transition-right');
+            CAROUSEL2.classList.remove('transition-right');
+    
+            petsCardsActive.innerHTML = petsCardsRight.innerHTML;
+            petsCardsRight.innerHTML = petsCardsLeft.innerHTML;
+            petsCardsLeft.innerHTML = currentActive;
+    
+            petsCardsActive2.innerHTML = petsCardsRight2.innerHTML;
+            petsCardsRight2.innerHTML = petsCardsLeft2.innerHTML;
+            petsCardsLeft2.innerHTML = currentActive2;
+        }
+        BTN_LEFT1000.addEventListener('click', moveLeft); //возвращаем возможность тыкать на кнопку
+        BTN_RIGHT1000.addEventListener('click', moveRight); 
+    }
+});
 
 

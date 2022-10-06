@@ -865,7 +865,6 @@ body {
 
 @media (max-width: 1350px) {
   .pets__wrapper {
-    max-width: 940px;
     margin: 0 auto;
   }
 }
@@ -921,9 +920,49 @@ body {
   }
 }
 
-.pets-carousel {
-  width: 1158px;
+.carousel-wrapper {
+  width: 1134px;
   overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 30px;
+}
+
+@media (max-width: 1350px) {
+  .carousel-wrapper {
+    width: 934px;
+  }
+}
+
+@media (max-width: 900px) {
+  .carousel-wrapper {
+    width: 600px;
+  }
+}
+
+.pets-carousel {
+  position: relative;
+  left: -1134px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@media (max-width: 1350px) {
+  .pets-carousel {
+    left: -934px;
+  }
+}
+
+@media (max-width: 900px) {
+  .pets-carousel {
+    left: -600px;
+  }
 }
 
 .pets__cards {
@@ -931,16 +970,14 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
   gap: 20px 30px;
-  padding: 0 20px 0 20px;
+  padding: 0 20px 0 40px;
 }
 
 @media (max-width: 1350px) {
   .pets__cards {
     max-width: 960px;
-    gap: 15px 1px;
+    gap: 15px 23px;
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
@@ -951,6 +988,7 @@ body {
 @media (max-width: 900px) {
   .pets__cards {
     max-width: 600px;
+    gap: 15px 27px;
   }
 }
 
@@ -961,6 +999,156 @@ body {
         -ms-flex-direction: column;
             flex-direction: column;
     margin: 0 auto;
+  }
+}
+
+@-webkit-keyframes move-left {
+  from {
+    left: -1134px;
+  }
+  to {
+    left: 0px;
+  }
+}
+
+@keyframes move-left {
+  from {
+    left: -1134px;
+  }
+  to {
+    left: 0px;
+  }
+}
+
+@-webkit-keyframes move-left1000 {
+  from {
+    left: -934px;
+  }
+  to {
+    left: 0px;
+  }
+}
+
+@keyframes move-left1000 {
+  from {
+    left: -934px;
+  }
+  to {
+    left: 0px;
+  }
+}
+
+@-webkit-keyframes move-left640 {
+  from {
+    left: -600px;
+  }
+  to {
+    left: 0px;
+  }
+}
+
+@keyframes move-left640 {
+  from {
+    left: -600px;
+  }
+  to {
+    left: 0px;
+  }
+}
+
+.transition-left {
+  -webkit-animation-name: move-left;
+          animation-name: move-left;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+}
+
+@media (max-width: 1350px) {
+  .transition-left {
+    -webkit-animation-name: move-left1000;
+            animation-name: move-left1000;
+  }
+}
+
+@media (max-width: 900px) {
+  .transition-left {
+    -webkit-animation-name: move-left640;
+            animation-name: move-left640;
+  }
+}
+
+@-webkit-keyframes move-right {
+  from {
+    left: -1134px;
+  }
+  to {
+    left: -2268px;
+  }
+}
+
+@keyframes move-right {
+  from {
+    left: -1134px;
+  }
+  to {
+    left: -2268px;
+  }
+}
+
+@-webkit-keyframes move-right1000 {
+  from {
+    left: -934px;
+  }
+  to {
+    left: -1868px;
+  }
+}
+
+@keyframes move-right1000 {
+  from {
+    left: -934px;
+  }
+  to {
+    left: -1868px;
+  }
+}
+
+@-webkit-keyframes move-right640 {
+  from {
+    left: -600px;
+  }
+  to {
+    left: -1200px;
+  }
+}
+
+@keyframes move-right640 {
+  from {
+    left: -600px;
+  }
+  to {
+    left: -1200px;
+  }
+}
+
+.transition-right {
+  -webkit-animation-name: move-right;
+          animation-name: move-right;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+}
+
+@media (max-width: 1350px) {
+  .transition-right {
+    -webkit-animation-name: move-right1000;
+            animation-name: move-right1000;
+  }
+}
+
+@media (max-width: 900px) {
+  .transition-right {
+    -webkit-animation-name: move-right640;
+            animation-name: move-right640;
   }
 }
 
@@ -992,7 +1180,7 @@ body {
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 900px) {
   .pet-card__photo {
     max-width: 285px;
     height: 285px;

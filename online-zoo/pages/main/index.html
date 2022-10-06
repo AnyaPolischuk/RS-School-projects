@@ -80,122 +80,29 @@
 
     <section class="pets">
         <div class="pets__wrapper">
-            <button class="pets__btn"><img src="../../assets/icons/btn_left.svg" alt="btn_left"></button>
+            <button class="pets__btn" id="btn-left"><img src="../../assets/icons/btn_left.svg" alt="btn_left"></button>
 
-
-            <div class="pets-carousel">
-                <div class="pets__cards" id="pets__cards_left">
-                    <!-- <div class="pet-card">
-                        <img src="../../assets/images/animal_1.jpg" alt="animal_1" class="pet-card__photo">
-                        <div class="pet-card__info">
-                            <div class="pet-card__text">
-                                <h4 class="pet-card__title">giant Pandas</h4>
-                                <p class="pet-card__native">Native to Southwest China</p>
-                            </div>
-                            <img src="../../assets/icons/banana-bamboo_icon.svg" class="pet-card__icon"></img>
-                        </div>
-                        <div class="pet-shadow">
-                            <div class="pet-shadow__text">
-                                <h4 class="pet-shadow__title">giant Pandas</h4>
-                                <p class="pet-shadow__native">Native to Southwest China</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pet-card">
-                        <img src="../../assets/images/animal_2.jpg" alt="animal_2" class="pet-card__photo">
-                        <div class="pet-card__info">
-                            <div class="pet-card__text">
-                                <h4 class="pet-card__title">Eagles</h4>
-                                <p class="pet-card__native">Native to South America</p>
-                            </div>
-                            <img src="../../assets/icons/meet-fish_icon.svg" class="pet-card__icon pet-card__icon_fish"></img>
-                        </div>
-                        <div class="pet-shadow">
-                            <div class="pet-shadow__text">
-                                <h4 class="pet-shadow__title">Eagles</h4>
-                                <p class="pet-shadow__native">Native to South America</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pet-card pet-card__invisible">
-                        <img src="../../assets/images/animal_3.jpg" alt="animal_3" class="pet-card__photo">
-                        <div class="pet-card__info">
-                            <div class="pet-card__text">
-                                <h4 class="pet-card__title">Gorillas</h4>
-                                <p class="pet-card__native">Native to Congo</p>
-                            </div>
-                            <img src="../../assets/icons/banana-bamboo_icon.svg" class="pet-card__icon"></img>
-                        </div>
-                        <div class="pet-shadow">
-                            <div class="pet-shadow__text">
-                                <h4 class="pet-shadow__title">Gorillas</h4>
-                                <p class="pet-shadow__native">Native to Congo</p>
-                            </div>
-                        </div> 
-                    </div> -->
-    
-                    <!-- <div class="pets__cards" id="pets__cards_active"></div>
-    
-                    <div class="pets__cards" id="pets__cards_right"></div> -->
-    
-                    <!-- <div class="pet-buttons">
-                        <button class="pets__btn_1000 pets__btn"><img src="../../assets/icons/btn_left.svg" alt="btn_left"></button>
-                        <button class="pets__btn_1000 pets__btn"><img src="../../assets/icons/btn_right.svg" alt="btn_right"></button>
-                    </div>
-    
-                    <div class="pet-card">
-                        <img src="../../assets/images/animal_4.jpg" alt="animal_4" class="pet-card__photo">
-                        <div class="pet-card__info">
-                            <div class="pet-card__text">
-                                <h4 class="pet-card__title">Two-toed Sloth</h4>
-                                <p class="pet-card__native">Mesoamerica, South America</p>
-                            </div>
-                            <img src="../../assets/icons/banana-bamboo_icon.svg" class="pet-card__icon"></img>
-                        </div>
-                        <div class="pet-shadow">
-                            <div class="pet-shadow__text">
-                                <h4 class="pet-shadow__title">Two-toed Sloth</h4>
-                                <p class="pet-shadow__native">Mesoamerica, South America</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pet-card">
-                        <img src="../../assets/images/animal_5.jpg" alt="animal_5" class="pet-card__photo">
-                        <div class="pet-card__info">
-                            <div class="pet-card__text">
-                                <h4 class="pet-card__title">cheetahs</h4>
-                                <p class="pet-card__native">Native to Africa</p>
-                            </div>
-                            <img src="../../assets/icons/meet-fish_icon.svg" class="pet-card__icon pet-card__icon_fish"></img>
-                        </div>
-                        <div class="pet-shadow">
-                            <div class="pet-shadow__text">
-                                <h4 class="pet-shadow__title">cheetahs</h4>
-                                <p class="pet-shadow__native">Native to Africa</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pet-card pet-card__invisible">
-                        <img src="../../assets/images/animal_6.jpg" alt="animal_6" class="pet-card__photo">
-                        <div class="pet-card__info">
-                            <div class="pet-card__text">
-                                <h4 class="pet-card__title">Penguins</h4>
-                                <p class="pet-card__native">Native to Antarctica</p>
-                            </div>
-                            <img src="../../assets/icons/meet-fish_icon.svg" class="pet-card__icon pet-card__icon_fish"></img>
-                        </div>
-                        <div class="pet-shadow">
-                            <div class="pet-shadow__text">
-                                <h4 class="pet-shadow__title">Penguins</h4>
-                                <p class="pet-shadow__native">Native to Antarctica</p>
-                            </div>
-                        </div>
-                    </div> -->
+            <div class="carousel-wrapper">
+                <div class="pets-carousel">
+                    <div class="pets__cards" id="pets__cards_left"></div>
+                    <div class="pets__cards" id="pets__cards_active"></div>
+                    <div class="pets__cards" id="pets__cards_right"></div>
+                </div>
+                <div class="pet-buttons">
+                    <button class="pets__btn_1000 pets__btn" id="bnt-left1000"><img src="../../assets/icons/btn_left.svg" alt="btn_left"></button>
+                    <button class="pets__btn_1000 pets__btn" id="bnt-right1000"><img src="../../assets/icons/btn_right.svg" alt="btn_right"></button>
+                </div>
+                <div class="pets-carousel pets-carousel2">
+                    <div class="pets__cards" id="pets__cards_left2"></div>
+                    <div class="pets__cards" id="pets__cards_active2"></div>
+                    <div class="pets__cards" id="pets__cards_right2"></div>
                 </div>
             </div>
-            
-            <button class="pets__btn"><img src="../../assets/icons/btn_right.svg" alt="btn_right"></button>
+
+            <button class="pets__btn" id="btn-right"><img src="../../assets/icons/btn_right.svg" alt="btn_right"></button>
         </div>
+
+
         <div class="pets-bottom">
             <img class="pets-bottom__image pets-bottom__image1" src="../../assets/images/palm_photo.png" alt="palm_photo">
             <img class="pets-bottom__image pets-bottom__image1_1000" src="../../assets/images/palm_photo_1000.svg" alt="palm_photo_1000">

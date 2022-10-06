@@ -675,7 +675,7 @@ header {
     justify-content: center;
     align-items: center;
     @media (max-width: 1350px) {
-        max-width: 940px;
+        //max-width: 940px; убрала
         margin: 0 auto;
     }
     
@@ -715,31 +715,111 @@ header {
     }
 }
 
-.pets-carousel {
-    width: 1158px;
+.carousel-wrapper {
+    //width: 1158px;
+    width: 1134px;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    @media (max-width: 1350px) {
+        width: 934px;
+    }
+    @media (max-width: 900px) {
+        width: 600px;
+    }
+}
+
+.pets-carousel {
+    position: relative;
+    left: -1134px;
+    display: flex;
+    @media (max-width: 1350px) {
+        left: -934px;
+    }
+    @media (max-width: 900px) {
+        left: -600px;
+    }
 }
 
 .pets__cards {
     max-width: 1160px;
     display: flex;
-    flex-wrap: wrap;
+    //flex-wrap: wrap;
     gap: 20px 30px;
-    padding:  0 20px 0 20px;
+    padding:  0 20px 0 40px;
     @media (max-width: 1350px) {
         max-width: 960px;
-        gap: 15px 1px;
+        gap: 15px 23px;
         justify-content: space-between;
         padding: 0;
     }
     @media (max-width: 900px) {
         max-width: 600px;
+        gap: 15px 27px;
     }
     @media (max-width: 580px) {
         flex-direction: column;
         margin: 0 auto;
     }
 }
+
+
+//animation
+@keyframes move-left {
+    from {left: -1134px;}
+    to {left: 0px;} 
+  }
+
+@keyframes move-left1000 {
+    from {left: -934px;}
+    to {left: 0px;} 
+  }
+
+@keyframes move-left640 {
+    from {left: -600px;}
+    to {left: 0px;} 
+  }
+  
+  .transition-left {
+    animation-name: move-left;
+    animation-duration: 1s;
+    @media (max-width: 1350px) {
+        animation-name: move-left1000;
+    }
+    @media (max-width: 900px) {
+        animation-name: move-left640;
+    }
+  }
+  
+  @keyframes move-right {
+    from {left: -1134px;}
+    to {left: -2268px;}
+  }
+
+  @keyframes move-right1000 {
+    from {left: -934px;}
+    to {left: -1868px;}
+  }
+
+  @keyframes move-right640 {
+    from {left: -600px;}
+    to {left: -1200px;}
+  }
+  
+  .transition-right {
+    animation-name: move-right;
+    animation-duration: 1s;
+    @media (max-width: 1350px) {
+        animation-name: move-right1000;
+    }
+    @media (max-width: 900px) {
+        animation-name: move-right640;
+    }
+  }
+
+ 
+  
 
 .pet-card {
     border-radius: 5px;
@@ -763,7 +843,7 @@ header {
         max-width: 294px;
         height: 294px;
     }
-    @media (max-width: 640px) {
+    @media (max-width: 900px) {
         max-width: 285px;
         height: 285px;
     }
