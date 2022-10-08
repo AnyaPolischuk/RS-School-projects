@@ -83,6 +83,7 @@ function findAmountOfCards() {
     return amountOfCards;
 }
 
+
 // Создаем карты с животными на странице
 function createCard(pet) {
     let array = shuffleArray();
@@ -295,5 +296,85 @@ CAROUSEL.addEventListener('animationend', (animationEvent) => { // конец а
         BTN_RIGHT1000.addEventListener('click', moveRight); 
     }
 });
+
+
+
+
+//карусель в блоке testimonials
+
+// делаем 11 карточек с отзывами
+let commentCardsWrapper = document.querySelector('.testim-content__cards');
+
+function createCommentCards() {
+    let arrayOfComments = [];
+
+    for (let i = 0; i <= 10; i++) {
+        let cardGradient = document.createElement('div');
+        cardGradient.classList.add('testim-card-gradient');
+        commentCardsWrapper.append(cardGradient);
+
+        let testimCard = document.createElement('div');
+        testimCard.classList.add('testim-card');
+        cardGradient.append(testimCard);
+
+        let testimCardInfo = document.createElement('div');
+        testimCardInfo.classList.add('testim-card__info');
+        testimCard.append(testimCardInfo);
+
+        let testimCardIcon = document.createElement('img');
+        testimCardIcon.src = `${comments[i].img}`;
+        testimCardInfo.append(testimCardIcon);
+
+        let testimCardUser = document.createElement('div');
+        testimCardUser.classList.add('testim-card__user');
+        testimCardInfo.append(testimCardUser);
+
+        let testimCardName = document.createElement('p');
+        testimCardName.classList.add('testim-card__name');
+        testimCardName.innerHTML = `${comments[i].name}`;
+        testimCardUser.append(testimCardName);
+
+        let testimCardLocation = document.createElement('p');
+        testimCardLocation.classList.add('testim-card__location');
+        testimCardLocation.innerHTML = `${comments[i].place}`;
+        testimCardUser.append(testimCardLocation);
+
+        let testimCardWrapper = document.createElement('div');
+        testimCardWrapper.classList.add('testim-card__wrapper');
+        testimCard.append(testimCardWrapper);
+
+        let testimCardText = document.createElement('p');
+        testimCardText.classList.add('testim-card__text');
+        testimCardText.innerHTML = `${comments[i].comment}`
+        testimCardWrapper.append(testimCardText);
+
+        arrayOfComments.push(cardGradient);
+
+    }
+    return arrayOfComments;
+}
+
+commentCardsWrapper.append(...createCommentCards());
+
+
+
+//функция для работы с input range
+let progress = document.querySelector('.testim__progress');
+
+function changeRange() {
+    let shiftLeft = -290;
+    let shiftLeft1000 = -313.3;
+    let newValue = progress.value;
+
+    if (window.innerWidth > 1300) {
+        commentCardsWrapper.style.left = shiftLeft * newValue + 'px';
+    } else if (window.innerWidth <= 1300) {
+        progress.max = '8';
+        commentCardsWrapper.style.left = shiftLeft1000 * newValue + 'px';
+    }
+}
+
+progress.addEventListener('input', changeRange);
+
 
 
