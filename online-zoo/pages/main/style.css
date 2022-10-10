@@ -68,31 +68,23 @@ body {
   display: none;
 }
 
-@media (min-width: 640px) and (max-width: 768px) {
-  .shadow {
-    height: 3920px;
-  }
-}
-
-@media (min-width: 600px) and (max-width: 640px) {
-  .shadow {
-    height: 3581px;
-  }
-}
-
-@media (min-width: 580px) and (max-width: 600px) {
-  .shadow {
-    height: 4060px;
-  }
-}
-
-@media (min-width: 320px) and (max-width: 580px) {
-  .shadow {
-    height: 4080px;
-  }
-}
-
 .shadow_active {
+  display: block;
+}
+
+.shadow2 {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(41, 41, 41, 0.4);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  overflow: hidden;
+  display: none;
+}
+
+.shadow2_active {
   display: block;
 }
 
@@ -945,6 +937,12 @@ body {
   }
 }
 
+@media (max-width: 580px) {
+  .carousel-wrapper {
+    width: 290px;
+  }
+}
+
 .pets-carousel {
   position: relative;
   left: -1134px;
@@ -962,6 +960,12 @@ body {
 @media (max-width: 900px) {
   .pets-carousel {
     left: -600px;
+  }
+}
+
+@media (max-width: 580px) {
+  .pets-carousel {
+    left: -574px;
   }
 }
 
@@ -1851,6 +1855,19 @@ body {
   }
 }
 
+@media (max-width: 950px) {
+  .testim-container {
+    height: 357px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: auto;
+  }
+}
+
 .testim-content__cards {
   -webkit-transition: 0.2s all linear;
   transition: 0.2s all linear;
@@ -1896,6 +1913,49 @@ body {
   .testim-card-gradient {
     width: calc(299px + 301 * (100vw - 320px) / 320);
   }
+}
+
+.popup-container {
+  display: none;
+}
+
+.popup_active {
+  display: block;
+  position: absolute;
+  z-index: 2;
+  top: 20%;
+}
+
+.popup-gradient {
+  width: 268px;
+  height: 391px;
+  background: linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%), linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%);
+  border-radius: 20px;
+  position: relative;
+  margin: 0 11px;
+}
+
+.popup-card {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 264px;
+  height: 387px;
+  border-radius: 20px;
+  background: #F1F3F2;
+}
+
+.popup__wrapper {
+  overflow: hidden;
+  max-width: 237px;
+  max-height: 307px;
+  padding-left: 16px;
+}
+
+.close_popup {
+  position: absolute;
+  top: -20px;
+  right: 0;
 }
 
 @media (max-width: 1300px) {

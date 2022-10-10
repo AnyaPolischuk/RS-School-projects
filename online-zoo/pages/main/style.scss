@@ -65,25 +65,41 @@ header {
     top: 0;
     left: 0;
     z-index: 1;
-    //overflow: hidden;
     display: none;
-    @media (min-width: 640px) and (max-width: 768px) {
-        height: 3920px;
-    }
-    @media (min-width: 600px) and (max-width: 640px) {
-        height: 3581px;
-    }
-    @media (min-width: 580px) and (max-width: 600px) {
-        height: 4060px;
-    }
-    @media (min-width: 320px) and (max-width: 580px) {
-        height: 4080px;
-    }
+    // @media (min-width: 640px) and (max-width: 768px) {
+    //     height: 3920px;
+    // }
+    // @media (min-width: 600px) and (max-width: 640px) {
+    //     height: 3581px;
+    // }
+    // @media (min-width: 580px) and (max-width: 600px) {
+    //     height: 4060px;
+    // }
+    // @media (min-width: 320px) and (max-width: 580px) {
+    //     height: 4080px;
+    // }
   }
   
 .shadow_active {
     display: block;
   }
+
+  .shadow2 {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(41, 41, 41, 0.4);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    overflow: hidden;
+    display: none;
+  }
+
+  .shadow2_active {
+    display: block;
+  }
+
 
 .nav__logo {
     position: relative;
@@ -728,6 +744,9 @@ header {
     @media (max-width: 900px) {
         width: 600px;
     }
+    @media (max-width: 580px) {
+        width: 290px;
+    }
 }
 
 .pets-carousel {
@@ -739,6 +758,9 @@ header {
     }
     @media (max-width: 900px) {
         left: -600px;
+    }
+    @media (max-width: 580px) {
+        left: -574px;
     }
 }
 
@@ -1343,6 +1365,12 @@ header {
     @media (max-width: 1300px) {
         width: 940px;
     }
+    @media (max-width: 950px) {
+        height: 357px;
+        display: flex;
+        justify-content: center;
+        width: auto;
+    }
 }
 
 .testim-content__cards {
@@ -1381,6 +1409,49 @@ header {
         width: calc(299px + 301 * (100vw - 320px) / 320);
     }
 }
+.popup-container {
+    display: none;
+}
+
+.popup_active {
+    display: block;
+    position: absolute;
+    z-index: 2;
+    top: 20%;
+    
+}
+
+.popup-gradient {
+    width: 268px;
+    height: 391px;
+    background: $color-pink_gradient;
+    border-radius: 20px;
+    position: relative;
+    margin: 0 11px;
+}
+.popup-card {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 264px;
+    height: 387px;
+    border-radius: 20px;
+    background: $color-light_gray;
+}
+
+.popup__wrapper {
+    overflow: hidden;
+    max-width: 237px;
+    max-height: 307px;
+    padding-left: 16px;
+}
+
+.close_popup {
+    position: absolute;
+    top: -20px;
+    right: 0;
+}
+
 
 .testim-card-gradient_none {
     @media (max-width: 1300px) {

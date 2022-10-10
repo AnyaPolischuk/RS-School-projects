@@ -29,6 +29,7 @@ function openAndCloseMenu() {
     menu.classList.toggle('nav__list_active');
     burgerMenu.classList.toggle('menu-burger_active');
     logo.classList.toggle('nav__logo_active');
+    shadow.style.height = document.body.scrollHeight + 'px';
     shadow.classList.toggle('shadow_active');
     designedBy.classList.toggle('nav__designedby_active');
 }
@@ -74,11 +75,12 @@ const CAROUSEL2 = document.querySelector('.pets-carousel2');
 //  количество карточек в замисимости от размера экрана
 function findAmountOfCards() {
     let amountOfCards;
-    if (window.innerWidth <= 900) {
+    if (window.innerWidth <= 580) {
         amountOfCards = 2;
-    } else {
-        amountOfCards = 3;
-    }
+    } else if (window.innerWidth <= 900 && window.innerWidth > 580) {
+            amountOfCards = 2;
+    } else 
+    amountOfCards = 3;
     
     return amountOfCards;
 }
@@ -315,6 +317,7 @@ function createCommentCards() {
 
         let testimCard = document.createElement('div');
         testimCard.classList.add('testim-card');
+        testimCard.setAttribute('data-animalname', comments[i].name)
         cardGradient.append(testimCard);
 
         let testimCardInfo = document.createElement('div');
@@ -377,4 +380,79 @@ function changeRange() {
 progress.addEventListener('input', changeRange);
 
 
+
+// попап для 640 и 320px
+let popupContainer = document.querySelector('.testim-popup');
+let popupWrapper = document.querySelector('.popup-container');
+let shadow2 = document.querySelector('.shadow2')
+let closeItem = document.querySelector('.close_popup');
+
+function createPopup(commentInfo) {
+    let cardGradient = document.createElement('div');
+    cardGradient.classList.add('popup-gradient');
+    popupContainer.append(cardGradient);
+
+    let testimCard = document.createElement('div');
+    testimCard.classList.add('popup-card');
+    cardGradient.append(testimCard);
+
+    let testimCardInfo = document.createElement('div');
+    testimCardInfo.classList.add('testim-card__info');
+    testimCard.append(testimCardInfo);
+
+    let testimCardIcon = document.createElement('img');
+    testimCardIcon.src = `${commentInfo.img}`;
+    testimCardInfo.append(testimCardIcon);
+
+    let testimCardUser = document.createElement('div');
+    testimCardUser.classList.add('testim-card__user');
+    testimCardInfo.append(testimCardUser);
+
+    let testimCardName = document.createElement('p');
+    testimCardName.classList.add('testim-card__name');
+    testimCardName.innerHTML = `${commentInfo.name}`;
+    testimCardUser.append(testimCardName);
+
+    let testimCardLocation = document.createElement('p');
+    testimCardLocation.classList.add('testim-card__location');
+    testimCardLocation.innerHTML = `${commentInfo.place}`;
+    testimCardUser.append(testimCardLocation);
+
+    let testimCardWrapper = document.createElement('div');
+    testimCardWrapper.classList.add('popup__wrapper');
+    testimCard.append(testimCardWrapper);
+
+    let testimCardText = document.createElement('p');
+    testimCardText.classList.add('testim-card__text');
+    testimCardText.innerHTML = `${commentInfo.comment}`
+    testimCardWrapper.append(testimCardText);
+}
+
+// открытие попапа при клике на кнопку
+function openPopup(event) {
+    const currentCard = event.target.closest('.testim-card');
+    const attribute = currentCard.dataset.animalname;
+  
+    const comment = comments.find((item) => item.name === attribute); //ищется нужный объект, по которому был клик
+  
+    if (window.innerWidth <= 950) {
+        createPopup(comment);
+        popupWrapper.classList.add('popup_active');
+        shadow2.classList.add('shadow2_active');
+        let heightOfDocument = document.body.scrollHeight; // высота всего документа
+        shadow2.style.height = heightOfDocument + 'px';
+    }
+    
+  }
+
+  function closePopup() {
+    popupContainer.innerHTML = '';
+    popupWrapper.classList.remove('popup_active');
+    shadow2.classList.remove('shadow2_active');
+  }
+  
+  commentCardsWrapper.addEventListener('click', openPopup);
+  closeItem.addEventListener('click', closePopup);
+  shadow2.addEventListener('click', closePopup);
+  
 
