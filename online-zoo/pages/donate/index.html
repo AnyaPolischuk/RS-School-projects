@@ -10,30 +10,6 @@
     <title>Online-zoo</title>
 </head>
 <body>
-    <!-- <header class="header">
-        <nav class="nav">
-            <div class="nav__logo">
-                <h1 class="nav__item"><a href="../main/index.html" class="nav__itemlink">PetStory online</a></h1>
-                <img class="nav__bamboo" src="../../assets/icons/bamboo.svg" alt="bamboo">
-            </div>
-            <div class="nav__list">
-                <ul class="menu">
-                    <li class="menu__item"><a href="../main/index.html" class="menu__link">About</a></li>
-                    <li class="menu__item"><a href="index.html" class="menu__link">Map</a></li>
-                    <li class="menu__item"><a href="index.html" class="menu__link">Zoos</a></li>
-                    <li class="menu__item"><a href="../donate/index.html" class="menu__link menu__link_active">Donate</a></li>
-                    <li class="menu__item"><a href="#contact" class="menu__link">Contact us</a></li>
-                </ul>
-            </div>
-            <div class="nav__designed">
-                <div class="nav__designedby">
-                    <a href="https://www.figma.com/file/jfEFwkXVj1WRq7sUHDr8os/PetStory-online" class="nav__link">Designed by ©</a>
-                </div>
-            </div>
-        </nav>
-    </header> -->
-
-
 
     <header class="header">
         <nav class="nav">
@@ -65,7 +41,7 @@
         </nav>
     </header>
 
-
+    <div class="shadow"></div>
 
 
     <section class="main-page"></section>
@@ -92,7 +68,7 @@
                     <div class="pick-radio__wrapper">
                         <div class="pick-radio__line"></div>
 
-                        <form class="pick-radio__form" action="">
+                        <form class="pick-radio__form" action="" name="radioform">
                             <div class="pick-radio__container pick-radio__container_1000">
                                 <input class="input-radio__item" type="radio" id="amount1" name="amount" value="$5000">
                                 <label class="input-radio__label" for="amount1">$5000</label>
@@ -104,7 +80,7 @@
                             </div>
                             
                             <div class="pick-radio__container pick-radio__container_640">
-                                <input class="input-radio__item" type="radio" id="amount3" name="amount" value="$1000" checked>
+                                <input class="input-radio__item" type="radio" id="amount3" name="amount" value="$1000">
                                 <label class="input-radio__label" for="amount3">$1000</label>
                             </div>
                             
@@ -119,7 +95,7 @@
                             </div>
                             
                             <div class="pick-radio__container">
-                                <input class="input-radio__item" type="radio" id="amount6" name="amount" value="$100">
+                                <input class="input-radio__item" type="radio" id="amount6" name="amount" value="$100" checked>
                                 <label class="input-radio__label" for="amount6">$100</label>
                             </div>
                             
@@ -135,7 +111,7 @@
                         </form>
                     </div>
                     <div class="pick-another">
-                        <form class="pick-another__form" action="">
+                        <form class="pick-another__form" action="" name="numberform">
                             <input class="pick-another__inputnum" type="number" name="an_amount" id="another_amount" placeholder="Another amount" onkeydown="limitOfInput(this);" onkeyup="limitOfInput(this);">
                             <div class="pick-another__dollar">$</div>
                         </form>
@@ -153,79 +129,6 @@
                 </div>
         </div>
     </section>
-
-    <!-- <footer id="contact">
-        <div class="footer">
-            <div class="footer__links">
-                <div class="footer__logo nav__logo">
-                    <h1 class="footer__name nav__item"><a href="index.html" class="nav__itemlink">PetStory online</a></h1>
-                    <img class="footer__bamboo" src="../../assets/icons/bamboo.svg" alt="bamboo">
-                </div>
-                <form action="../donate/index.html" target="_blank">
-                    <button class="footer__button button">donate for volunteers</button>
-                </form>
-                
-                <a href="https://www.facebook.com/" class="footer-alink">
-                    <div class="footer-link">
-                        <div class="footer__circle">
-                            <img class="footet__icon" src="../../assets/icons/facebook.svg" alt="facebook">
-                        </div>
-                        <p class="footer__media">Facebook</p>
-                    </div>
-                </a>
-                
-                <a href="https://twitter.com" class="footer-alink">
-                    <div class="footer-link">
-                        <div class="footer__circle">
-                            <img class="footet__icon" src="../../assets/icons/twitter.svg" alt="twitter">
-                        </div>
-                        <p class="footer__media">Twitter</p>
-                    </div>
-                </a>
-                
-                <a href="https://www.instagram.com" class="footer-alink">
-                    <div class="footer-link">
-                        <div class="footer__circle">
-                            <img class="footet__icon" src="../../assets/icons/instagram.svg" alt="instagram">
-                        </div>
-                        <p class="footer__media">Instagram</p>
-                    </div>
-                </a>
-                
-                <a href="https://www.youtube.com" class="footer-alink">
-                    <div class="footer-link">
-                        <div class="footer__circle">
-                            <img class="footet__icon" src="../../assets/icons/youtube.svg" alt="youtube">
-                        </div>
-                        <p class="footer__media">YouTube</p>
-                    </div>
-                </a>
-            </div>
-            
-            <div class="footer-menu">
-                <a href="../main/index.html" class="footer-menu__link">About</a>
-                <a href="index.html" class="footer-menu__link">Map</a>
-                <a href="index.html" class="footer-menu__link">Zoos</a>
-                <a href="index.html" class="footer-menu__link">Contact us</a>
-            </div>
-            <div class="footer__form">
-                <h4 class="footer__title">Subscribe to our news</h4>
-                <div class="footer-input">
-                    <form action="" class="footer__formtext">
-                        <input class="input-footer" type="email" name="" id="" placeholder="Enter your email" required>
-                    </form>
-                    <input class="footer__sumbit" type="submit" value="Submit">
-                </div>
-                 <div class="footer__designed">
-                    <a href="" class="footer__designedby">Designed by Alisa Samborskaya</a>
-                    <a href="" class="footer__designedby">©RSSchool & ©Yem Digital 2021</a>
-                 </div>
-                
-            </div>
-        </div>
-    </footer> -->
-
-
 
 
     <footer id="contact">
