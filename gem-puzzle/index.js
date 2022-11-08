@@ -1,5 +1,3 @@
-
-// 2. Delete ability to copy numbers (0 visible)
 let playerActivated = false;
 
 let moves = document.createElement('div');
@@ -61,6 +59,7 @@ function init() {
     //document.body.append(field);
     wrapperOfAll.append(field);
     field.addEventListener('click', moveCell);
+    //field.addEventListener('mousedown', moveCellTest); //test
 
     //обертка для кнопочек
     let wrapperForBtns = document.createElement('div');
@@ -597,6 +596,43 @@ function updateResultsTable(array) {
 
 
 
+
+
+
+
+
+
+
+
+
+// function moveCellTest(event) {
+//     let target = event.target;
+//     if (target.className != 'cell') 
+//         return;
+
+//     playerActivated = true;
+
+//     checkItemBeforeDrop(target);
+//     //changeItem(target);
+    
+
+//     localStorage.setItem('savedCells', JSON.stringify(getCellArray()));
+//     localStorage.setItem('savedFieldSize', getAmountOfCells());
+//     localStorage.setItem('savedMoves', clicks);
+
+//     isWin();
+//  }
+
+
+
+
+
+
+
+
+
+
+
 // //параметром передается элемент на который происходит клик
 // function checkItemBeforeDrop(item) {
 //     let emptyItem = document.querySelector('.empty_cell');
@@ -625,6 +661,8 @@ function updateResultsTable(array) {
 //     Math.round(currentItemPos.left - relativePos.left) === -widthOfCell && Math.round(currentItemPos.right - relativePos.right) === -widthOfCell && Math.round(currentItemPos.top) === Math.round(relativePos.top)) {
     
 //         // если проходит проверка, то можно перемещать элемент
+//         //console.log('kek');
+        
 //         item.onmousedown = function(event) {
 //             let shiftX = event.clientX - item.getBoundingClientRect().left;
 //             let shiftY = event.clientY - item.getBoundingClientRect().top;
@@ -647,17 +685,19 @@ function updateResultsTable(array) {
 
 //         field.addEventListener('mousemove', onMouseMove);
 
-//         item.onmouseup = function() {
-//             document.removeEventListener('mousemove', onMouseMove);
-//             item.onmouseup = null;
-//           };
+//         // item.onmouseup = function() {
+//         //     document.removeEventListener('mousemove', onMouseMove);
+//         //     item.onmouseup = null;
+//         //   };
         
-//         };
+    
         
 //         item.ondragstart = function() {
 //           return false;
 //         };
 
-
+//     }
      
 //     }
+
+//     field.addEventListener('mousedown', moveCellTest);
