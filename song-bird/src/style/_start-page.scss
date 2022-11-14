@@ -1,0 +1,129 @@
+.start-page {
+  display: none;
+  max-width: 1160px;
+  margin: 20px auto 0;
+  border: 1px solid $color-orange;
+  height: 640px;
+  background-color: $color-grey-dark;
+  border-radius: 10px;
+  @media (max-width: 850px) {
+    height: 400px;
+  }
+  @media (min-width: 430px) and  (max-width: 570px) {
+    height: 300px;
+  }
+  @media (min-width: 320px) and (max-width: 430px) {
+    height: 220px;
+  }
+}
+
+.start-page__bg {
+  animation: start-page__bg 10s ease-in-out infinite;
+  background-image: url(./img/bg-3.jpg);
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+}
+
+.start-page__bg_dark {
+width: 100%;
+height: 100%;
+border-radius: 10px;
+background-color: rgba(93, 106, 118, .7);
+}
+
+@keyframes start-page__bg {
+  0% {
+    background-size: 120%;
+    background-position: 50% 50%
+  }
+  20% {
+    background-size: 150%;
+    background-position: 0 50%;
+  }    
+  40% {
+    background-size: 110%;
+    background-position: 20% 80%;
+  }
+  60% {
+    background-size: 160%;
+    background-position: 60% 10%;
+  }
+  80% {
+    background-size: 120%;
+    background-position: 40% 70%;
+  }    
+  100% {
+    background-size: 120%;
+    background-position: 50% 50%
+  }
+}
+
+.start-about {
+  color: $color-white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.start-about__title {
+  margin: 0;
+  padding: 90px 0 20px 0;
+  font-size: 40px;
+  @media (max-width: 850px) {
+    padding: 10px 0 10px 0;
+    font-size: 25px;
+  }
+  @media (min-width: 320px) and (max-width: 570px) {
+    font-size: 20px;
+  }
+}
+
+.start-about__rules,
+.start-about__goodluck {
+  font-size: 25px;
+  font-weight: 100;
+  @media (max-width: 850px) {
+    font-size: 20px;
+    margin: 0;
+  }
+}
+
+.start-about__text {
+  font-size: 18px;
+  padding: 0 20px;
+  @media (max-width: 850px) {
+    font-size: 16px;
+  }
+  @media (min-width: 320px) and (max-width: 570px) {
+    font-size: 14px;
+    padding: 0 5px;
+    margin: 5px 0;
+  }
+}
+
+.start-about__text_invisible {
+  @media (min-width: 320px) and (max-width: 430px) {
+    display: none;
+  }
+}
+
+.start-about__btn {
+  width: 250px;
+  height: 40px;
+  border-radius: 20px;
+  border: 1px solid $color-orange-active;
+  background-color: $color-orange;
+  color: $color-grey-dark;
+  font-size: 18px;
+  margin-top: 20px;
+    &:hover {
+      background-color: $color-orange-active;
+      transition: 0.2s all linear;
+    }
+    @media (min-width: 320px) and (max-width: 570px) {
+      margin-top: 10px;
+    }
+}
