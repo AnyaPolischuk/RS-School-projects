@@ -1,0 +1,53 @@
+body {
+  background-color: $color-grey;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1160px;
+  margin: 0 auto;
+  @media (max-width: 485px) {
+    flex-direction: column;
+  }
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+}
+
+.header-logo__title {
+  font-family: 'Satisfy', cursive;
+  color: $color-white;
+  @media (max-width: 485px) {
+    margin: 0;
+  }
+}
+
+.header-logo__img {
+  width: 35px;
+  height: 35px;
+  padding-right: 5px;
+  padding-bottom: 5px;
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+   @media (max-width: 485px) {
+    padding: 0;
+  }
+}
+
+.nav-list__item {
+  font-size: 18px;
+  padding-left: 30px;
+  color: $color-white;
+  &:hover {
+    color: $color-orange-active;
+    cursor: pointer;
+    transition: .2s all linear;
+  }
+}

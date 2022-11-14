@@ -1,0 +1,23 @@
+.footer {
+  padding-top: 150px;
+  max-width: 1160px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.footer__year {
+  color: $color-white;
+  font-size: 18px;
+}
+
+.footer-rs__icon {
+  width: 75px;
+}
+
+.footer-github__icon {
+  width: 27px;
+  height: 27px;
+}
