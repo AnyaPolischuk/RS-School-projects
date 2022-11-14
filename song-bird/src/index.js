@@ -1,14 +1,7 @@
 import './index.html';
 import './style.scss';
-import { mult, sum } from './modules/calc';
-//import testimg from './img/test-bird.jpg';
+import {playAudio} from './modules/audio';
 
 
-// const imgWrap = document.querySelector('.img');
-// const img = new Image();
-// img.src = testimg;
-// imgWrap.append(img);
-
-
-console.log(mult(2, 4));
-console.log(sum(3, 4));
+let playBtn = document.querySelector('.game-audio__btn');
+playBtn.addEventListener('click', playAudio);
