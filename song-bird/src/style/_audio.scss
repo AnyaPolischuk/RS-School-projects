@@ -1,23 +1,96 @@
-.game-audio__btn {
-  width: 35px;
-  height: 35px;
+.game-audio__btn,
+.game-audio__sound {
+  width: 30px;
+  height: 30px;
+  @media (max-width: 550px) {
+    width: 25px;
+    height: 25px;
+  }
 }
 
-  .game-audio__progress {
-    background: white;
-    border: solid 1px #000;
-    border-radius: 8px;
-    height: 5px;
-    width: 80%;
-    margin-left: 50px;
-    box-shadow: 0 0 2px 2px rgba(0,0,0,0.3);
-    cursor: pointer;
-  }
+.game-audio__sound {
+  margin-left: 5px;
+}
 
-  .game-audio__bar {
-      width: 0;
-      height: 6px;
-      border-radius: 8px 0 0 8px;
-      background: #ADFF2F;
-      border-right: solid 5px #000;
+.game-audio__progress {
+  background: white;
+  border: solid 1px #000;
+  border-radius: 8px;
+  height: 5px;
+  width: 85%;
+  margin-left: 15px;
+  box-shadow: 0 0 2px 2px rgba(0,0,0,0.3);
+  cursor: pointer;
+  @media (max-width: 550px) {
+    margin-left: 5px;
   }
+}
+
+.game-audio__bar {
+  width: 0;
+  height: 6px;
+  border-radius: 8px 0 0 8px;
+  background: $color-orange;
+  border-right: solid 5px #000;
+}
+
+.game-audio__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.audio-time {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 85%;
+  margin-left: 50px;
+  @media (max-width: 550px) {
+    margin-left: 30px;
+    font-size: 12px;
+    width: 80%;
+  }
+}
+
+.game-audio__volume {
+  width: 40%;
+  background: white;
+  border: solid 1px #000;
+  border-radius: 8px;
+  height: 5px;
+  margin-left: 10px;
+  box-shadow: 0 0 2px 2px rgba(0,0,0,0.3);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.game-audio__volume_active {
+  display: none;
+}
+
+input[type=range]  {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  overflow: hidden;
+  height: 5px;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  height: 5px;
+  background-color: $color-white
+}
+
+input[type=range]::-webkit-slider-thumb {
+  background: black;
+  cursor: pointer;
+  width: 5px;
+  height: 10px;
+  -webkit-appearance: none;
+  margin-top: -4px;
+  box-shadow: -200px 0 0 200px $color-orange;
+}
+

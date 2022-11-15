@@ -17,8 +17,8 @@
     </div>
       <nav class="nav">
         <ul class="nav-list">
-          <li class="nav-list__item">Об игре</li>
-          <li class="nav-list__item nav-list__item__active">Играть</li>
+          <li class="nav-list__item nav-list__item_about">Об игре</li>
+          <li class="nav-list__item nav-list__item_game">Играть</li>
           <li class="nav-list__item">Галерея</li>
         </ul>
       </nav>
@@ -37,17 +37,22 @@
     <div class="game-question">
       <img src="./img/test-bird.jpg" alt="question-bird" class="game-question__img">
       <div class="game-audio">
-        <h2 class="game-audio__bird">Синичка</h2>
+        <h2 class="game-audio__bird">*****</h2>
         <div class="game-audio__line"></div>
         <div class="game-audio__treck">
-          <img alt="play-btn" class="game-audio__btn">
-          <!-- <audio src="" class="test"></audio> -->
-          <div class="game-audio__progress">
-            <div class="game-audio__bar"></div>
+          <div class="game-audio__wrapper">
+            <img alt="play-btn" class="game-audio__btn">
+            <div class="game-audio__progress">
+              <div class="game-audio__bar"></div>
+            </div>
           </div>
           <div class="audio-time">
             <div class="audio-time__start">0:00</div>
             <div class="audio-time__finish">3:53</div>
+          </div>
+          <div class="game-audio__wrapper">
+            <img src="./img/volume.png" alt="volume-icon" class="game-audio__sound">
+            <input type="range" min="0" max="100" value="50" class="game-audio__volume">
           </div>
         </div>
       </div>
@@ -84,7 +89,7 @@
       </div>
       <div class="game-about">
         <p class="game-about__text">Послушайте плеер.</p>
-        <p class="game-about__text">Выберите птицу из списка</p>
+        <p class="game-about__text game-about__text2">Выберите птицу из списка</p>
   
         <!-- Информация о птице (скрывать) -->
         <div class="about-bird">
@@ -102,7 +107,7 @@
         </div>
       </div>
     </div>
-    <button class="game-next-btn">Следующий уровень</button>
+    <button class="game-next-btn" disabled>Следующий уровень</button>
   </main>
 
   <!-- Результаты (скрывать) -->
