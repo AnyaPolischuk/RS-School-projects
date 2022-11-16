@@ -1,7 +1,9 @@
 import trueSound from '../sounds/true.mp3';
 import falseSound from '../sounds/false.mp3';
-import { randomAudio, newAudio } from './audio';
+import { randomAudio, newAudio, setNewAudio } from './audio';
+import unknownPhoto from '../img/test-bird.jpg';
 import birdsData from './birdsdata';
+import { reloadProgressBar } from './audio';
 
 
 
@@ -27,18 +29,17 @@ export function playMiniSound(answerOption) {
       newAudioTrue.play();
       mainNameOfBird.innerHTML = randomAudio.name;
       mainPhotoOfBird.src = randomAudio.image;
-      newAudio.pause();
+      newAudio.pause(); // create new method 'pauseAudio'
       activateNextQuestion();
       showInfoAboutBird()
     } else {
       circle.classList.add('game-variants__circle_red');
       let newAudioFalse = new Audio(falseSound);
       newAudioFalse.play();
-      showInfoAboutBird()
+      showInfoAboutBird();
 
     }
-  }
-  )
+  });
 }
 
 function activateNextQuestion() {
@@ -50,6 +51,11 @@ function showInfoAboutBird() {
   infoAboutBird.style.display = 'block';
   textAboutGame.style.display = 'none';
   textAboutGame2.style.display = 'none';
+}
+
+function showUnknownBird() {
+  mainNameOfBird.innerHTML = '******';
+  mainPhotoOfBird.src = unknownPhoto;
 }
 
 //нужно для перехода на новый уровень
@@ -68,7 +74,13 @@ export function goNextLevel() {
       groupOfQuestions[i].classList.add('game-level__item_active');
     }
   }
+
+  setNewAudio();
+  showUnknownBird();
+  reloadProgressBar();
 }
+
+
 
 
 

@@ -16,12 +16,22 @@ playBtn.src = playBtnIcon;
 
 let isPlay = false;
 
+
 //радномные аудио
-export let randomAudio = generateRandomAudio();
-export let newAudio =  new Audio(randomAudio.audio); // заменять треки
+export let randomAudio;
+export let newAudio;
 
+setNewAudio();
+console.log(newAudio)
 
+//меняет треки при следующих уровнях
+export function setNewAudio() {
+  randomAudio = generateRandomAudio();
+  newAudio = new Audio(randomAudio.audio);
 
+  newAudio.addEventListener('timeupdate', updateProgressBar);
+  newAudio.addEventListener('loadeddata' , findLengthOfAudio);
+}
 
 export function playAudio() {
   let gameAudio = document.querySelector('.game-audio__treck');
@@ -87,6 +97,15 @@ export function changeVolume() {
 export function hideAndShowVolumeIcon() {
   volumeOfAudio.classList.toggle('game-audio__volume_active');
 }
+
+export function reloadProgressBar() {
+  isPlay = false;
+  newAudio.pause();
+  playBtn.src = playBtnIcon;
+  currentTimes.innerHTML = '0:00';
+  progressBar.style.width = 0;
+}
+
 
 
 

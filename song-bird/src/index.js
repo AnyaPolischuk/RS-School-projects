@@ -16,8 +16,6 @@ import {answerOptions, playMiniSound} from './modules/variants';
 import {nextQuestionBtn, goNextLevel} from './modules/variants';
 
 playBtn.addEventListener('click', playAudio);
-newAudio.addEventListener('timeupdate', updateProgressBar);
-newAudio.addEventListener('loadeddata' , findLengthOfAudio);
 containerOfProgressBar.addEventListener('click', setProgressBar);
 volumeOfAudio.addEventListener('change', changeVolume);
 iconOfVolume.addEventListener('click', hideAndShowVolumeIcon);
@@ -27,14 +25,12 @@ gameBtn.addEventListener('click', showGamePage);
 startGameBtn.addEventListener('click', showGamePage);
 
 
+
 for (let i = 0; i < answerOptions.length; i++) {
   playMiniSound(answerOptions[i]);
 }
 
 nextQuestionBtn.addEventListener('click', goNextLevel);
-//nextQuestionBtn.addEventListener('click', increaseLevel);
-nextQuestionBtn.addEventListener('click', generateRandomAudio);
-//nextQuestionBtn.addEventListener('click', createNewAudio);
 
 
 

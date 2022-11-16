@@ -9,8 +9,5 @@ export function generateRandomAudio() {
   let currentLevel = increaseLevel();
   let secondIndex = Math.round(Math.random() * 5);
   console.log(birdsData[currentLevel][secondIndex])
-  return birdsData[currentLevel][secondIndex];
+  return birdsData[currentLevel][secondIndex]
 }
-
-
-
