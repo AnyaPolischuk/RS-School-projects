@@ -16,6 +16,7 @@ import {answerOptions, playMiniSound} from './modules/variants';
 import {nextQuestionBtn, goNextLevel} from './modules/variants';
 
 playBtn.addEventListener('click', playAudio);
+// TODO: another play buttom with event listener
 containerOfProgressBar.addEventListener('click', setProgressBar);
 volumeOfAudio.addEventListener('change', changeVolume);
 iconOfVolume.addEventListener('click', hideAndShowVolumeIcon);

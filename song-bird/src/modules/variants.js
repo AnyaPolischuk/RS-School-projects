@@ -22,6 +22,7 @@ let score = document.querySelector('.score');
 let groupOfQuestions = document.querySelectorAll('.game-level__item');
 let gameField = document.querySelector('.game');
 let resultsField = document.querySelector('.results');
+let allCircles = document.querySelectorAll('.game-variants__circle');
 let points = 0;     
 
 function showResults() {
@@ -37,6 +38,8 @@ function showResults() {
 }
 
 
+
+
 // функция показывает верные и неверные ответы
 export function playMiniSound(answerOption) {
   answerOption.addEventListener('click', () => {
@@ -44,36 +47,46 @@ export function playMiniSound(answerOption) {
     let circle = answerOption.querySelector('.game-variants__circle');
 
     if (selectedBird === randomAudio.name) {
-      circle.classList.add('game-variants__circle_green');
-      let newAudioTrue = new Audio(trueSound);
-      newAudioTrue.play();
-      mainNameOfBird.innerHTML = randomAudio.name;
-      mainPhotoOfBird.src = randomAudio.image;
-      newAudio.pause(); // create new method 'pauseAudio'
-      activateNextQuestion();
-      showInfoAboutBird();
 
-      //Инфа о птице при клике на вариант ответа
-      nameOfBird.innerHTML = selectedBird;
-      photoOfBird.src = randomAudio.image;
-      speciesOfBird.innerHTML = randomAudio.species;
-      descriptionOfBird.innerHTML = randomAudio.description;
-      //TODO: добавить аудио трек
+       //подсчет очков, только если это первое нажатие на верный ответ
+       if (!circle.classList.contains('game-variants__circle_green')) {
+        if (points === 0) {
+          score.innerHTML = +score.innerHTML + 5;
+        } else if (points === 1) {
+          score.innerHTML = +score.innerHTML + 4;
+        } else if (points=== 2) {
+          score.innerHTML = +score.innerHTML + 3;
+        } else if (points === 3) {
+          score.innerHTML = +score.innerHTML + 2;
+        } else if (points === 4) {
+          score.innerHTML = +score.innerHTML + 1;
+        } else if (points === 5) {
+          score.innerHTML = +score.innerHTML + 0;
+        }
+        //выделение цветом и звуковое сопровождение при первом клике на верный вариант ответа
+        circle.classList.add('game-variants__circle_green');
+        let newAudioTrue = new Audio(trueSound);
+        newAudioTrue.play();
+        mainNameOfBird.innerHTML = randomAudio.name;
+        mainPhotoOfBird.src = randomAudio.image;
+        newAudio.pause();
+        activateNextQuestion();
+        showInfoAboutBird();
+        
+        //Инфа о птице при клике на вариант ответа
+        nameOfBird.innerHTML = selectedBird;
+        photoOfBird.src = randomAudio.image;
+        speciesOfBird.innerHTML = randomAudio.species;
+        descriptionOfBird.innerHTML = randomAudio.description;
+        //TODO: добавить аудио трек
 
-
-      //подсчет очков
-      if (points === 0) {
-        score.innerHTML = +score.innerHTML + 5;
-      } else if (points === 1) {
-        score.innerHTML = +score.innerHTML + 4;
-      } else if (points=== 2) {
-        score.innerHTML = +score.innerHTML + 3;
-      } else if (points === 3) {
-        score.innerHTML = +score.innerHTML + 2;
-      } else if (points === 4) {
-        score.innerHTML = +score.innerHTML + 1;
-      } else if (points === 5) {
-        score.innerHTML = +score.innerHTML + 0;
+      } else {
+        //Инфа о птице при клике на вариант ответа, если ответ нажат не в первый раз
+        nameOfBird.innerHTML = selectedBird;
+        photoOfBird.src = randomAudio.image;
+        speciesOfBird.innerHTML = randomAudio.species;
+        descriptionOfBird.innerHTML = randomAudio.description;
+        //TODO: добавить аудио трек
       }
 
       //вывод результатов в конце игры
@@ -82,29 +95,45 @@ export function playMiniSound(answerOption) {
       }
 
     } else {
-      circle.classList.add('game-variants__circle_red');
-      let newAudioFalse = new Audio(falseSound);
-      newAudioFalse.play();
-      showInfoAboutBird();
-      points = points + 1;
-      console.log(points);
-      
-
-      //Инфа о птице при клике на вариант ответа
-      for (let i = 0; i < birdsData.length; i++) {
-        for (let j = 0; j < birdsData[i].length; j++) {
-          if (birdsData[i][j].name === selectedBird) {
-            nameOfBird.innerHTML = birdsData[i][j].name;
-            photoOfBird.src = birdsData[i][j].image;
-            speciesOfBird.innerHTML = birdsData[i][j].species;
-            descriptionOfBird.innerHTML = birdsData[i][j].description;
-           
-          } 
+      //проверяем, нажимали ли мы несколько раз на вариант ответа, или это первый клик
+      if (!circle.classList.contains('game-variants__circle_red')) {
+        points = points + 1;
+      }
+      //если верный ответ еще не нажат, то используем цвет для кружочков и звук + инфа
+      if (mainNameOfBird.innerHTML === '******') {
+        circle.classList.add('game-variants__circle_red');
+        let newAudioFalse = new Audio(falseSound);
+        newAudioFalse.play();
+        showInfoAboutBird();
+        
+        //Инфа о птице при клике на вариант ответа
+        for (let i = 0; i < birdsData.length; i++) {
+          for (let j = 0; j < birdsData[i].length; j++) {
+            if (birdsData[i][j].name === selectedBird) {
+              nameOfBird.innerHTML = birdsData[i][j].name;
+              photoOfBird.src = birdsData[i][j].image;
+              speciesOfBird.innerHTML = birdsData[i][j].species;
+              descriptionOfBird.innerHTML = birdsData[i][j].description;
+            } 
+          }
+        }
+      } else {
+         // вывод информации о птице без цвета кружочков и звука клика 
+         for (let i = 0; i < birdsData.length; i++) {
+          for (let j = 0; j < birdsData[i].length; j++) {
+            if (birdsData[i][j].name === selectedBird) {
+              nameOfBird.innerHTML = birdsData[i][j].name;
+              photoOfBird.src = birdsData[i][j].image;
+              speciesOfBird.innerHTML = birdsData[i][j].species;
+              descriptionOfBird.innerHTML = birdsData[i][j].description;
+            } 
+          }
         }
       }
     }
   });
 }
+
 
 function activateNextQuestion() {
   nextQuestionBtn.disabled = false;
@@ -145,7 +174,6 @@ function addNewVariantsOfAnswers() {
 
 //чтобы кружочки становились вновь серыми при переходе на след уровень
 function returnGreyColorToCircle() {
-  let allCircles = document.querySelectorAll('.game-variants__circle');
   allCircles.forEach(item => {
     item.classList.remove('game-variants__circle_red');
     item.classList.remove('game-variants__circle_green');

@@ -14,10 +14,12 @@ export let iconOfVolume = document.querySelector('.game-audio__sound');
 export let playBtn = document.querySelector('.game-audio__btn');
 playBtn.src = playBtnIcon;
 
+// TODO: change to property 'paused for `Audio`'
 let isPlay = false;
 
 
 //радномные аудио
+// TODO: delete export
 export let randomAudio;
 export let newAudio;
 
@@ -33,7 +35,19 @@ export function setNewAudio() {
   newAudio.addEventListener('loadeddata' , findLengthOfAudio);
 }
 
-export function playAudio() {
+// TODO: можно ли навесить одну функцию обработчик на два элемента 
+export function playAudio(event) {
+  // TODO: detect button
+  console.log(event)
+
+  console.log(newAudio.paused)
+  /*
+  if (playButtonInfo) {
+
+  } else if () {
+    
+  }
+  */
   let gameAudio = document.querySelector('.game-audio__treck');
   
   gameAudio.prepend(newAudio);
