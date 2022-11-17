@@ -1,5 +1,6 @@
 .game-audio__btn,
-.game-audio__sound {
+.game-audio__sound,
+.about-bird__btn {
   width: 30px;
   height: 30px;
   @media (max-width: 550px) {
@@ -8,11 +9,13 @@
   }
 }
 
-.game-audio__sound {
+.game-audio__sound,
+.about-bird__sound {
   margin-left: 5px;
 }
 
-.game-audio__progress {
+.game-audio__progress,
+.about-bird__progress {
   background: white;
   border: solid 1px #000;
   border-radius: 8px;
@@ -26,7 +29,8 @@
   }
 }
 
-.game-audio__bar {
+.game-audio__bar,
+.about-bird__bar {
   width: 0;
   height: 6px;
   border-radius: 8px 0 0 8px;
@@ -34,13 +38,15 @@
   border-right: solid 5px #000;
 }
 
-.game-audio__wrapper {
+.game-audio__wrapper,
+.about-bird__wrapper {
   display: flex;
   align-items: center;
   justify-content: flex-start;
 }
 
-.audio-time {
+.audio-time,
+.about-bird-time {
   display: flex;
   align-items: center;
   justify-content: space-between;

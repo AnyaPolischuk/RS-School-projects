@@ -14,9 +14,6 @@ export let iconOfVolume = document.querySelector('.game-audio__sound');
 export let playBtn = document.querySelector('.game-audio__btn');
 playBtn.src = playBtnIcon;
 
-// TODO: change to property 'paused for `Audio`'
-let isPlay = false;
-
 
 //радномные аудио
 // TODO: delete export
@@ -24,7 +21,7 @@ export let randomAudio;
 export let newAudio;
 
 setNewAudio();
-console.log(newAudio)
+//console.log(newAudio)
 
 //меняет треки при следующих уровнях
 export function setNewAudio() {
@@ -35,31 +32,17 @@ export function setNewAudio() {
   newAudio.addEventListener('loadeddata' , findLengthOfAudio);
 }
 
-// TODO: можно ли навесить одну функцию обработчик на два элемента 
-export function playAudio(event) {
-  // TODO: detect button
-  console.log(event)
-
-  console.log(newAudio.paused)
-  /*
-  if (playButtonInfo) {
-
-  } else if () {
-    
-  }
-  */
+export function playAudio() {
   let gameAudio = document.querySelector('.game-audio__treck');
   
   gameAudio.prepend(newAudio);
 
-  if (isPlay) {
+  if (!newAudio.paused) {
     newAudio.pause();
     playBtn.src = playBtnIcon;
-    isPlay = false;
   } else {
     newAudio.play();
     playBtn.src = pauseBtnIcon;
-    isPlay = true;
   }
 }
 
@@ -113,11 +96,10 @@ export function hideAndShowVolumeIcon() {
 }
 
 export function reloadProgressBar() {
-  isPlay = false;
+  progressBar.style.width = '0px';
   newAudio.pause();
   playBtn.src = playBtnIcon;
   currentTimes.innerHTML = '0:00';
-  progressBar.style.width = 0;
 }
 
 

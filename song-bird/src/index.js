@@ -15,8 +15,11 @@ import {gameBtn, startGameBtn, showGamePage} from './modules/header';
 import {answerOptions, playMiniSound} from './modules/variants';
 import {nextQuestionBtn, goNextLevel} from './modules/variants';
 
+import {showAudioAboutBird} from './modules/audio-about-bird';
+import {containerOfProgressBarAboutBird, setProgressBarAboutBird} from './modules/audio-about-bird';
+
 playBtn.addEventListener('click', playAudio);
-// TODO: another play buttom with event listener
+// TODO: another play button with event listener
 containerOfProgressBar.addEventListener('click', setProgressBar);
 volumeOfAudio.addEventListener('change', changeVolume);
 iconOfVolume.addEventListener('click', hideAndShowVolumeIcon);
@@ -25,10 +28,13 @@ aboutBtn.addEventListener('click', showStartPage);
 gameBtn.addEventListener('click', showGamePage);
 startGameBtn.addEventListener('click', showGamePage);
 
+containerOfProgressBarAboutBird.addEventListener('click', setProgressBarAboutBird);
+
 
 
 for (let i = 0; i < answerOptions.length; i++) {
   playMiniSound(answerOptions[i]);
+  showAudioAboutBird(answerOptions[i]);
 }
 
 nextQuestionBtn.addEventListener('click', goNextLevel);
