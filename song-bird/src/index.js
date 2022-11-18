@@ -18,6 +18,10 @@ import {nextQuestionBtn, goNextLevel} from './modules/variants';
 import {showAudioAboutBird} from './modules/audio-about-bird';
 import {containerOfProgressBarAboutBird, setProgressBarAboutBird} from './modules/audio-about-bird';
 
+import { changeLangBtn, changeUrlLang, changeLanguage } from './modules/change-lang';
+
+//import {startGameAgainBtn, startGameAgain} from './modules/generate-audio';
+
 playBtn.addEventListener('click', playAudio);
 // TODO: another play button with event listener
 containerOfProgressBar.addEventListener('click', setProgressBar);
@@ -30,14 +34,23 @@ startGameBtn.addEventListener('click', showGamePage);
 
 containerOfProgressBarAboutBird.addEventListener('click', setProgressBarAboutBird);
 
-
-
 for (let i = 0; i < answerOptions.length; i++) {
   playMiniSound(answerOptions[i]);
   showAudioAboutBird(answerOptions[i]);
 }
 
 nextQuestionBtn.addEventListener('click', goNextLevel);
+
+//startGameAgainBtn.addEventListener('click', startGameAgain);
+
+let startGameAgainBtn = document.querySelector('.results__btn');
+
+startGameAgainBtn.addEventListener('click', () => {
+  location.reload();
+})
+
+changeLangBtn.addEventListener('change', changeUrlLang);
+changeLangBtn.addEventListener('change', changeLanguage);
 
 
 

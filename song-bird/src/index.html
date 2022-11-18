@@ -15,25 +15,32 @@
       <img src="./img/logo.png" alt="logo" class="header-logo__img">
       <h1 class="header-logo__title">SongBird</h1>
     </div>
-    <div class="score-wrapper">Баллы: <span class="score">0</span></div>
+    <div class="score-wrapper">Scores: <span class="score">0</span></div>
     <nav class="nav">
       <ul class="nav-list">
-        <li class="nav-list__item nav-list__item_about">Об игре</li>
-        <li class="nav-list__item nav-list__item_game">Играть</li>
-        <li class="nav-list__item">Галерея</li>
+        <li class="nav-list__item nav-list__item_about lng-nav-list__item_about">Об игре</li>
+        <li class="nav-list__item nav-list__item_game lng-nav-list__item_game">Играть</li>
+        <li class="nav-list__item nav-list__item_gallery lng-nav-list__item_gallery">Галерея</li>
+        <li class="nav-list__item">
+          <select class="nav-list__lang">
+            <option value="ru" selected>ru</option>
+            <option value="en">en</option>
+          </select>
+        </li>
     </ul>
+    
       </nav>
   </header>
 
   <!-- Поле игры (скрывать) -->
   <main class="game">
     <div class="game-level">
-      <div class="game-level__item game-level__item_active">Разминка</div>
-      <div class="game-level__item">Воробьиные</div>
-      <div class="game-level__item">Лесные птицы</div>
-      <div class="game-level__item">Певчие птицы</div>
-      <div class="game-level__item">Хищные птицы</div>
-      <div class="game-level__item">Морские птицы</div>
+      <div class="game-level__item game-level__item_active lng-game-level__item1">Разминка</div>
+      <div class="game-level__item lng-game-level__item2">Воробьиные</div>
+      <div class="game-level__item lng-game-level__item3">Лесные птицы</div>
+      <div class="game-level__item lng-game-level__item4">Певчие птицы</div>
+      <div class="game-level__item lng-game-level__item5">Хищные птицы</div>
+      <div class="game-level__item lng-game-level__item6">Морские птицы</div>
     </div>
     <div class="game-question">
       <img src="./img/test-bird.jpg" alt="question-bird" class="game-question__img">
@@ -89,8 +96,8 @@
         </div>
       </div>
       <div class="game-about">
-        <p class="game-about__text">Послушайте плеер.</p>
-        <p class="game-about__text game-about__text2">Выберите птицу из списка</p>
+        <p class="game-about__text lng-game-about__text">Послушайте плеер.</p>
+        <p class="game-about__text game-about__text2 lng-game-about__text2">Выберите птицу из списка</p>
   
         <!-- Информация о птице (скрывать) -->
         <div class="about-bird">
@@ -123,14 +130,14 @@
         </div>
       </div>
     </div>
-    <button class="game-next-btn" disabled>Следующий уровень</button>
+    <button class="game-next-btn lng-game-next-btn" disabled>Следующий уровень</button>
   </main>
 
   <!-- Результаты (скрывать) -->
   <section class="results">
-    <h2 class="results__title">Поздравляем!</h2>
-    <p class="results__text">Вы прошли игру и набрали <span class="results__score"></span> из 30 возможных баллов!</p>
-    <button class="results__btn">Попробовать еще раз!</button>
+    <h2 class="results__title lng-results__title">Поздравляем!</h2>
+    <p class="results__text lng-results__text">Вы прошли игру и набрали <span class="results__score"></span> из 30 возможных баллов!</p>
+    <button class="results__btn lng-results__btn">Попробовать еще раз!</button>
   </section>
 
    <!-- Стартовая страница (скрывать) -->
@@ -138,13 +145,13 @@
     <div class="start-page__bg">
       <div class="start-page__bg_dark">
         <div class="start-about">
-          <h2 class="start-about__title">Добро пожаловать в игру Song Bird!</h2>
-          <h3 class="start-about__rules">Правила игры</h3>
-          <p class="start-about__text">Вам будет предложено прослушать аудио со звуками птиц. Ваша задача определить, какой птице принадлежит данный звук.  </p>
-          <p class="start-about__text start-about__text_invisible">За каждый правильный ответ начисляются баллы. Максимальное количество баллов, которые вы можете получить за игру - 30. </p>
-          <p class="start-about__text start-about__text_invisible">Также  можно ознакомиться со всеми птицами, которые встречаются в игре и изучить информацию по ним в разделе галерея.</p>
-          <p class="start-about__goodluck">Удачи!</p>
-          <button class="start-about__btn">Начать игру</button>
+          <h2 class="start-about__title lng-start-about__title">Добро пожаловать в игру Song Bird!</h2>
+          <h3 class="start-about__rules lng-start-about__rules">Правила игры</h3>
+          <p class="start-about__text lng-start-about__text1">Вам будет предложено прослушать аудио со звуками птиц. Ваша задача определить, какой птице принадлежит данный звук.</p>
+          <p class="start-about__text start-about__text_invisible lng-start-about__text2">За каждый правильный ответ начисляются баллы. Максимальное количество баллов, которые вы можете получить за игру - 30.</p>
+          <p class="start-about__text start-about__text_invisible lng-start-about__text3">Также  можно ознакомиться со всеми птицами, которые встречаются в игре и изучить информацию по ним в разделе галерея.</p>
+          <p class="start-about__goodluck lng-start-about__goodluck">Удачи!</p>
+          <button class="start-about__btn lng-start-about__btn">Начать игру</button>
         </div>
       </div>
     </div>

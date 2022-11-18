@@ -21,3 +21,4 @@ export function showGamePage() {
   gameBtn.style.color = '#fbc315';
   gameBtn.style.fontWeight = 'bold';
 }
+

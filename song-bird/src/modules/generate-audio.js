@@ -11,3 +11,4 @@ export function generateRandomAudio() {
   console.log(birdsData[currentLevel][secondIndex])
   return birdsData[currentLevel][secondIndex]
 }
+
