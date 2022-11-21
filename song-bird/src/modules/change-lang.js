@@ -15,14 +15,18 @@ export function changeUrlLang() {
 
 export function changeLanguage() {
   let hash = window.location.hash;
-  hash = hash.substr(1);
-  changeLangBtn.value = hash;
+  if (hash === '#ru' || hash === '#en') {
+    hash = hash.substr(1);
+    changeLangBtn.value = hash;
 
-  for (let key in translateOfFunctionality) {
-      let elem = document.querySelector('.lng-' + key);
-      if (elem) {
-          elem.innerHTML = translateOfFunctionality[key][hash];
-      }
+    for (let key in translateOfFunctionality) {
+        let elem = document.querySelector('.lng-' + key);
+        if (elem) {
+            elem.innerHTML = translateOfFunctionality[key][hash];
+        }
+    }
+  } else if (!changeLangBtn.value) {
+    changeLangBtn.value = 'ru';
   }
 
   showNewVariants();
@@ -154,8 +158,18 @@ export function setLocalStorage() {
 
 export function getLocalStorage() {
   let lang = localStorage.getItem('key');
-  changeLangBtn.value = lang;
+  if (lang !== 'ru' && lang !== 'en') {
+    changeLangBtn.value = 'ru';
+  } else {
+    changeLangBtn.value = lang;
+  }
 }
+
+// export function checkLocalStorage() {
+//   if (!lang) {
+   
+//   }
+// }
 
  //менять язык в окне результатов при повторной смене языка
 //  function changeLangInResTableAgain() {

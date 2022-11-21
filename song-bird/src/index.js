@@ -18,7 +18,7 @@ import {nextQuestionBtn, goNextLevel} from './modules/variants';
 import {showAudioAboutBird} from './modules/audio-about-bird';
 import {containerOfProgressBarAboutBird, setProgressBarAboutBird} from './modules/audio-about-bird';
 
-import { changeLangBtn, changeUrlLang, changeLanguage, getLocalStorage, showNewVariants } from './modules/change-lang';
+import { changeLangBtn, changeUrlLang, changeLanguage, getLocalStorage, showNewVariants, checkLocalStorage } from './modules/change-lang';
 
 import { createCards } from './modules/gallery';
 
@@ -59,7 +59,7 @@ changeLangBtn.addEventListener('change', changeLanguage);
 
 window.addEventListener('load', getLocalStorage);
 window.addEventListener('load', showNewVariants);
-window.addEventListener('load', changeLanguage)
+window.addEventListener('load', changeLanguage);
 //window.addEventListener('load', createCards)
 
 
