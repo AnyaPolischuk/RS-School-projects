@@ -3,51 +3,58 @@ import falseSound from '../sounds/false.mp3';
 import { randomAudio, newAudio, setNewAudio, progressBar } from './audio';
 import unknownPhoto from '../img/test-bird.jpg';
 import birdsData from './birdsdata';
+import birdsDataEn from './birdsdata-en';
 import { reloadProgressBar } from './audio';
 import { reloadProgressBarAboutBird } from './audio-about-bird';
+import { currentLevel, secondIndex } from './generate-audio'
+import { showNewVariants, showInfoAboutBirdsLang, showRightInfoAboutBirdsLang, showMainName, changeLangInResultTable,  changeLangInResultTable2} from './change-lang';
 
 
 
 export let answerOptions = document.querySelectorAll('.game-variants__item');
 export let nextQuestionBtn = document.querySelector('.game-next-btn');
-let mainNameOfBird = document.querySelector('.game-audio__bird');
+export let mainNameOfBird = document.querySelector('.game-audio__bird');
 let mainPhotoOfBird = document.querySelector('.game-question__img');
-let infoAboutBird = document.querySelector('.about-bird');
+export let infoAboutBird = document.querySelector('.about-bird');
 let textAboutGame = document.querySelector('.game-about__text');
 let textAboutGame2 = document.querySelector('.game-about__text2');
-let photoOfBird = document.querySelector('.about-bird__img');
-let nameOfBird = document.querySelector('.about-bird__name'); 
-let speciesOfBird = document.querySelector('.about-bird__species');
-let descriptionOfBird = document.querySelector('.about-bird__description');       
-let score = document.querySelector('.score');
+export let photoOfBird = document.querySelector('.about-bird__img');
+export let nameOfBird = document.querySelector('.about-bird__name'); 
+export let speciesOfBird = document.querySelector('.about-bird__species');
+export let descriptionOfBird = document.querySelector('.about-bird__description');       
+export let score = document.querySelector('.score');
 let groupOfQuestions = document.querySelectorAll('.game-level__item');
 let gameField = document.querySelector('.game');
-let resultsField = document.querySelector('.results');
+export let resultsField = document.querySelector('.results');
 let allCircles = document.querySelectorAll('.game-variants__circle');
+export let resultScore = document.querySelector('.results__score');
+export let resultText = document.querySelector('.results__text');
 let points = 0;     
 
 function showResults() {
-  let resultScore = document.querySelector('.results__score');
-  let resultText = document.querySelector('.results__text');
+  
   gameField.style.display = 'none';
   resultsField.style.display = 'flex';
     if (score.innerHTML === '30') {
-      resultText.innerHTML = 'Вы прошли игру и набрали максимальный балл!'
+      changeLangInResultTable();
+      //resultText.innerHTML = 'Вы прошли игру и набрали максимальный балл!'
     } else {
-      resultScore.innerHTML = score.innerHTML;
+      changeLangInResultTable2();
+      //resultScore.innerHTML = score.innerHTML;
     }
 }
 
 
-
+export let selectedBird;
 
 // функция показывает верные и неверные ответы
 export function playMiniSound(answerOption) {
   answerOption.addEventListener('click', () => {
-    let selectedBird = answerOption.querySelector('.game-variants__bird').innerHTML;
+    selectedBird = answerOption.querySelector('.game-variants__bird').innerHTML;
     let circle = answerOption.querySelector('.game-variants__circle');
-
-    if (selectedBird === randomAudio.name) {
+    console.log(currentLevel)
+    console.log(secondIndex)
+    if (selectedBird === randomAudio.name || selectedBird === birdsDataEn[currentLevel][secondIndex].name) {
 
        //подсчет очков, только если это первое нажатие на верный ответ
        if (!circle.classList.contains('game-variants__circle_green')) {
@@ -69,25 +76,28 @@ export function playMiniSound(answerOption) {
         circle.classList.add('game-variants__circle_green');
         let newAudioTrue = new Audio(trueSound);
         newAudioTrue.play();
-        mainNameOfBird.innerHTML = randomAudio.name;
+        //mainNameOfBird.innerHTML = randomAudio.name;
+        showMainName();
         mainPhotoOfBird.src = randomAudio.image;
         //newAudio.pause();
         activateNextQuestion();
         showInfoAboutBird();
         
         //Инфа о птице при клике на вариант ответа
-        nameOfBird.innerHTML = selectedBird;
-        photoOfBird.src = randomAudio.image;
-        speciesOfBird.innerHTML = randomAudio.species;
-        descriptionOfBird.innerHTML = randomAudio.description;
+        showRightInfoAboutBirdsLang();
+        // nameOfBird.innerHTML = selectedBird;
+        // photoOfBird.src = randomAudio.image;
+        // speciesOfBird.innerHTML = randomAudio.species;
+        // descriptionOfBird.innerHTML = randomAudio.description;
         //TODO: добавить аудио трек
 
       } else {
         //Инфа о птице при клике на вариант ответа, если ответ нажат не в первый раз
-        nameOfBird.innerHTML = selectedBird;
-        photoOfBird.src = randomAudio.image;
-        speciesOfBird.innerHTML = randomAudio.species;
-        descriptionOfBird.innerHTML = randomAudio.description;
+        showRightInfoAboutBirdsLang()
+        // nameOfBird.innerHTML = selectedBird;
+        // photoOfBird.src = randomAudio.image;
+        // speciesOfBird.innerHTML = randomAudio.species;
+        // descriptionOfBird.innerHTML = randomAudio.description;
         //TODO: добавить аудио трек
       }
 
@@ -109,28 +119,30 @@ export function playMiniSound(answerOption) {
         showInfoAboutBird();
         
         //Инфа о птице при клике на вариант ответа
-        for (let i = 0; i < birdsData.length; i++) {
-          for (let j = 0; j < birdsData[i].length; j++) {
-            if (birdsData[i][j].name === selectedBird) {
-              nameOfBird.innerHTML = birdsData[i][j].name;
-              photoOfBird.src = birdsData[i][j].image;
-              speciesOfBird.innerHTML = birdsData[i][j].species;
-              descriptionOfBird.innerHTML = birdsData[i][j].description;
-            } 
-          }
-        }
+        showInfoAboutBirdsLang();
+        // for (let i = 0; i < birdsData.length; i++) {
+        //   for (let j = 0; j < birdsData[i].length; j++) {
+        //     if (birdsData[i][j].name === selectedBird) {
+        //       nameOfBird.innerHTML = birdsData[i][j].name;
+        //       photoOfBird.src = birdsData[i][j].image;
+        //       speciesOfBird.innerHTML = birdsData[i][j].species;
+        //       descriptionOfBird.innerHTML = birdsData[i][j].description;
+        //     } 
+        //   }
+        // }
       } else {
          // вывод информации о птице без цвета кружочков и звука клика 
-         for (let i = 0; i < birdsData.length; i++) {
-          for (let j = 0; j < birdsData[i].length; j++) {
-            if (birdsData[i][j].name === selectedBird) {
-              nameOfBird.innerHTML = birdsData[i][j].name;
-              photoOfBird.src = birdsData[i][j].image;
-              speciesOfBird.innerHTML = birdsData[i][j].species;
-              descriptionOfBird.innerHTML = birdsData[i][j].description;
-            } 
-          }
-        }
+         showInfoAboutBirdsLang();
+        //  for (let i = 0; i < birdsData.length; i++) {
+        //   for (let j = 0; j < birdsData[i].length; j++) {
+        //     if (birdsData[i][j].name === selectedBird) {
+        //       nameOfBird.innerHTML = birdsData[i][j].name;
+        //       photoOfBird.src = birdsData[i][j].image;
+        //       speciesOfBird.innerHTML = birdsData[i][j].species;
+        //       descriptionOfBird.innerHTML = birdsData[i][j].description;
+        //     } 
+        //   }
+        // }
       }
     }
   });
@@ -161,20 +173,20 @@ function showUnknownBird() {
 
 
 //при переходе на следующий уровень чтобы обновлялись варианты ответа
-let levelOfTheGame = 0;
+export let levelOfTheGame = 0;
 function countLevel() {
  levelOfTheGame = levelOfTheGame + 1;
  return levelOfTheGame;
 }
 
-function addNewVariantsOfAnswers() {
-  let variantsBirds = document.querySelectorAll('.game-variants__bird');
-  variantsBirds.forEach((item, index) => {
-    item.innerHTML = birdsData[levelOfTheGame][index].name;
-  })
-}
+// function addNewVariantsOfAnswers() {
+//   let variantsBirds = document.querySelectorAll('.game-variants__bird');
+//   variantsBirds.forEach((item, index) => {
+//     item.innerHTML = birdsData[levelOfTheGame][index].name;
+//   })
+// }
 
-//чтобы кружочки становились вновь серыми при переходе на след уровень
+//чтобы кружочки становились вновь серыми при переходе на след 
 function returnGreyColorToCircle() {
   allCircles.forEach(item => {
     item.classList.remove('game-variants__circle_red');
@@ -208,7 +220,8 @@ export function goNextLevel() {
   showUnknownBird();
   showTextAboutName();
   countLevel();
-  addNewVariantsOfAnswers();
+  //addNewVariantsOfAnswers();
+  showNewVariants();
   returnGreyColorToCircle();
 }
 

@@ -5,9 +5,12 @@ function increaseLevel() {
   return ++level;
 }
 
+export let currentLevel;
+export let secondIndex;
+
 export function generateRandomAudio() {
-  let currentLevel = increaseLevel();
-  let secondIndex = Math.round(Math.random() * 5);
+  currentLevel = increaseLevel();
+  secondIndex = Math.round(Math.random() * 5);
   console.log(birdsData[currentLevel][secondIndex])
   return birdsData[currentLevel][secondIndex]
 }
