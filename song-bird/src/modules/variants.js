@@ -3,10 +3,10 @@ import falseSound from '../sounds/false.mp3';
 import { randomAudio, newAudio, setNewAudio, progressBar } from './audio';
 import unknownPhoto from '../img/test-bird.jpg';
 import birdsData from './birdsdata';
-import birdsDataEn from './birdsdata-en';
 import { reloadProgressBar } from './audio';
 import { reloadProgressBarAboutBird } from './audio-about-bird';
-import { changeLangBtn } from './change-lang';
+
+
 
 export let answerOptions = document.querySelectorAll('.game-variants__item');
 export let nextQuestionBtn = document.querySelector('.game-next-btn');
@@ -38,27 +38,12 @@ function showResults() {
     }
 }
 
-export let birdsArr;
 
-export function findDataBird() {
- 
-  if (changeLangBtn.value === 'en') {
-    birdsArr = birdsDataEn;
-
-    console.log(birdsArr)
-  } else if (changeLangBtn.value === 'ru') {
-    birdsArr = birdsData;
-    console.log(birdsArr)
- }
-}
-
-//findDataBird()
 
 
 // функция показывает верные и неверные ответы
 export function playMiniSound(answerOption) {
   answerOption.addEventListener('click', () => {
-    
     let selectedBird = answerOption.querySelector('.game-variants__bird').innerHTML;
     let circle = answerOption.querySelector('.game-variants__circle');
 
@@ -124,25 +109,25 @@ export function playMiniSound(answerOption) {
         showInfoAboutBird();
         
         //Инфа о птице при клике на вариант ответа
-        for (let i = 0; i < birdsArr.length; i++) {
-          for (let j = 0; j < birdsArr[i].length; j++) {
-            if (birdsArr[i][j].name === selectedBird) {
-              nameOfBird.innerHTML = birdsArr[i][j].name;
-              photoOfBird.src = birdsArr[i][j].image;
-              speciesOfBird.innerHTML = birdsArr[i][j].species;
-              descriptionOfBird.innerHTML = birdsArr[i][j].description;
+        for (let i = 0; i < birdsData.length; i++) {
+          for (let j = 0; j < birdsData[i].length; j++) {
+            if (birdsData[i][j].name === selectedBird) {
+              nameOfBird.innerHTML = birdsData[i][j].name;
+              photoOfBird.src = birdsData[i][j].image;
+              speciesOfBird.innerHTML = birdsData[i][j].species;
+              descriptionOfBird.innerHTML = birdsData[i][j].description;
             } 
           }
         }
       } else {
          // вывод информации о птице без цвета кружочков и звука клика 
-         for (let i = 0; i < birdsArr.length; i++) {
-          for (let j = 0; j < birdsArr[i].length; j++) {
-            if (birdsArr[i][j].name === selectedBird) {
-              nameOfBird.innerHTML = birdsArr[i][j].name;
-              photoOfBird.src = birdsArr[i][j].image;
-              speciesOfBird.innerHTML = birdsArr[i][j].species;
-              descriptionOfBird.innerHTML = birdsArr[i][j].description;
+         for (let i = 0; i < birdsData.length; i++) {
+          for (let j = 0; j < birdsData[i].length; j++) {
+            if (birdsData[i][j].name === selectedBird) {
+              nameOfBird.innerHTML = birdsData[i][j].name;
+              photoOfBird.src = birdsData[i][j].image;
+              speciesOfBird.innerHTML = birdsData[i][j].species;
+              descriptionOfBird.innerHTML = birdsData[i][j].description;
             } 
           }
         }
@@ -185,7 +170,7 @@ function countLevel() {
 function addNewVariantsOfAnswers() {
   let variantsBirds = document.querySelectorAll('.game-variants__bird');
   variantsBirds.forEach((item, index) => {
-    item.innerHTML = birdsArr[levelOfTheGame][index].name;
+    item.innerHTML = birdsData[levelOfTheGame][index].name;
   })
 }
 
@@ -197,8 +182,11 @@ function returnGreyColorToCircle() {
   })
 }
 
+
+
 //нужно для перехода на новый уровень
 let levelOfGroup = 0;
+
 
 export function goNextLevel() {
   progressBar.style.width = '0px';
