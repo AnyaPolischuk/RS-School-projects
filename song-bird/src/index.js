@@ -22,6 +22,8 @@ import { changeLangBtn, changeUrlLang, changeLanguage } from './modules/change-l
 
 //import {startGameAgainBtn, startGameAgain} from './modules/generate-audio';
 
+import { findDataBird } from './modules/variants';
+ 
 playBtn.addEventListener('click', playAudio);
 // TODO: another play button with event listener
 containerOfProgressBar.addEventListener('click', setProgressBar);
@@ -51,6 +53,7 @@ startGameAgainBtn.addEventListener('click', () => {
 
 changeLangBtn.addEventListener('change', changeUrlLang);
 changeLangBtn.addEventListener('change', changeLanguage);
+changeLangBtn.addEventListener('change', findDataBird);
 
 
 

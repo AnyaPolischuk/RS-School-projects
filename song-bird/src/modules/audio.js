@@ -1,4 +1,3 @@
-import birdsData from './birdsdata';
 import pauseBtnIcon from '../img/pause-btn.png';
 import playBtnIcon from '../img/play-btn.png';
 

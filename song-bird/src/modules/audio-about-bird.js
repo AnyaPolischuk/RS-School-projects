@@ -1,5 +1,6 @@
 import { answerOptions  } from "./variants";
 import birdsData from "./birdsdata";
+import birdsDataEn from "./birdsdata-en";
 import playBtnIcon from '../img/play-btn.png';
 import pauseBtnIcon from '../img/pause-btn.png';
 
@@ -9,6 +10,8 @@ let progressBarAboutBird = document.querySelector('.about-bird__bar');
 let currentTimesAboutBird = document.querySelector('.about-bird-time__start');
 export let containerOfProgressBarAboutBird = document.querySelector('.about-bird__progress');
 let durationTimesAboutBird = document.querySelector('.about-bird-time__finish');
+
+//import { birdsArr } from "./variants";
 
 export function showAudioAboutBird(answerOption) {
   
@@ -20,7 +23,7 @@ export function showAudioAboutBird(answerOption) {
     
     for (let i = 0; i < birdsData.length; i++) {
       for (let j = 0; j < birdsData[i].length; j++) {
-        if (birdsData[i][j].name === selectedBirdName.innerHTML) {
+        if (birdsData[i][j].name === selectedBirdName.innerHTML || birdsDataEn[i][j].name === selectedBirdName.innerHTML) {
 
           newAudioAboutBird = new Audio(birdsData[i][j].audio);
           playBtnAboutBird.src = playBtnIcon;    

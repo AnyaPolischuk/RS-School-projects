@@ -1,5 +1,6 @@
 import birdsData from './birdsdata';
 
+
 let level = -1;
 function increaseLevel() {
   return ++level;
