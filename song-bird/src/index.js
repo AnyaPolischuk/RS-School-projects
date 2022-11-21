@@ -18,7 +18,7 @@ import {nextQuestionBtn, goNextLevel} from './modules/variants';
 import {showAudioAboutBird} from './modules/audio-about-bird';
 import {containerOfProgressBarAboutBird, setProgressBarAboutBird} from './modules/audio-about-bird';
 
-import { changeLangBtn, changeUrlLang, changeLanguage } from './modules/change-lang';
+import { changeLangBtn, changeUrlLang, changeLanguage, setLocalStorage, getLocalStorage, showNewVariants } from './modules/change-lang';
 
 //import {startGameAgainBtn, startGameAgain} from './modules/generate-audio';
 
@@ -51,6 +51,10 @@ startGameAgainBtn.addEventListener('click', () => {
 
 changeLangBtn.addEventListener('change', changeUrlLang);
 changeLangBtn.addEventListener('change', changeLanguage);
+
+window.addEventListener('load', getLocalStorage);
+window.addEventListener('load', showNewVariants);
+window.addEventListener('load', changeLanguage)
 
 
 

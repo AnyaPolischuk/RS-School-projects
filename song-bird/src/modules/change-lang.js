@@ -28,6 +28,7 @@ export function changeLanguage() {
   showNewVariants();
   displayCurrentInfo();
   changeMainNameAnswer()
+  setLocalStorage();
   //changeLangInResTableAgain();
 }
 
@@ -146,6 +147,15 @@ export function changeLangInResultTable2() {
     resultText.innerHTML = `You completed the game and scored ${score.innerHTML} out of 30 points`;
   }
  }
+
+export function setLocalStorage() {
+  localStorage.setItem('key', changeLangBtn.value);
+}
+
+export function getLocalStorage() {
+  let lang = localStorage.getItem('key');
+  changeLangBtn.value = lang;
+}
 
  //менять язык в окне результатов при повторной смене языка
 //  function changeLangInResTableAgain() {
