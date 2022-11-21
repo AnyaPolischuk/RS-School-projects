@@ -10,7 +10,7 @@ import {volumeOfAudio, changeVolume} from './modules/audio';
 import {iconOfVolume, hideAndShowVolumeIcon, createNewAudio} from './modules/audio';
 
 import {aboutBtn, showStartPage} from './modules/header';
-import {gameBtn, startGameBtn, showGamePage} from './modules/header';
+import {gameBtn, startGameBtn, showGamePage, galleryBtn, showGalleryPage} from './modules/header';
 
 import {answerOptions, playMiniSound} from './modules/variants';
 import {nextQuestionBtn, goNextLevel} from './modules/variants';
@@ -18,9 +18,12 @@ import {nextQuestionBtn, goNextLevel} from './modules/variants';
 import {showAudioAboutBird} from './modules/audio-about-bird';
 import {containerOfProgressBarAboutBird, setProgressBarAboutBird} from './modules/audio-about-bird';
 
-import { changeLangBtn, changeUrlLang, changeLanguage, setLocalStorage, getLocalStorage, showNewVariants } from './modules/change-lang';
+import { changeLangBtn, changeUrlLang, changeLanguage, getLocalStorage, showNewVariants } from './modules/change-lang';
+
+import { createCards } from './modules/gallery';
 
 //import {startGameAgainBtn, startGameAgain} from './modules/generate-audio';
+alert('Привет! Мне осталось совсем немного доделать, проверь пожалуйста завтра:)');
 
 playBtn.addEventListener('click', playAudio);
 // TODO: another play button with event listener
@@ -31,6 +34,8 @@ iconOfVolume.addEventListener('click', hideAndShowVolumeIcon);
 aboutBtn.addEventListener('click', showStartPage);
 gameBtn.addEventListener('click', showGamePage);
 startGameBtn.addEventListener('click', showGamePage);
+galleryBtn.addEventListener('click', showGalleryPage);
+galleryBtn.addEventListener('click', createCards);
 
 containerOfProgressBarAboutBird.addEventListener('click', setProgressBarAboutBird);
 
@@ -55,6 +60,9 @@ changeLangBtn.addEventListener('change', changeLanguage);
 window.addEventListener('load', getLocalStorage);
 window.addEventListener('load', showNewVariants);
 window.addEventListener('load', changeLanguage)
+//window.addEventListener('load', createCards)
+
+
 
 
 

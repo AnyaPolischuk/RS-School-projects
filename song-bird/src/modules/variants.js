@@ -24,7 +24,7 @@ export let speciesOfBird = document.querySelector('.about-bird__species');
 export let descriptionOfBird = document.querySelector('.about-bird__description');       
 export let score = document.querySelector('.score');
 let groupOfQuestions = document.querySelectorAll('.game-level__item');
-let gameField = document.querySelector('.game');
+export let gameField = document.querySelector('.game');
 export let resultsField = document.querySelector('.results');
 let allCircles = document.querySelectorAll('.game-variants__circle');
 export let resultScore = document.querySelector('.results__score');
@@ -62,7 +62,7 @@ export function playMiniSound(answerOption) {
           score.innerHTML = +score.innerHTML + 5;
         } else if (points === 1) {
           score.innerHTML = +score.innerHTML + 4;
-        } else if (points=== 2) {
+        } else if (points === 2) {
           score.innerHTML = +score.innerHTML + 3;
         } else if (points === 3) {
           score.innerHTML = +score.innerHTML + 2;
