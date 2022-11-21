@@ -8,7 +8,7 @@ body {
   align-items: center;
   max-width: 1160px;
   margin: 0 auto;
-  @media (max-width: 485px) {
+  @media (max-width: 800px) {
     flex-direction: column;
   }
 }
@@ -21,7 +21,7 @@ body {
 .header-logo__title {
   font-family: 'Satisfy', cursive;
   color: $color-white;
-  @media (max-width: 485px) {
+  @media (max-width: 800px) {
     margin: 0;
   }
 }
@@ -36,7 +36,7 @@ body {
 .nav-list {
   display: flex;
   list-style: none;
-   @media (max-width: 485px) {
+   @media (max-width: 800px) {
     padding: 0;
   }
 }
@@ -50,4 +50,24 @@ body {
     cursor: pointer;
     transition: .2s all linear;
   }
+}
+
+.score-wrapper {
+  font-size: 20px;
+  padding-left: 150px;
+  color: $color-white;
+  font-weight: bold;
+  @media (max-width: 800px) {
+    padding-left: 0;
+    padding-top: 10px;
+  }
+}
+
+.nav-list__lang {
+  border-radius: 5px;
+  width: 50px;
+  background-color: $color-grey;
+  border: 1px solid $color-orange-active;
+  color: white;
+  font-size: 18px;
 }

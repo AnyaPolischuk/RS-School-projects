@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="img/github.png" type="image/png">
+  <link rel="icon" href="img/test-bird.jpg" type="image/png">
   <title>Song birds</title>
 </head>
 <body>
@@ -15,31 +15,54 @@
       <img src="./img/logo.png" alt="logo" class="header-logo__img">
       <h1 class="header-logo__title">SongBird</h1>
     </div>
-      <nav class="nav">
-        <ul class="nav-list">
-          <li class="nav-list__item">Об игре</li>
-          <li class="nav-list__item nav-list__item__active">Играть</li>
-          <li class="nav-list__item">Галерея</li>
-        </ul>
+    <div class="score-wrapper">Scores: <span class="score">0</span></div>
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-list__item nav-list__item_about lng-nav-list__item_about">Об игре</li>
+        <li class="nav-list__item nav-list__item_game lng-nav-list__item_game">Играть</li>
+        <li class="nav-list__item nav-list__item_gallery lng-nav-list__item_gallery">Галерея</li>
+        <li class="nav-list__item">
+          <select class="nav-list__lang">
+            <option value="ru" selected>ru</option>
+            <option value="en">en</option>
+          </select>
+        </li>
+    </ul>
+    
       </nav>
   </header>
 
   <!-- Поле игры (скрывать) -->
   <main class="game">
     <div class="game-level">
-      <div class="game-level__item game-level__item_active">Разминка</div>
-      <div class="game-level__item">Воробьиные</div>
-      <div class="game-level__item">Лесные птицы</div>
-      <div class="game-level__item">Певчие птицы</div>
-      <div class="game-level__item">Хищные птицы</div>
-      <div class="game-level__item">Морские птицы</div>
+      <div class="game-level__item game-level__item_active lng-game-level__item1">Разминка</div>
+      <div class="game-level__item lng-game-level__item2">Воробьиные</div>
+      <div class="game-level__item lng-game-level__item3">Лесные птицы</div>
+      <div class="game-level__item lng-game-level__item4">Певчие птицы</div>
+      <div class="game-level__item lng-game-level__item5">Хищные птицы</div>
+      <div class="game-level__item lng-game-level__item6">Морские птицы</div>
     </div>
     <div class="game-question">
       <img src="./img/test-bird.jpg" alt="question-bird" class="game-question__img">
       <div class="game-audio">
-        <h2 class="game-audio__bird">Синичка</h2>
+        <h2 class="game-audio__bird">******</h2>
         <div class="game-audio__line"></div>
-        <div class="game-audio__treck">тут аудио трек</div>
+        <div class="game-audio__treck">
+          <div class="game-audio__wrapper">
+            <img alt="play-btn" class="game-audio__btn">
+            <div class="game-audio__progress">
+              <div class="game-audio__bar"></div>
+            </div>
+          </div>
+          <div class="audio-time">
+            <div class="audio-time__start">0:00</div>
+            <div class="audio-time__finish">3:53</div>
+          </div>
+          <div class="game-audio__wrapper">
+            <img src="./img/volume.png" alt="volume-icon" class="game-audio__sound">
+            <input type="range" min="0" max="100" value="50" class="game-audio__volume">
+          </div>
+        </div>
       </div>
     </div>
 
@@ -48,33 +71,33 @@
         <div class="game-variants">
           <div class="game-variants__item">
             <div class="game-variants__circle"></div>
-            <div class="game-variants__bird">Ворон</div>
+            <div class="game-variants__bird"></div>
           </div>
           <div class="game-variants__item">
             <div class="game-variants__circle"></div>
-            <div class="game-variants__bird">Журавль</div>
+            <div class="game-variants__bird"></div>
           </div>
           <div class="game-variants__item">
             <div class="game-variants__circle"></div>
-            <div class="game-variants__bird">Ласточка</div>
+            <div class="game-variants__bird"></div>
           </div>
           <div class="game-variants__item">
             <div class="game-variants__circle"></div>
-            <div class="game-variants__bird">Козодой</div>
+            <div class="game-variants__bird"></div>
           </div>
           <div class="game-variants__item">
             <div class="game-variants__circle"></div>
-            <div class="game-variants__bird">Кукушка</div>
+            <div class="game-variants__bird"></div>
           </div>
           <div class="game-variants__item">
             <div class="game-variants__circle"></div>
-            <div class="game-variants__bird">Синица</div>
+            <div class="game-variants__bird"></div>
           </div>
         </div>
       </div>
       <div class="game-about">
-        <p class="game-about__text">Послушайте плеер.</p>
-        <p class="game-about__text">Выберите птицу из списка</p>
+        <p class="game-about__text lng-game-about__text">Послушайте плеер.</p>
+        <p class="game-about__text game-about__text2 lng-game-about__text2">Выберите птицу из списка</p>
   
         <!-- Информация о птице (скрывать) -->
         <div class="about-bird">
@@ -85,21 +108,36 @@
               <div class="about-bird__line"></div>
               <p class="about-bird__species">Caprimulgus europaeus</p>
               <div class="about-bird__line"></div>
-              <div class="about-bird__audio">тут аудио трек</div>
+              <div class="about-bird__audio">
+
+                <div class="about-bird__treck">
+                  <div class="about-bird__wrapper">
+                    <img alt="play-btn" class="about-bird__btn">
+                    <div class="about-bird__progress">
+                      <div class="about-bird__bar"></div>
+                    </div>
+                  </div>
+                  <div class="about-bird-time">
+                    <div class="about-bird-time__start">0:00</div>
+                    <div class="about-bird-time__finish">3:53</div>
+                  </div>
+                </div>
+
+              </div>
             </div>
           </div>
           <p class="about-bird__description">Козодой – неприметная птица, известная благодаря своему голосу. Песня козодоя звучит как монотонная трель похожая на тарахтение мотоцикла. Такое дребезжание слышно от заката до рассвета, его тональность, частота и громкость изменяются. </p>
         </div>
       </div>
     </div>
-    <button class="game-next-btn">Следующий уровень</button>
+    <button class="game-next-btn lng-game-next-btn" disabled>Следующий уровень</button>
   </main>
 
   <!-- Результаты (скрывать) -->
   <section class="results">
-    <h2 class="results__title">Поздравляем!</h2>
-    <p class="results__text">Вы прошли игру и набрали <span class="results__score"><b>19</b></span> из <b>25</b> возможных баллов</p>
-    <button class="results__btn">Попробовать еще раз!</button>
+    <h2 class="results__title lng-results__title">Поздравляем!</h2>
+    <p class="results__text lng-results__text">Вы прошли игру и набрали <span class="results__score"></span> из 30 возможных баллов!</p>
+    <button class="results__btn lng-results__btn">Попробовать еще раз!</button>
   </section>
 
    <!-- Стартовая страница (скрывать) -->
@@ -107,17 +145,22 @@
     <div class="start-page__bg">
       <div class="start-page__bg_dark">
         <div class="start-about">
-          <h2 class="start-about__title">Добро пожаловать в игру Song Bird!</h2>
-          <h3 class="start-about__rules">Правила игры</h3>
-          <p class="start-about__text">Вам будет предложено прослушать аудио со звуками птиц. Ваша задача определить, какой птице принадлежит данный звук.  </p>
-          <p class="start-about__text start-about__text_invisible">За каждый правильный ответ начисляются баллы. Максимальное количество баллов, которые вы можете получить за игру - 25. </p>
-          <p class="start-about__text start-about__text_invisible">Также  можно ознакомиться со всеми птицами, которые встречаются в игре и изучить информацию по ним в разделе галерея.</p>
-          <p class="start-about__goodluck">Удачи!</p>
-          <button class="start-about__btn">Начать игру</button>
+          <h2 class="start-about__title lng-start-about__title">Добро пожаловать в игру Song Bird!</h2>
+          <h3 class="start-about__rules lng-start-about__rules">Правила игры</h3>
+          <p class="start-about__text lng-start-about__text1">Вам будет предложено прослушать аудио со звуками птиц. Ваша задача определить, какой птице принадлежит данный звук.</p>
+          <p class="start-about__text start-about__text_invisible lng-start-about__text2">За каждый правильный ответ начисляются баллы. Максимальное количество баллов, которые вы можете получить за игру - 30.</p>
+          <p class="start-about__text start-about__text_invisible lng-start-about__text3">Также  можно ознакомиться со всеми птицами, которые встречаются в игре и изучить информацию по ним в разделе галерея.</p>
+          <p class="start-about__goodluck lng-start-about__goodluck">Удачи!</p>
+          <button class="start-about__btn lng-start-about__btn">Начать игру</button>
         </div>
       </div>
     </div>
   </main>
+
+  <!-- Галерея (скрывать) -->
+  <section class="gallery">
+    <div class="gallery-wrapper"></div>
+  </section>
 
   <footer class="footer">
     <a href="https://rs.school/" class="footer-rs__link">
