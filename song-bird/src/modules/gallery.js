@@ -5,45 +5,7 @@ import { changeLangBtn } from './change-lang';
 let audioTrack, info, cardWrapper;
 let gallery = document.querySelector('.gallery-wrapper');
 
-// export function createCards() { 
-
-//   for (let i = 0; i < birdsData.length - 1; i++) {
-//     for (let j = 0; j < birdsData[i].length - 1; j++) {
-      
-//       cardWrapper = document.createElement('div'); 
-//       cardWrapper.classList.add('card-wrapper');
-      
-
-//       info = document.createElement('div');
-//       info.classList.add('gallery-info');
-//       cardWrapper.append(info);
-
-//       let img = document.createElement('img');
-//       img.classList.add('gallery-info__img');
-//       img.src = birdsData[i][j].image;
-//       info.append(img);
-
-//       let name = document.createElement('h2');
-//       name.classList.add('gallery-info__name');
-//       name.innerHTML = birdsData[i][j].name;
-//       info.append(name);
-
-//       audioTrack = document.createElement('audio');
-//       audioTrack.controls = true;
-//       audioTrack.classList.add('gallery-audio');
-//       audioTrack.src = birdsData[i][j].audio;
-//       info.append(audioTrack);
-
-//       let text = document.createElement('p');
-//       text.classList.add('gallery__text');
-//       text.innerHTML = birdsData[i][j].description;
-//       cardWrapper.append(text);
-
-//       gallery.append(cardWrapper);
-//     }
-//   }
-// }
-
+// создание галереи на нужном языке
 export function changeLangGallery() {
   if (cardWrapper) {
     gallery.innerHTML = '';
@@ -55,7 +17,6 @@ export function changeLangGallery() {
         cardWrapper = document.createElement('div'); 
         cardWrapper.classList.add('card-wrapper');
         
-  
         info = document.createElement('div');
         info.classList.add('gallery-info');
         cardWrapper.append(info);
@@ -91,7 +52,6 @@ export function changeLangGallery() {
         cardWrapper = document.createElement('div'); 
         cardWrapper.classList.add('card-wrapper');
         
-  
         info = document.createElement('div');
         info.classList.add('gallery-info');
         cardWrapper.append(info);

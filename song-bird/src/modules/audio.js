@@ -16,12 +16,10 @@ playBtn.src = playBtnIcon;
 
 
 //радномные аудио
-// TODO: delete export
 export let randomAudio;
 export let newAudio;
 
 setNewAudio();
-//console.log(newAudio)
 
 //меняет треки при следующих уровнях
 export function setNewAudio() {

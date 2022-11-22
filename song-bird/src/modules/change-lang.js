@@ -2,7 +2,7 @@ import { translateOfFunctionality } from './translate-functional';
 import { levelOfTheGame } from './variants';
 import birdsData from './birdsdata';
 import birdsDataEn from './birdsdata-en';
-import { selectedBird, nameOfBird, photoOfBird, speciesOfBird, descriptionOfBird, mainNameOfBird, infoAboutBird, resultText, resultScore, score, resultsField } from './variants';
+import { selectedBird, nameOfBird, photoOfBird, speciesOfBird, descriptionOfBird, mainNameOfBird, infoAboutBird, resultText, score } from './variants';
 import { currentLevel, secondIndex } from './generate-audio';
 
 
@@ -33,7 +33,6 @@ export function changeLanguage() {
   displayCurrentInfo();
   changeMainNameAnswer()
   setLocalStorage();
-  //changeLangInResTableAgain();
 }
 
 export function showNewVariants() {
@@ -95,8 +94,8 @@ function displayCurrentInfo() {
     if (changeLangBtn.value === 'ru') {
       
       for (let i = 0; i < birdsData[currentLevel].length; i++) {
+
         if (birdsDataEn[currentLevel][i].name === currentBird) {
-          //console.log(birdsData[currentLevel][i].name)
           nameOfBird.innerHTML = birdsData[currentLevel][i].name;
           photoOfBird.src = birdsData[currentLevel][i].image;
           speciesOfBird.innerHTML = birdsData[currentLevel][i].species;
@@ -107,8 +106,8 @@ function displayCurrentInfo() {
     } else if (changeLangBtn.value === 'en') {
       
       for (let i = 0; i < birdsData[currentLevel].length; i++) {
+
         if (birdsData[currentLevel][i].name === currentBird) {
-          //console.log(birdsData[currentLevel][i].name)
           nameOfBird.innerHTML = birdsDataEn[currentLevel][i].name;
           photoOfBird.src = birdsDataEn[currentLevel][i].image;
           speciesOfBird.innerHTML = birdsDataEn[currentLevel][i].species;
@@ -145,7 +144,6 @@ export function changeLangInResultTable() {
 
 export function changeLangInResultTable2() {
   if (changeLangBtn.value === 'ru') {
-    //resultScore.innerHTML = score.innerHTML;
     resultText.innerHTML = `Вы прошли игру и набрали ${score.innerHTML} из 30 баллов`;
   } else if (changeLangBtn.value === 'en') {
     resultText.innerHTML = `You completed the game and scored ${score.innerHTML} out of 30 points`;
@@ -164,31 +162,3 @@ export function getLocalStorage() {
     changeLangBtn.value = lang;
   }
 }
-
-
-
-// export function checkLocalStorage() {
-//   if (!lang) {
-   
-//   }
-// }
-
- //менять язык в окне результатов при повторной смене языка
-//  function changeLangInResTableAgain() {
-//   console.log(score.innerHTML)
-//   if (changeLangBtn.value === 'ru') {
-//     if (score.innerHTML === '30') {
-//       console.log('ru 30')
-//       resultText.innerHTML = 'Вы прошли игру и набрали максимальный балл!';
-//     } else {
-//       resultText.innerHTML = `Вы прошли игру и набрали ${score.innerHTML} из 30 баллов`;
-//     } 
-//   } else if (changeLangBtn.value === 'en') {
-//     if (score.innerHTML === '30') {
-//       console.log('en 30')
-//       resultText.innerHTML = 'You completed the game and scored the maximum score!';
-//     } else {
-//       resultText.innerHTML = `You completed the game and scored ${score.innerHTML} out of 30 points`;
-//     }
-//   }
-//  }

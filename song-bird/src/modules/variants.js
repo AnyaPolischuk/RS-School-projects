@@ -37,10 +37,8 @@ function showResults() {
   resultsField.style.display = 'flex';
     if (score.innerHTML === '30') {
       changeLangInResultTable();
-      //resultText.innerHTML = 'Вы прошли игру и набрали максимальный балл!'
     } else {
       changeLangInResultTable2();
-      //resultScore.innerHTML = score.innerHTML;
     }
 }
 
@@ -52,8 +50,6 @@ export function playMiniSound(answerOption) {
   answerOption.addEventListener('click', () => {
     selectedBird = answerOption.querySelector('.game-variants__bird').innerHTML;
     let circle = answerOption.querySelector('.game-variants__circle');
-    console.log(currentLevel)
-    console.log(secondIndex)
     if (selectedBird === randomAudio.name || selectedBird === birdsDataEn[currentLevel][secondIndex].name) {
 
        //подсчет очков, только если это первое нажатие на верный ответ
@@ -76,29 +72,16 @@ export function playMiniSound(answerOption) {
         circle.classList.add('game-variants__circle_green');
         let newAudioTrue = new Audio(trueSound);
         newAudioTrue.play();
-        //mainNameOfBird.innerHTML = randomAudio.name;
         showMainName();
         mainPhotoOfBird.src = randomAudio.image;
-        //newAudio.pause();
         activateNextQuestion();
         showInfoAboutBird();
         
         //Инфа о птице при клике на вариант ответа
         showRightInfoAboutBirdsLang();
-        // nameOfBird.innerHTML = selectedBird;
-        // photoOfBird.src = randomAudio.image;
-        // speciesOfBird.innerHTML = randomAudio.species;
-        // descriptionOfBird.innerHTML = randomAudio.description;
-        //TODO: добавить аудио трек
-
       } else {
         //Инфа о птице при клике на вариант ответа, если ответ нажат не в первый раз
         showRightInfoAboutBirdsLang()
-        // nameOfBird.innerHTML = selectedBird;
-        // photoOfBird.src = randomAudio.image;
-        // speciesOfBird.innerHTML = randomAudio.species;
-        // descriptionOfBird.innerHTML = randomAudio.description;
-        //TODO: добавить аудио трек
       }
 
       //вывод результатов в конце игры
@@ -120,29 +103,9 @@ export function playMiniSound(answerOption) {
         
         //Инфа о птице при клике на вариант ответа
         showInfoAboutBirdsLang();
-        // for (let i = 0; i < birdsData.length; i++) {
-        //   for (let j = 0; j < birdsData[i].length; j++) {
-        //     if (birdsData[i][j].name === selectedBird) {
-        //       nameOfBird.innerHTML = birdsData[i][j].name;
-        //       photoOfBird.src = birdsData[i][j].image;
-        //       speciesOfBird.innerHTML = birdsData[i][j].species;
-        //       descriptionOfBird.innerHTML = birdsData[i][j].description;
-        //     } 
-        //   }
-        // }
       } else {
          // вывод информации о птице без цвета кружочков и звука клика 
          showInfoAboutBirdsLang();
-        //  for (let i = 0; i < birdsData.length; i++) {
-        //   for (let j = 0; j < birdsData[i].length; j++) {
-        //     if (birdsData[i][j].name === selectedBird) {
-        //       nameOfBird.innerHTML = birdsData[i][j].name;
-        //       photoOfBird.src = birdsData[i][j].image;
-        //       speciesOfBird.innerHTML = birdsData[i][j].species;
-        //       descriptionOfBird.innerHTML = birdsData[i][j].description;
-        //     } 
-        //   }
-        // }
       }
     }
   });
@@ -179,13 +142,6 @@ function countLevel() {
  return levelOfTheGame;
 }
 
-// function addNewVariantsOfAnswers() {
-//   let variantsBirds = document.querySelectorAll('.game-variants__bird');
-//   variantsBirds.forEach((item, index) => {
-//     item.innerHTML = birdsData[levelOfTheGame][index].name;
-//   })
-// }
-
 //чтобы кружочки становились вновь серыми при переходе на след 
 function returnGreyColorToCircle() {
   allCircles.forEach(item => {
@@ -194,11 +150,8 @@ function returnGreyColorToCircle() {
   })
 }
 
-
-
 //нужно для перехода на новый уровень
 let levelOfGroup = 0;
-
 
 export function goNextLevel() {
   progressBar.style.width = '0px';
@@ -220,7 +173,6 @@ export function goNextLevel() {
   showUnknownBird();
   showTextAboutName();
   countLevel();
-  //addNewVariantsOfAnswers();
   showNewVariants();
   returnGreyColorToCircle();
 }

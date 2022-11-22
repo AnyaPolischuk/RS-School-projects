@@ -13,11 +13,9 @@ let durationTimesAboutBird = document.querySelector('.about-bird-time__finish');
 
 export function showAudioAboutBird(answerOption) {
   
-  
   answerOption.addEventListener('click', () => {
     let selectedBirdName = answerOption.querySelector('.game-variants__bird');
     stopAudio();
-    
     
     for (let i = 0; i < birdsData.length; i++) {
       for (let j = 0; j < birdsData[i].length; j++) {
@@ -32,9 +30,6 @@ export function showAudioAboutBird(answerOption) {
    }
    }       
  })
-
- 
-
 }
 
 function stopAudio() {
@@ -42,7 +37,6 @@ function stopAudio() {
     newAudioAboutBird.pause();
   }
 }
-
 
 function playAudioAboutBird() {
   if (!newAudioAboutBird.paused) {
@@ -55,7 +49,6 @@ function playAudioAboutBird() {
 }
 
 playBtnAboutBird.addEventListener('click', playAudioAboutBird);
-
 
 function updateProgressBarAboutBird(event) {
   const {duration, currentTime} = event.target;
