@@ -165,6 +165,8 @@ export function getLocalStorage() {
   }
 }
 
+
+
 // export function checkLocalStorage() {
 //   if (!lang) {
    

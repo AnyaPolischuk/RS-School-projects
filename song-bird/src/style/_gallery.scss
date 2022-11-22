@@ -13,7 +13,6 @@
   justify-content: space-around;
   align-items: center;
   border-radius: 10px;
-  border: 1px solid $color-orange-active;
 }
 
 .card-wrapper {
@@ -48,47 +47,11 @@
   padding: 0 5px;
 }
 
-.gallery__play {
-  width: 25px;
-  height: 25px;
+.gallery-audio {
   position: absolute;
-  left: 180px;
-  top: 60px;
-}
-
-.gallery-progress {
-  background: white;
-  border: solid 1px #000;
-  border-radius: 8px;
-  height: 5px;
-  width: 120px;
-  box-shadow: 0 0 2px 2px rgba(0,0,0,0.3);
-  position: absolute;
-  left: 210px;
-  top: 70px;
-  cursor: pointer;
-}
-
-.gallery-progress__bar {
-  width: 0;
-  height: 6px;
-  border-radius: 8px 0 0 8px;
-  background: $color-orange;
-  border-right: solid 5px #000;
-}
-
-.gallery-start {
-  color: $color-white;
-  font-size: 14px;
-  position: absolute;
-  top: 80px;
-  left: 210px;
-}
-
-.gallery-finish {
-  color: $color-white;
-  font-size: 14px;
-  position: absolute;
-  top: 80px;
-  left: 310px;
+  height: 20px;
+  width: 168px;
+  left: 169px;
+  top: 67px;
+  filter: sepia(80%) saturate(20%) grayscale(1) contrast(99%) invert(12%);
 }

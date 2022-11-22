@@ -20,10 +20,10 @@ import {containerOfProgressBarAboutBird, setProgressBarAboutBird} from './module
 
 import { changeLangBtn, changeUrlLang, changeLanguage, getLocalStorage, showNewVariants, checkLocalStorage } from './modules/change-lang';
 
-import { createCards } from './modules/gallery';
+import { changeLangGallery } from './modules/gallery';
 
 //import {startGameAgainBtn, startGameAgain} from './modules/generate-audio';
-alert('Привет! Мне осталось совсем немного доделать, проверь пожалуйста завтра:)');
+
 
 playBtn.addEventListener('click', playAudio);
 // TODO: another play button with event listener
@@ -35,7 +35,7 @@ aboutBtn.addEventListener('click', showStartPage);
 gameBtn.addEventListener('click', showGamePage);
 startGameBtn.addEventListener('click', showGamePage);
 galleryBtn.addEventListener('click', showGalleryPage);
-galleryBtn.addEventListener('click', createCards);
+
 
 containerOfProgressBarAboutBird.addEventListener('click', setProgressBarAboutBird);
 
@@ -56,10 +56,12 @@ startGameAgainBtn.addEventListener('click', () => {
 
 changeLangBtn.addEventListener('change', changeUrlLang);
 changeLangBtn.addEventListener('change', changeLanguage);
+changeLangBtn.addEventListener('change', changeLangGallery);
 
 window.addEventListener('load', getLocalStorage);
 window.addEventListener('load', showNewVariants);
 window.addEventListener('load', changeLanguage);
+window.addEventListener('load', changeLangGallery);
 //window.addEventListener('load', createCards)
 
 
