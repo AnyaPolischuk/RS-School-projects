@@ -34,10 +34,11 @@ class News {
                 .reverse()
                 .join('-');
 
-            (newsClone.querySelector('.news__description-title') as HTMLDivElement).textContent = item.title;
-            (newsClone.querySelector('.news__description-source') as HTMLDivElement).textContent = item.source.name;
-            (newsClone.querySelector('.news__description-content') as HTMLDivElement).textContent = item.description;
-            (newsClone.querySelector('.news__read-more a') as HTMLDivElement).setAttribute('href', item.url);
+            (newsClone.querySelector('.news__description-title') as HTMLHeadingElement).textContent = item.title;
+            (newsClone.querySelector('.news__description-source') as HTMLHeadingElement).textContent = item.source.name;
+            (newsClone.querySelector('.news__description-content') as HTMLParagraphElement).textContent =
+                item.description;
+            (newsClone.querySelector('.news__read-more a') as HTMLAnchorElement).setAttribute('href', item.url);
 
             fragment.append(newsClone);
         });
