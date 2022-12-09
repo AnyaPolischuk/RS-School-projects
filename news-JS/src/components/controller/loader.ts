@@ -1,11 +1,26 @@
+import { NewsObj } from '../view/news/news';
+
 interface Options {
-    [apiKey: string]: string;
+    sources?: string;
+    apiKey?: string;
+}
+export type sourceData = {
+    category: string;
+    country: string;
+    description: string;
+    id: string;
+    language: string;
+    name: string;
+    url: string;
+};
+export interface LoadData {
+    sources: sourceData[];
+    status: string;
 }
 
-interface Endpoint {
-    [index: string]: string;
+export interface ArticleData {
+    articles: NewsObj[];
 }
-
 class Loader {
     baseLink: string;
     options: Options;
@@ -36,19 +51,25 @@ class Loader {
     makeUrl(options: Options, endpoint: string) {
         const urlOptions = { ...this.options, ...options };
         let url = `${this.baseLink}${endpoint}?`;
-
-        Object.keys(urlOptions).forEach((key) => {
+        const test = Object.keys(urlOptions) as Array<keyof typeof urlOptions>;
+        test.forEach((key) => {
             url += `${key}=${urlOptions[key]}&`;
         });
 
         return url.slice(0, -1);
     }
 
-    load(method: string, endpoint: string, callback: (data: string) => void, options = {}) {
+    load(method: string, endpoint: string, callback: (data: LoadData) => void, options = {}) {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
-            .then((res) => res.json())
-            .then((data) => callback(data))
+            .then((res) => {
+                //console.log('res', res);
+                return res.json();
+            })
+            .then((data) => {
+                //console.log('data', data);
+                return callback(data);
+            })
             .catch((err) => console.error(err));
     }
 }

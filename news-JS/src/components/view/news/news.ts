@@ -1,6 +1,6 @@
 import './news.css';
 
-interface NewsObj {
+export interface NewsObj {
     author: string;
     content: string;
     description: string;
