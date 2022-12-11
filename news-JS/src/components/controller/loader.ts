@@ -28,7 +28,7 @@ export interface ArticleData {
     articles: NewsObj[];
 }
 
-// type Callback = <T>(data: T) => void;
+//type Callback = <T>(data: T) => void;
 
 enum HTTPStatusCode {
     unauthorized = 401,
@@ -48,7 +48,7 @@ class Loader {
             console.error('No callback for GET response');
         }
     ) {
-        this.load('GET', endpoint, callback, options);
+        this.load<LoadData>('GET', endpoint, callback, options);
     }
 
     private errorHandler(res: Response) {
@@ -64,6 +64,7 @@ class Loader {
     private makeUrl(options: Options, endpoint: string) {
         const urlOptions = { ...this.options, ...options };
         let url = `${this.baseLink}${endpoint}?`;
+        //TODO: rename test
         const test = Object.keys(urlOptions) as Array<keyof typeof urlOptions>;
         test.forEach((key) => {
             url += `${key}=${urlOptions[key]}&`;
@@ -72,10 +73,11 @@ class Loader {
         return url.slice(0, -1);
     }
 
-    private load(method: string, endpoint: string, callback: (data: LoadData) => void, options = {}) {
+    private load<T>(method: string, endpoint: string, callback: (data: T) => void, options = {}) {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => {
+                //TODO: delete console.log
                 //console.log('res', res);
                 return res.json();
             })
