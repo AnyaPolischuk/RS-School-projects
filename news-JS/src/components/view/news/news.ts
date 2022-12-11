@@ -6,7 +6,10 @@ class News {
 
         const fragment: DocumentFragment = document.createDocumentFragment();
         const newsItemTemp: HTMLTemplateElement | null = document.querySelector('#newsItemTemp');
-
+        const imgBg: HTMLDivElement | null = document.querySelector('.news-img__wrapper');
+        if (imgBg) {
+            imgBg.style.display = 'none';
+        }
         news.forEach((item: NewsObj, idx: number) => {
             const newsClone = (newsItemTemp as HTMLTemplateElement).content.cloneNode(true) as DocumentFragment;
 
