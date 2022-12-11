@@ -4,6 +4,12 @@ interface Options {
     sources?: string;
     apiKey?: string;
 }
+
+type getRespOptions = {
+    sources: string;
+    apiKey: string;
+};
+
 export type sourceData = {
     category: string;
     country: string;
@@ -21,6 +27,13 @@ export interface LoadData {
 export interface ArticleData {
     articles: NewsObj[];
 }
+
+// type Callback = <T>(data: T) => void;
+
+enum HTTPStatusCode {
+    unauthorized = 401,
+    notFound = 404,
+}
 class Loader {
     private baseLink: string;
     private options: Options;
@@ -30,7 +43,7 @@ class Loader {
     }
 
     public getResp(
-        { endpoint, options = {} }: { endpoint: string; options?: Options },
+        { endpoint, options = {} }: { endpoint: string; options?: Partial<getRespOptions> },
         callback = () => {
             console.error('No callback for GET response');
         }
@@ -40,7 +53,7 @@ class Loader {
 
     private errorHandler(res: Response) {
         if (!res.ok) {
-            if (res.status === 401 || res.status === 404)
+            if (res.status === HTTPStatusCode.unauthorized || res.status === HTTPStatusCode.notFound)
                 console.log(`Sorry, but there is ${res.status} error: ${res.statusText}`);
             throw Error(res.statusText);
         }
