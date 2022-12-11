@@ -1,6 +1,5 @@
 import './sources.css';
-import { sourceData } from '../../controller/loader';
-
+import { sourceData } from '../descriptionTypes';
 class Sources {
     draw(data: sourceData[]) {
         console.log('data', data);

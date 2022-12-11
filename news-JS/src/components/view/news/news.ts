@@ -1,16 +1,5 @@
 import './news.css';
-
-export interface NewsObj {
-    author: string;
-    content: string;
-    description: string;
-    publishedAt: string;
-    source: { id: string; name: string };
-    title: string;
-    url: string;
-    urlToImage: string;
-}
-
+import { NewsObj } from '../descriptionTypes';
 class News {
     public draw(data: Readonly<NewsObj[]>) {
         const news = data.length >= 10 ? data.filter((_item, idx) => idx < 10) : data;

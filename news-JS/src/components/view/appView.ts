@@ -1,7 +1,6 @@
 import News from './news/news';
 import Sources from './sources/sources';
-import { LoadData, ArticleData } from '../controller/loader';
-
+import { LoadData, ArticleData } from './descriptionTypes';
 export class AppView {
     news: News;
     sources: Sources;

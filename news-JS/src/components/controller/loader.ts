@@ -1,39 +1,4 @@
-import { NewsObj } from '../view/news/news';
-
-interface Options {
-    sources?: string;
-    apiKey?: string;
-}
-
-type getRespOptions = {
-    sources: string;
-    apiKey: string;
-};
-
-export type sourceData = {
-    category: string;
-    country: string;
-    description: string;
-    id: string;
-    language: string;
-    name: string;
-    url: string;
-};
-export interface LoadData {
-    sources: sourceData[];
-    status: string;
-}
-
-export interface ArticleData {
-    articles: NewsObj[];
-}
-
-//type Callback = <T>(data: T) => void;
-
-enum HTTPStatusCode {
-    unauthorized = 401,
-    notFound = 404,
-}
+import { Options, getRespOptions, LoadData, HTTPStatusCode } from '../view/descriptionTypes';
 class Loader {
     private baseLink: string;
     private options: Options;
@@ -64,9 +29,8 @@ class Loader {
     private makeUrl(options: Options, endpoint: string) {
         const urlOptions = { ...this.options, ...options };
         let url = `${this.baseLink}${endpoint}?`;
-        //TODO: rename test
-        const test = Object.keys(urlOptions) as Array<keyof typeof urlOptions>;
-        test.forEach((key) => {
+        const urlOptionsArr = Object.keys(urlOptions) as Array<keyof typeof urlOptions>;
+        urlOptionsArr.forEach((key) => {
             url += `${key}=${urlOptions[key]}&`;
         });
 
@@ -76,15 +40,8 @@ class Loader {
     private load<T>(method: string, endpoint: string, callback: (data: T) => void, options = {}) {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
-            .then((res) => {
-                //TODO: delete console.log
-                //console.log('res', res);
-                return res.json();
-            })
-            .then((data) => {
-                //console.log('data', data);
-                return callback(data);
-            })
+            .then((res) => res.json())
+            .then((data) => callback(data))
             .catch((err) => console.error(err));
     }
 }
