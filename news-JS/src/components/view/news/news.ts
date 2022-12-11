@@ -12,7 +12,7 @@ export interface NewsObj {
 }
 
 class News {
-    draw(data: NewsObj[]) {
+    public draw(data: NewsObj[]) {
         const news = data.length >= 10 ? data.filter((_item, idx) => idx < 10) : data;
 
         const fragment: DocumentFragment = document.createDocumentFragment();
