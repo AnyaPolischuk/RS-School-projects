@@ -1,7 +1,7 @@
 import './news.css';
-import { NewsObj } from '../descriptionTypes';
+import { INewsObj } from '../../descriptionTypes';
 class News {
-    public draw(data: Readonly<NewsObj[]>) {
+    public draw(data: Readonly<INewsObj[]>) {
         const news = data.length >= 10 ? data.filter((_item, idx) => idx < 10) : data;
 
         const fragment: DocumentFragment = document.createDocumentFragment();
@@ -10,7 +10,7 @@ class News {
         if (imgBg) {
             imgBg.style.display = 'none';
         }
-        news.forEach((item: NewsObj, idx: number) => {
+        news.forEach((item: INewsObj, idx: number) => {
             const newsClone = (newsItemTemp as HTMLTemplateElement).content.cloneNode(true) as DocumentFragment;
 
             if (idx % 2) (newsClone.querySelector('.news__item') as HTMLDivElement).classList.add('alt');

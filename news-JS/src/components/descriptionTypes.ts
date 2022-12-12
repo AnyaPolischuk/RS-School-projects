@@ -1,4 +1,4 @@
-export interface NewsObj {
+export interface INewsObj {
     author: string;
     content: string;
     description: string;
@@ -9,17 +9,17 @@ export interface NewsObj {
     urlToImage: string;
 }
 
-export interface Options {
+export interface IOptions {
     sources?: string;
     apiKey?: string;
 }
 
-export type getRespOptions = {
+export type GetRespOptions = {
     sources: string;
     apiKey: string;
 };
 
-export type sourceData = {
+export type SourceData = {
     category: string;
     country: string;
     description: string;
@@ -29,16 +29,16 @@ export type sourceData = {
     url: string;
 };
 
-export interface LoadData {
-    sources: sourceData[];
+export interface ILoadData {
+    sources: SourceData[];
     status: string;
 }
 
-export interface ArticleData {
-    articles: NewsObj[];
+export interface IArticleData {
+    articles: INewsObj[];
 }
 
 export enum HTTPStatusCode {
-    unauthorized = 401,
-    notFound = 404,
+    UNAUTHORIZED = 401,
+    NOTFOUND = 404,
 }
