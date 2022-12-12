@@ -1,5 +1,4 @@
 import AppLoader from './appLoader';
-import { ILoadData, IArticleData } from '../descriptionTypes';
 class AppController extends AppLoader {
     public getSources<T>(callback: (data?: T) => void) {
         super.getResp(
