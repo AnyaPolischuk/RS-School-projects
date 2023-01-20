@@ -28,7 +28,9 @@ const renderGarageInputsCreate = () => {
     const WRAPPER = document.createElement('div');
     WRAPPER.classList.add('inputs_wrapper');
     const INPUT_CREATE_NAME = document.createElement('input');
+    INPUT_CREATE_NAME.classList.add('input_add_new_car');
     const INPUT_CREATE_COLOR = document.createElement('input');
+    INPUT_CREATE_COLOR.classList.add('input_add_new_color_car');
     INPUT_CREATE_COLOR.type = 'color';
     WRAPPER.append(INPUT_CREATE_NAME);
     WRAPPER.append(INPUT_CREATE_COLOR);
@@ -37,8 +39,8 @@ const renderGarageInputsCreate = () => {
     const CREATE_CAR_BTN = document.createElement('button');
     CREATE_CAR_BTN.innerHTML = 'Create car';
     CREATE_CAR_BTN.classList.add('btn');
+    CREATE_CAR_BTN.classList.add('create_car_btn');
     WRAPPER.appendChild(CREATE_CAR_BTN);
-    CREATE_CAR_BTN.addEventListener('click', () => alert(3));
 };
 
 const renderGarageInputsUpdate = () => {
@@ -55,7 +57,6 @@ const renderGarageInputsUpdate = () => {
     UPDATE_CAR_BTN.innerHTML = 'Update car';
     UPDATE_CAR_BTN.classList.add('btn');
     WRAPPER.appendChild(UPDATE_CAR_BTN);
-    UPDATE_CAR_BTN.addEventListener('click', () => alert(4));
 };
 
 const renderRaceResetGenerateBtns = () => {
@@ -80,9 +81,10 @@ const renderRaceResetGenerateBtns = () => {
     ROOT?.append(WRAPPER);
 };
 
-const showInfoAboutGarage = async () => {
+export const showInfoAboutGarage = async () => {
     const amountOfCars = await getCars().then((res) => res.amount);
     const GARAGE = document.createElement('h2');
+    GARAGE.classList.add('amount_cars');
     GARAGE.innerHTML = `GARAGE (${amountOfCars})`;
     ROOT?.append(GARAGE);
 
@@ -91,7 +93,7 @@ const showInfoAboutGarage = async () => {
     ROOT?.append(PAGE);
 };
 
-const renderCarSVG = (color: string) => {
+export const renderCarSVG = (color: string) => {
     const CONTAINER = document.createElement('div');
     CONTAINER.classList.add('container');
     ROOT?.append(CONTAINER);
@@ -140,7 +142,7 @@ const renderCarSVG = (color: string) => {
     CONTAINER.append(renderFlagSVG());
 };
 
-const renderSelectAndRemoveBtns = (carName: string) => {
+export const renderSelectAndRemoveBtns = (carName: string) => {
     const WRAPPER = document.createElement('div');
     WRAPPER.classList.add('wrapper_for_btns');
 

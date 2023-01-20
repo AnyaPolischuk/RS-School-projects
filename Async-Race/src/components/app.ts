@@ -26,7 +26,7 @@ const variables: IVariables = {
     WINNERS: 'http://127.0.0.1:3000/winners',
 };
 
-export const getCars = async (page?: number, limit = 7) => {
+export const getCars = async (page?: number, limit = 8) => {
     const response = await fetch(`${variables.GARAGE}?_page=${page}&_limit=${limit}`);
 
     return {
