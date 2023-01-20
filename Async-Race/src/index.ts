@@ -1,5 +1,5 @@
-import { renderGarage, renderWinners, showInfoAboutGarage } from './components/garage';
-import { getCars, getCar, createCar, deleteCar, updateCar, startCarEngine, stopCarEngine, switchCarsEngine } from './components/app';
+import { firstRenderPage } from './components/garage_render';
+// import { getCars, getCar, createCar, deleteCar, updateCar, startCarEngine, stopCarEngine, switchCarsEngine } from './components/app';
 
 // getCars(1)
 //     .then((res) => {
@@ -98,7 +98,4 @@ import { getCars, getCar, createCar, deleteCar, updateCar, startCarEngine, stopC
 //     .then((err) => {
 //         console.log(err);
 //     });
-
-renderGarage();
-// renderWinners();
-showInfoAboutGarage();
+firstRenderPage();

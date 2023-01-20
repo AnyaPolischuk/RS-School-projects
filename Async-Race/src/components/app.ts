@@ -9,6 +9,17 @@ interface IBody {
     color: string;
 }
 
+interface IBodyWinner {
+    id: number;
+    wins: number;
+    time: number;
+}
+
+interface IBodyUpdateWinner {
+    wins: number;
+    time: number;
+}
+
 const variables: IVariables = {
     GARAGE: 'http://127.0.0.1:3000/garage',
     ENGINE: 'http://127.0.0.1:3000/engine',
@@ -83,6 +94,13 @@ export const switchCarsEngine = async (id: number) => {
     }
 };
 
+const getSortBy = (sort?: 'id' | 'wins' | 'time', order?: 'ASC' | 'DESC') => {
+    if (sort && order) {
+        return `&_sort=${sort}&_order=${order}`;
+    } else return '';
+};
+
+//разобраться с Promise.all
 // export const getWinners = async (
 //     page?: number,
 //     limit?: number,
@@ -90,6 +108,36 @@ export const switchCarsEngine = async (id: number) => {
 //     order?: 'ASC' | 'DESC'
 // ) => {
 //     if (limit) {
-//       const response = await fetch(`${variables.WINNERS}`)
+//       const response = await fetch(`${variables.WINNERS}?_page=${page}&_limit=${limit}${getSortBy(sort, order)}`);
 //     }
 // };
+
+const getWinner = async (id: number) => {
+    const response = await fetch(`${variables.WINNERS}/${id}`);
+    return await response.json;
+};
+
+const createWinner = async (body: IBodyWinner) => {
+    const response = await fetch(`${variables.WINNERS}`, {
+        method: 'POST',
+        body: JSON.stringify(body),
+        headers: { 'Content-Type': 'application/json' },
+    });
+    return await response.json();
+};
+
+const deleteWinner = async (id: number) => {
+    const response = await fetch(`${variables.WINNERS}/${id}`, {
+        method: 'DELETE',
+    });
+    return await response.json();
+};
+
+const updateWinner = async (id: number, body: IBodyUpdateWinner) => {
+    const response = await fetch(`${variables.WINNERS}/${id}`, {
+        method: 'PUT',
+        body: JSON.stringify(body),
+        headers: { 'Content-Type': 'application/json' },
+    });
+    return await response.json();
+};

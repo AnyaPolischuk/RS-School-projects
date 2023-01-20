@@ -5,6 +5,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const EslingPlugin = require('eslint-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
+
 const baseConfig = {
     entry: path.resolve(__dirname, './src/index'),
     mode: 'development',
@@ -15,6 +16,10 @@ const baseConfig = {
                 use: ['style-loader', 'css-loader'],
             },
             { test: /\.ts$/i, use: 'ts-loader' },
+            {
+                test: /\.svg$/,
+                loader: 'svg-inline-loader',
+            },
         ],
     },
     resolve: {

@@ -1,0 +1,67 @@
+body {
+  /* background-color: rgb(209, 200, 213); */
+}
+
+.btn {
+  margin-right: 20px;
+  width: 120px;
+  height: 30px;
+  background-color: rgb(235, 161, 24);
+  border-radius: 5px;
+  border: 1px solid rgb(235, 161, 24);
+  font-size: 16px;
+}
+
+.inputs_wrapper {
+  margin-top: 30px;
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wrapper_for_btns {
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}  
+
+.container {
+  width: 100%;
+  border-bottom: 5px dashed black;
+  position: relative;
+  padding-top: 60px;
+}
+
+.car {
+  position: absolute;
+  top: -22px;
+  left: 90px;
+}
+
+.a_b_btns {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+  background-color: rgb(235, 161, 24);
+  border-radius: 5px;
+  border: 1px solid rgb(235, 161, 24);
+}
+
+.start_btn {
+  position: absolute;
+  top: -5px;
+}
+
+.stop_btn {
+  position: absolute;
+  top: -5px;
+  left: 45px;
+}
+
+.flag {
+  position: absolute;
+  top: -5px;
+  right: 0;
+}
