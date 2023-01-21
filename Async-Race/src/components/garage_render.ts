@@ -4,6 +4,7 @@ import car from '../img/sprite.svg';
 import finishFlag from '../img/flag_sprite.svg';
 
 const ROOT = document.querySelector('.root');
+const CONTAINER_FOR_RACE = document.createElement('div');
 
 // сделать в одну функцию
 const renderGarageBtn = () => {
@@ -211,5 +212,5 @@ export const firstRenderPage = async () => {
     renderGarageInputsUpdate();
     renderRaceResetGenerateBtns();
     await showInfoAboutGarage();
-    renderAllCarsFirst();
+    await renderAllCarsFirst();
 };

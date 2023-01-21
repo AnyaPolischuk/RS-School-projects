@@ -38,6 +38,7 @@ body {
   position: absolute;
   top: -22px;
   left: 90px;
+  z-index: -1;
 }
 
 .a_b_btns {
