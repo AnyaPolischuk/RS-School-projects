@@ -49,6 +49,8 @@ const renderGarageInputsUpdate = () => {
     WRAPPER.classList.add('inputs_wrapper');
     const INPUT_UPDATE_NAME = document.createElement('input');
     const INPUT_UPDATE_COLOR = document.createElement('input');
+    INPUT_UPDATE_NAME.classList.add('input_update_name');
+    INPUT_UPDATE_COLOR.classList.add('input_update_color');
     INPUT_UPDATE_COLOR.type = 'color';
     WRAPPER.append(INPUT_UPDATE_NAME);
     WRAPPER.append(INPUT_UPDATE_COLOR);
@@ -57,6 +59,7 @@ const renderGarageInputsUpdate = () => {
     const UPDATE_CAR_BTN = document.createElement('button');
     UPDATE_CAR_BTN.innerHTML = 'Update car';
     UPDATE_CAR_BTN.classList.add('btn');
+    UPDATE_CAR_BTN.classList.add('update_btn');
     WRAPPER.appendChild(UPDATE_CAR_BTN);
 };
 

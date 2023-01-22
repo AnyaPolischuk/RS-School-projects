@@ -66,3 +66,7 @@ body {
   top: -5px;
   right: 0;
 }
+
+.btn_active {
+  background-color: green;
+}
