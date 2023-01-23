@@ -1,6 +1,5 @@
 import {
     createNewCar,
-    updateCar,
     deleteCarHandler,
     changeStyleOnBtnUpdate,
     updateCarHandler,
@@ -23,7 +22,6 @@ import { getCar, deleteCar, getCars } from './components/app';
 alert('Добрый день! Проверье, пожалуйста, работу в четверг, если будет такая возможность. Не всё успела сделать(');
 firstRenderPage().then(() => {
     deleteCarHandler();
-    // updateCar();
     changeStyleOnBtnUpdate();
     updateCarHandler();
     animateCarHandler();
