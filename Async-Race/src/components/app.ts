@@ -26,7 +26,7 @@ const variables: IVariables = {
     WINNERS: 'http://127.0.0.1:3000/winners',
 };
 
-export const getCars = async (page?: number, limit = 8) => {
+export const getCars = async (page?: number, limit = 7) => {
     const response = await fetch(`${variables.GARAGE}?_page=${page}&_limit=${limit}`);
 
     return {
@@ -83,15 +83,16 @@ export const switchCarsEngine = async (id: number) => {
     const response = await fetch(`${variables.ENGINE}?id=${id}&status=drive`, {
         method: 'PATCH',
     });
-    if (response.status === 200) {
-        return await response.json();
-    } else if (response.status === 404) {
-        return 'Engine parameters for car with such id was not found in the garage. Have you tried to set engine status to "started" before?';
-    } else if (response.status === 429) {
-        return 'Drive already in progress. You can not run drive for the same car twice while it is not stopped.';
-    } else if (response.status === 500) {
-        return 'Car has been stopped suddenly. It is engine was broken down.';
-    }
+    return await response.json();
+    // if (response.status === 200) {
+    //     return await response.json();
+    // } else if (response.status === 404) {
+    //     return 'Engine parameters for car with such id was not found in the garage. Have you tried to set engine status to "started" before?';
+    // } else if (response.status === 429) {
+    //     return 'Drive already in progress. You can not run drive for the same car twice while it is not stopped.';
+    // } else if (response.status === 500) {
+    //     return 'Car has been stopped suddenly. It is engine was broken down.';
+    // }
 };
 
 const getSortBy = (sort?: 'id' | 'wins' | 'time', order?: 'ASC' | 'DESC') => {

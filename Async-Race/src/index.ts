@@ -1,4 +1,12 @@
-import { createNewCar, updateCar, deleteCarHandler, changeStyleOnBtnUpdate, updateCarHandler } from './components/garage_btns';
+import {
+    createNewCar,
+    updateCar,
+    deleteCarHandler,
+    changeStyleOnBtnUpdate,
+    updateCarHandler,
+    animateCarHandler,
+    stopBtnHandler,
+} from './components/garage_btns';
 import { firstRenderPage } from './components/garage_render';
 import { getCar, deleteCar, getCars } from './components/app';
 
@@ -12,12 +20,14 @@ import { getCar, deleteCar, getCars } from './components/app';
 //     .catch((err) => {
 //         console.log(err);
 //     });
-
+alert('Добрый день! Проверье, пожалуйста, работу в четверг, если будет такая возможность. Не всё успела сделать(');
 firstRenderPage().then(() => {
     deleteCarHandler();
     // updateCar();
     changeStyleOnBtnUpdate();
     updateCarHandler();
+    animateCarHandler();
+    stopBtnHandler();
 });
 
 const createCarBtn: HTMLInputElement | null = document.querySelector('.create_car_btn');

@@ -1,4 +1,4 @@
-import { createCar, getCars, deleteCar, updateCar } from './app';
+import { createCar, getCars, deleteCar, updateCar, startCarEngine, switchCarsEngine, stopCarEngine } from './app';
 import { renderCarSVG, renderSelectAndRemoveBtns, showInfoAboutGarage } from './garage_render';
 
 export const createNewCar = async () => {
@@ -17,6 +17,7 @@ export const createNewCar = async () => {
     deleteCarHandler();
     changeStyleOnBtnUpdate();
     updateCarHandler();
+    animateCarHandler();
 };
 
 export const deleteCarHandler = async () => {
@@ -79,6 +80,81 @@ export const updateCarHandler = () => {
             }
         });
     });
+};
+
+export const animateCarHandler = () => {
+    const startCarBtn = document.querySelectorAll('.start_btn');
+
+    const animationHandler = (btn: Element) => {
+        btn.addEventListener('click', () => {
+            getCars().then((res) => {
+                const currentCar = res.cars.filter(
+                    (item: { name: string | undefined }) =>
+                        item.name === btn.parentElement?.previousElementSibling?.lastElementChild?.innerHTML
+                );
+                const ID = currentCar[0].id;
+                const carSVG = btn.previousElementSibling as HTMLElement | null;
+                startCarEngine(ID).then((res) => {
+                    const duration = res.distance / res.velocity;
+                    const distance = res.distance;
+                    let startAnimation: number | null = null;
+
+                    switchCarsEngine(ID);
+                    requestAnimationFrame(function measure(time: number) {
+                        if (!startAnimation) {
+                            startAnimation = time;
+                        }
+                        const progress = (time - startAnimation) / duration;
+                        const translate = (progress * distance) / 300;
+                        if (carSVG) {
+                            carSVG.style.transform = `translateX(${translate}px)`;
+                        }
+                        if (progress < 1) {
+                            requestAnimationFrame(measure);
+                        }
+                        switchCarsEngine(ID).then((res) => {
+                            if (res.status === 500) {
+                                cancelAnimationFrame(requestAnimationFrame(measure));
+                            }
+                        });
+                    });
+                });
+            });
+        });
+    };
+    if (startCarBtn) {
+        for (let i = 0; i < startCarBtn.length; i++) {
+            animationHandler(startCarBtn[i]);
+        }
+    }
+};
+
+export const stopBtnHandler = () => {
+    const stopCarBtn = document.querySelectorAll('.stop_btn');
+
+    const stopHandler = (btn: Element) => {
+        btn.addEventListener('click', () => {
+            getCars().then((res) => {
+                const currentCar = res.cars.filter(
+                    (item: { name: string | undefined }) =>
+                        item.name === btn.parentElement?.previousElementSibling?.lastElementChild?.innerHTML
+                );
+                const ID = currentCar[0].id;
+                const carSVG = btn.previousElementSibling?.previousElementSibling as HTMLElement | null;
+                stopCarEngine(ID).then(() => {
+                    if (carSVG) {
+                        console.log('sfsf');
+                        carSVG.style.left = 90 + 'px';
+                    }
+                });
+            });
+        });
+    };
+    if (stopCarBtn) {
+        for (let i = 0; i < stopCarBtn.length; i++) {
+            stopHandler(stopCarBtn[i]);
+        }
+    }
 };
 
 const getAmountOfCars = async () => {
