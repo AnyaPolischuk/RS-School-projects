@@ -1,19 +1,17 @@
-import { getCars } from './app';
+import { hideWinners, showWinners } from './../winners/winners';
+import { getCars } from '../app';
 import './garage.css';
-import car from '../img/sprite.svg';
-import finishFlag from '../img/flag_sprite.svg';
+import car from '../../img/sprite.svg';
+import finishFlag from '../../img/flag_sprite.svg';
 
 const ROOT = document.querySelector('.root');
-const CONTAINER_FOR_RACE = document.createElement('div');
 
-// сделать в одну функцию
 const renderGarageBtn = () => {
     const GARAGE_BTN = document.createElement('button');
     GARAGE_BTN.innerHTML = 'Garage';
     GARAGE_BTN.classList.add('btn');
     GARAGE_BTN.classList.add('btn_garage');
-    ROOT?.appendChild(GARAGE_BTN);
-    GARAGE_BTN.addEventListener('click', () => alert(1));
+    document.body.prepend(GARAGE_BTN);
 };
 
 const renderWinnersBtn = () => {
@@ -21,8 +19,7 @@ const renderWinnersBtn = () => {
     WINNERS_BTN.innerHTML = 'Winners';
     WINNERS_BTN.classList.add('btn');
     WINNERS_BTN.classList.add('btn_winners');
-    ROOT?.appendChild(WINNERS_BTN);
-    WINNERS_BTN.addEventListener('click', () => alert(2));
+    document.body.prepend(WINNERS_BTN);
 };
 
 const renderGarageInputsCreate = () => {
@@ -78,7 +75,7 @@ const renderRaceResetGenerateBtns = () => {
     WRAPPER.appendChild(RESET_BTN);
 
     const GENERATE_BTN = document.createElement('button');
-    GENERATE_BTN.innerHTML = 'Generate cars';
+    GENERATE_BTN.innerHTML = 'Generate';
     GENERATE_BTN.classList.add('btn');
     WRAPPER.appendChild(GENERATE_BTN);
 
@@ -89,7 +86,7 @@ export const showInfoAboutGarage = async () => {
     const amountOfCars = await getCars().then((res) => res.amount);
     const GARAGE = document.createElement('h2');
     GARAGE.classList.add('amount_cars');
-    GARAGE.innerHTML = `GARAGE (${amountOfCars})`;
+    GARAGE.innerHTML = `GARAGE ${amountOfCars}`;
     ROOT?.append(GARAGE);
 
     const PAGE = document.createElement('h2');
@@ -103,7 +100,6 @@ export const renderCarSVG = (color: string) => {
     ROOT?.append(CONTAINER);
     const CAR_SVG = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     const CAR_USE = document.createElementNS('http://www.w3.org/2000/svg', 'use');
-    CAR_USE.setAttributeNS('http://www.w3.org/1999/xlink', 'href', `${car}#car1`);
 
     CAR_SVG.innerHTML = `
     <g transform="translate(0.000000,128.000000) scale(0.100000,-0.100000)" stroke="none">
@@ -172,7 +168,6 @@ export const renderSelectAndRemoveBtns = (carName: string) => {
 const renderFlagSVG = () => {
     const FLAG_SVG = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     const FLAG_USE = document.createElementNS('http://www.w3.org/2000/svg', 'use');
-    FLAG_USE.setAttributeNS('http://www.w3.org/1999/xlink', 'href', `${finishFlag}#finish`);
 
     FLAG_SVG.innerHTML = `
     <g transform="translate(0.000000,64.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
@@ -208,9 +203,33 @@ const renderAllCarsFirst = async () => {
     }
 };
 
+const renderPagination = () => {
+    const PAGINATION_WRAPPER = document.createElement('div');
+    PAGINATION_WRAPPER.classList.add('pagination-wrapper');
+
+    const LEFT_BTN = document.createElement('button');
+    LEFT_BTN.classList.add('pagination-btn');
+    LEFT_BTN.classList.add('left-btn');
+    LEFT_BTN.innerHTML = '<-';
+    PAGINATION_WRAPPER.append(LEFT_BTN);
+
+    const PAGE_NUMBER = document.createElement('div');
+    PAGE_NUMBER.classList.add('page_number');
+    PAGE_NUMBER.innerHTML = '1';
+    PAGINATION_WRAPPER.append(PAGE_NUMBER);
+
+    const RIGHT_BTN = document.createElement('button');
+    RIGHT_BTN.classList.add('pagination-btn');
+    RIGHT_BTN.classList.add('right-btn');
+    RIGHT_BTN.innerHTML = '->';
+    PAGINATION_WRAPPER.append(RIGHT_BTN);
+
+    ROOT?.append(PAGINATION_WRAPPER);
+};
+
 export const firstRenderPage = async () => {
-    renderGarageBtn();
     renderWinnersBtn();
+    renderGarageBtn();
     renderGarageInputsCreate();
     renderGarageInputsUpdate();
     renderRaceResetGenerateBtns();

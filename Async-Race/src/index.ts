@@ -1,3 +1,4 @@
+import { renderWinners, hideWinners, showWinners } from './components/winners/winners';
 import {
     createNewCar,
     deleteCarHandler,
@@ -5,28 +6,22 @@ import {
     updateCarHandler,
     animateCarHandler,
     stopBtnHandler,
-} from './components/garage_btns';
-import { firstRenderPage } from './components/garage_render';
-import { getCar, deleteCar, getCars } from './components/app';
+} from './components/garage/garage_btns';
+import { firstRenderPage } from './components/garage/garage_render';
 
-// updateCar(1, {
-//     name: 'KEK',
-//     color: '#ff0000',
-// })
-//     .then((res) => {
-//         console.log(res);
-//     })
-//     .catch((err) => {
-//         console.log(err);
-//     });
-alert('Добрый день! Проверье, пожалуйста, работу в четверг, если будет такая возможность. Не всё успела сделать(');
 firstRenderPage().then(() => {
     deleteCarHandler();
     changeStyleOnBtnUpdate();
     updateCarHandler();
     animateCarHandler();
     stopBtnHandler();
+    renderWinners();
 });
 
 const createCarBtn: HTMLInputElement | null = document.querySelector('.create_car_btn');
+const garage_btn = document.querySelector('.btn_garage');
+const winners_btn = document.querySelector('.btn_winners');
+
+garage_btn?.addEventListener('click', hideWinners);
+winners_btn?.addEventListener('click', showWinners);
 createCarBtn?.addEventListener('click', createNewCar);

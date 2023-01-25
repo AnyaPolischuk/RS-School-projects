@@ -1,5 +1,5 @@
-import { createCar, getCars, deleteCar, updateCar, startCarEngine, switchCarsEngine, stopCarEngine } from './app';
-import { renderCarSVG, renderSelectAndRemoveBtns, showInfoAboutGarage } from './garage_render';
+import { createCar, getCars, deleteCar, updateCar, startCarEngine, switchCarsEngine, stopCarEngine } from '../app';
+import { renderCarSVG, renderSelectAndRemoveBtns } from './garage_render';
 
 export const createNewCar = async () => {
     const inputNewCarName: HTMLInputElement | null = document.querySelector('.input_add_new_car');
@@ -17,7 +17,7 @@ export const createNewCar = async () => {
     deleteCarHandler();
     changeStyleOnBtnUpdate();
     updateCarHandler();
-    animateCarHandler();
+    await animateCarHandler();
 };
 
 export const deleteCarHandler = async () => {
@@ -56,6 +56,7 @@ export const updateCarHandler = () => {
     const selectCarBtn = document.querySelectorAll('.select_btn');
     const inputUpdateName: HTMLInputElement | null = document.querySelector('.input_update_name');
     const inputUpdateColor: HTMLInputElement | null = document.querySelector('.input_update_color');
+
     updateCarBtn?.addEventListener('click', () => {
         const btn = Array.from(selectCarBtn).filter((btn) => btn.classList.contains('btn_active'))[0];
         const nameOfCar = btn.nextElementSibling?.nextElementSibling;
@@ -66,7 +67,6 @@ export const updateCarHandler = () => {
                 (item: { name: string | undefined }) =>
                     item.name === btn.nextElementSibling?.nextElementSibling?.innerHTML
             );
-            console.log(currentCar[0]);
 
             if (nameOfCar && inputUpdateName && inputUpdateColor && colorOfCar) {
                 nameOfCar.innerHTML = inputUpdateName?.value;
@@ -92,32 +92,23 @@ export const animateCarHandler = () => {
                     (item: { name: string | undefined }) =>
                         item.name === btn.parentElement?.previousElementSibling?.lastElementChild?.innerHTML
                 );
-                const ID = currentCar[0].id;
+                const ID: number = currentCar[0].id;
                 const carSVG = btn.previousElementSibling as HTMLElement | null;
-                startCarEngine(ID).then((res) => {
-                    const duration = res.distance / res.velocity;
-                    const distance = res.distance;
-                    let startAnimation: number | null = null;
+                btn.classList.add('active');
 
-                    switchCarsEngine(ID);
-                    requestAnimationFrame(function measure(time: number) {
-                        if (!startAnimation) {
-                            startAnimation = time;
-                        }
-                        const progress = (time - startAnimation) / duration;
-                        const translate = (progress * distance) / 300;
-                        if (carSVG) {
-                            carSVG.style.transform = `translateX(${translate}px)`;
-                        }
-                        if (progress < 1) {
-                            requestAnimationFrame(measure);
-                        }
-                        switchCarsEngine(ID).then((res) => {
-                            if (res.status === 500) {
-                                cancelAnimationFrame(requestAnimationFrame(measure));
+                startCarEngine(ID).then((res) => {
+                    const duration: number = res.distance / res.velocity;
+                    const distance: number = res.distance;
+                    const startAnimation: number | null = null;
+
+                    switchCarsEngine(ID)
+                        .then((res) => res)
+                        .catch((err) => {
+                            if (err.status == 500) {
+                                // TODO: stop animation of car
                             }
                         });
-                    });
+                    getRequestAnimation(duration, distance, startAnimation, carSVG, btn);
                 });
             });
         });
@@ -140,13 +131,9 @@ export const stopBtnHandler = () => {
                         item.name === btn.parentElement?.previousElementSibling?.lastElementChild?.innerHTML
                 );
                 const ID = currentCar[0].id;
-                const carSVG = btn.previousElementSibling?.previousElementSibling as HTMLElement | null;
-                stopCarEngine(ID).then(() => {
-                    if (carSVG) {
-                        console.log('sfsf');
-                        carSVG.style.left = 90 + 'px';
-                    }
-                });
+                btn.previousElementSibling?.classList.remove('active');
+
+                stopCarEngine(ID);
             });
         });
     };
@@ -161,6 +148,31 @@ const getAmountOfCars = async () => {
     const amountOfCars: HTMLHeadingElement | null = document.querySelector('.amount_cars');
     const getAmountOfCars = await getCars().then((res) => res.cars.length);
     if (amountOfCars) {
-        amountOfCars.innerHTML = `GARAGE (${getAmountOfCars})`;
+        amountOfCars.innerHTML = `GARAGE ${getAmountOfCars}`;
     }
+};
+
+const getRequestAnimation = (
+    duration: number,
+    distance: number,
+    startAnimation: number | null,
+    carSVG: HTMLElement | null,
+    btn: Element
+) => {
+    requestAnimationFrame(function measure(time: number) {
+        if (!startAnimation) {
+            startAnimation = time;
+        }
+        const progress: number = (time - startAnimation) / duration;
+        const translate: number = (progress * distance) / 300;
+        if (carSVG) {
+            carSVG.style.transform = `translateX(${translate}px)`;
+        }
+        if (progress < 1 && btn.classList.contains('active')) {
+            requestAnimationFrame(measure);
+        } else if (carSVG) {
+            cancelAnimationFrame(requestAnimationFrame(measure));
+            // carSVG.style.transform = `translateX(0px)`;
+        }
+    });
 };

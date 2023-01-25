@@ -1,24 +1,4 @@
-interface IVariables {
-    GARAGE: string;
-    ENGINE: string;
-    WINNERS: string;
-}
-
-interface IBody {
-    name: string;
-    color: string;
-}
-
-interface IBodyWinner {
-    id: number;
-    wins: number;
-    time: number;
-}
-
-interface IBodyUpdateWinner {
-    wins: number;
-    time: number;
-}
+import { IBody, IBodyUpdateWinner, IBodyWinner, IVariables } from './interfaces';
 
 const variables: IVariables = {
     GARAGE: 'http://127.0.0.1:3000/garage',
@@ -84,15 +64,6 @@ export const switchCarsEngine = async (id: number) => {
         method: 'PATCH',
     });
     return await response.json();
-    // if (response.status === 200) {
-    //     return await response.json();
-    // } else if (response.status === 404) {
-    //     return 'Engine parameters for car with such id was not found in the garage. Have you tried to set engine status to "started" before?';
-    // } else if (response.status === 429) {
-    //     return 'Drive already in progress. You can not run drive for the same car twice while it is not stopped.';
-    // } else if (response.status === 500) {
-    //     return 'Car has been stopped suddenly. It is engine was broken down.';
-    // }
 };
 
 const getSortBy = (sort?: 'id' | 'wins' | 'time', order?: 'ASC' | 'DESC') => {
@@ -101,17 +72,25 @@ const getSortBy = (sort?: 'id' | 'wins' | 'time', order?: 'ASC' | 'DESC') => {
     } else return '';
 };
 
-//разобраться с Promise.all
-// export const getWinners = async (
-//     page?: number,
-//     limit?: number,
-//     sort?: 'id' | 'wins' | 'time',
-//     order?: 'ASC' | 'DESC'
-// ) => {
-//     if (limit) {
-//       const response = await fetch(`${variables.WINNERS}?_page=${page}&_limit=${limit}${getSortBy(sort, order)}`);
-//     }
-// };
+/* export const getWinners = async (
+    page?: number,
+    limit?: number,
+    sort?: 'id' | 'wins' | 'time',
+    order?: 'ASC' | 'DESC'
+) => {
+    if (limit) {
+        const response = await fetch(`${variables.WINNERS}?_page=${page}&_limit=${limit}${getSortBy(sort, order)}`);
+        const items = await response.json();
+
+        return {
+            items: await Promise.all(
+                items.map(async (winner: { id: number }) => ({ ...winner, car: await getCar(winner.id) }))),
+            ),
+            count: response.headers.get('X-Total-Count'),
+        };
+    }
+};
+*/
 
 const getWinner = async (id: number) => {
     const response = await fetch(`${variables.WINNERS}/${id}`);
