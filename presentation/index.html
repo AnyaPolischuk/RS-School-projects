@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section><h1>Regular expressions</h1></section>
+				<section><span style="color: orange;">Regular expressions</span> are patterns used to match character combinations in strings. In JavaScript, regular expressions are also objects</section>
+				<section>
+					<h3>Creating a regular expression</h3>
+					<pre><code data-trim data-noescape>
+						const re = /ab+c/;    
+							</code></pre>
+					<pre><code data-trim data-noescape>
+						const re = new RegExp('ab+c');    
+							</code></pre>
+				</section>
+				<section>
+					<h3>Writing a regular expression pattern</h3>
+					<pre><code data-trim data-noescape>
+						/abc/ 
+					</code></pre>
+					<pre><code data-trim data-noescape>
+						/ab*c/     
+					</code></pre>
+					<pre><code data-trim data-noescape>
+						/Chapter (\d+)\.\d*/    
+					</code></pre>
+				</section>
+				<section>
+					<h2>Using simple patterns</h2>
+					<p>1) "Hi, do you know your <span style="color: orange;">abc</span>'s?"</p>
+					<p>2) "The latest airplane designs evolved from sl<span style="color: orange;">abc</span>raft."</p>
+				</section>
+				<section>
+					<section>
+						<h2>Using special characters</h2>
+						<p><span style="color: orange;">/ab*c/</span></p>
+						<p>the * after "b" means "0 or more occurrences of the preceding item</p>
+					</section>
+					<section data-markdown>
+						<textarea data-template>
+						1) Assertions
+						2)	Character classes
+						3)	Groups and backreferences
+						4)	Quantifiers
+						5)	Unicode property escapes
+						---
+						## 
+						<img src="./public/img/img1.png"  height="500" width="600">
+					</textarea></section>
+				</section>
+				<section>
+					If you need to use any of the special characters literally, you must escape it by putting a backslash in front of it. For instance, to search for "a" followed by "*" followed by "b", you'd use /a\*b/ — the backslash "escapes" the "*", making it literal instead of special.
+				</section>
+				<section>
+					Example
+					<pre><code data-trim data-noescape>
+						function escapeRegExp(string) {
+							return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
+						}
+							</code></pre>
+				</section>
+				<section>
+					Using regular expressions in JavaScript
+					<img src="./public/img/img2.png"  height="500" width="600">
+				</section>
+				<section>
+					Example
+					<pre><code data-trim data-noescape>
+						const myRe = /d(b+)d/g;
+						const myArray = myRe.exec('cdbbdbsbz');  
+							</code></pre>
+				</section>
+				<section>
+					Advanced searching with flags
+					<img src="./public/img/img3.png"  height="400" width="600">
+				</section>
+				<section>
+					Example
+					<pre><code data-trim data-noescape>
+						1)	const re = /pattern/flags;
+						2)	const re = new RegExp('pattern', 'flags');
+							</code></pre>
+				</section>
+				<section>
+					Using special characters to verify input
+					<img src="./public/img/img4.png"  height="600" width="500">
+				</section>
+				<section><h2>Thank you for your attention!</h2></section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
