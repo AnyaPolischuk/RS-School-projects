@@ -1,31 +1,31 @@
 export const renderWinners = () => {
-    const WINNER_WRAPPER = document.createElement('div');
-    WINNER_WRAPPER.classList.add('winners');
-    WINNER_WRAPPER.classList.add('winners-not-active');
+    const winner_wrapper = document.createElement('div');
+    winner_wrapper.classList.add('winners');
+    winner_wrapper.classList.add('winners-not-active');
 
-    const AMOUNT_WINNERS = document.createElement('h2');
-    AMOUNT_WINNERS.innerHTML = 'Winners 1';
-    WINNER_WRAPPER.append(AMOUNT_WINNERS);
+    const amount_winners = document.createElement('h2');
+    amount_winners.innerHTML = 'Winners 1';
+    winner_wrapper.append(amount_winners);
 
-    const PAGE = document.createElement('h2');
-    PAGE.innerHTML = 'Page 1';
-    WINNER_WRAPPER.append(PAGE);
+    const page = document.createElement('h2');
+    page.innerHTML = 'Page 1';
+    winner_wrapper.append(page);
 
-    document.body.append(WINNER_WRAPPER);
+    document.body.append(winner_wrapper);
 };
 
 export const showWinners = () => {
-    const WINNER_WRAPPER = document.querySelector('.winners');
-    const ROOT = document.querySelector('.root');
+    const winner_wrapper = document.querySelector('.winners');
+    const root = document.querySelector('.root');
 
-    WINNER_WRAPPER?.classList.remove('winners-not-active');
-    ROOT?.classList.add('root-not-active');
+    winner_wrapper?.classList.remove('winners-not-active');
+    root?.classList.add('root-not-active');
 };
 
 export const hideWinners = () => {
-    const WINNER_WRAPPER = document.querySelector('.winners');
-    const ROOT = document.querySelector('.root');
+    const winner_wrapper = document.querySelector('.winners');
+    const root = document.querySelector('.root');
 
-    ROOT?.classList.remove('root-not-active');
-    WINNER_WRAPPER?.classList.add('winners-not-active');
+    root?.classList.remove('root-not-active');
+    winner_wrapper?.classList.add('winners-not-active');
 };

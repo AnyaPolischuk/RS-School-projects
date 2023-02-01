@@ -1,4 +1,4 @@
-export interface IVariables {
+export interface IURL {
     GARAGE: string;
     ENGINE: string;
     WINNERS: string;

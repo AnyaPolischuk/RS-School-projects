@@ -1,13 +1,13 @@
-import { IBody, IBodyUpdateWinner, IBodyWinner, IVariables } from './interfaces';
+import { IBody, IBodyUpdateWinner, IBodyWinner, IURL } from './interfaces';
 
-const variables: IVariables = {
+const URLs: IURL = {
     GARAGE: 'http://127.0.0.1:3000/garage',
     ENGINE: 'http://127.0.0.1:3000/engine',
     WINNERS: 'http://127.0.0.1:3000/winners',
 };
 
 export const getCars = async (page?: number, limit = 7) => {
-    const response = await fetch(`${variables.GARAGE}?_page=${page}&_limit=${limit}`);
+    const response = await fetch(`${URLs.GARAGE}?_page=${page}&_limit=${limit}`);
 
     return {
         cars: await response.json(),
@@ -16,12 +16,12 @@ export const getCars = async (page?: number, limit = 7) => {
 };
 
 export const getCar = async (id: number) => {
-    const response = await fetch(`${variables.GARAGE}/${id}`);
+    const response = await fetch(`${URLs.GARAGE}/${id}`);
     return await response.json();
 };
 
 export const createCar = async (body: IBody) => {
-    const response = await fetch(`${variables.GARAGE}`, {
+    const response = await fetch(`${URLs.GARAGE}`, {
         method: 'POST',
         body: JSON.stringify(body),
         headers: { 'Content-Type': 'application/json' },
@@ -30,14 +30,14 @@ export const createCar = async (body: IBody) => {
 };
 
 export const deleteCar = async (id: number) => {
-    const response = await fetch(`${variables.GARAGE}/${id}`, {
+    const response = await fetch(`${URLs.GARAGE}/${id}`, {
         method: 'DELETE',
     });
     return await response.json();
 };
 
 export const updateCar = async (id: number, body: IBody) => {
-    const response = await fetch(`${variables.GARAGE}/${id}`, {
+    const response = await fetch(`${URLs.GARAGE}/${id}`, {
         method: 'PUT',
         body: JSON.stringify(body),
         headers: { 'Content-Type': 'application/json' },
@@ -46,21 +46,21 @@ export const updateCar = async (id: number, body: IBody) => {
 };
 
 export const startCarEngine = async (id: number) => {
-    const response = await fetch(`${variables.ENGINE}?id=${id}&status=started`, {
+    const response = await fetch(`${URLs.ENGINE}?id=${id}&status=started`, {
         method: 'PATCH',
     });
     return await response.json();
 };
 
 export const stopCarEngine = async (id: number) => {
-    const response = await fetch(`${variables.ENGINE}?id=${id}&status=stopped`, {
+    const response = await fetch(`${URLs.ENGINE}?id=${id}&status=stopped`, {
         method: 'PATCH',
     });
     return await response.json();
 };
 
 export const switchCarsEngine = async (id: number) => {
-    const response = await fetch(`${variables.ENGINE}?id=${id}&status=drive`, {
+    const response = await fetch(`${URLs.ENGINE}?id=${id}&status=drive`, {
         method: 'PATCH',
     });
     return await response.json();
@@ -93,12 +93,12 @@ const getSortBy = (sort?: 'id' | 'wins' | 'time', order?: 'ASC' | 'DESC') => {
 */
 
 const getWinner = async (id: number) => {
-    const response = await fetch(`${variables.WINNERS}/${id}`);
+    const response = await fetch(`${URLs.WINNERS}/${id}`);
     return await response.json;
 };
 
 const createWinner = async (body: IBodyWinner) => {
-    const response = await fetch(`${variables.WINNERS}`, {
+    const response = await fetch(`${URLs.WINNERS}`, {
         method: 'POST',
         body: JSON.stringify(body),
         headers: { 'Content-Type': 'application/json' },
@@ -107,14 +107,14 @@ const createWinner = async (body: IBodyWinner) => {
 };
 
 const deleteWinner = async (id: number) => {
-    const response = await fetch(`${variables.WINNERS}/${id}`, {
+    const response = await fetch(`${URLs.WINNERS}/${id}`, {
         method: 'DELETE',
     });
     return await response.json();
 };
 
 const updateWinner = async (id: number, body: IBodyUpdateWinner) => {
-    const response = await fetch(`${variables.WINNERS}/${id}`, {
+    const response = await fetch(`${URLs.WINNERS}/${id}`, {
         method: 'PUT',
         body: JSON.stringify(body),
         headers: { 'Content-Type': 'application/json' },

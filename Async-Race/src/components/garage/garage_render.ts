@@ -1,107 +1,104 @@
-import { hideWinners, showWinners } from './../winners/winners';
 import { getCars } from '../app';
 import './garage.css';
-import car from '../../img/sprite.svg';
-import finishFlag from '../../img/flag_sprite.svg';
 
 const ROOT = document.querySelector('.root');
 
 const renderGarageBtn = () => {
-    const GARAGE_BTN = document.createElement('button');
-    GARAGE_BTN.innerHTML = 'Garage';
-    GARAGE_BTN.classList.add('btn');
-    GARAGE_BTN.classList.add('btn_garage');
-    document.body.prepend(GARAGE_BTN);
+    const garage_btn = document.createElement('button');
+    garage_btn.innerHTML = 'Garage';
+    garage_btn.classList.add('btn');
+    garage_btn.classList.add('btn_garage');
+    document.body.prepend(garage_btn);
 };
 
 const renderWinnersBtn = () => {
-    const WINNERS_BTN = document.createElement('button');
-    WINNERS_BTN.innerHTML = 'Winners';
-    WINNERS_BTN.classList.add('btn');
-    WINNERS_BTN.classList.add('btn_winners');
-    document.body.prepend(WINNERS_BTN);
+    const winners_btn = document.createElement('button');
+    winners_btn.innerHTML = 'Winners';
+    winners_btn.classList.add('btn');
+    winners_btn.classList.add('btn_winners');
+    document.body.prepend(winners_btn);
 };
 
 const renderGarageInputsCreate = () => {
-    const WRAPPER = document.createElement('div');
-    WRAPPER.classList.add('inputs_wrapper');
-    const INPUT_CREATE_NAME = document.createElement('input');
-    INPUT_CREATE_NAME.classList.add('input_add_new_car');
-    const INPUT_CREATE_COLOR = document.createElement('input');
-    INPUT_CREATE_COLOR.classList.add('input_add_new_color_car');
-    INPUT_CREATE_COLOR.type = 'color';
-    WRAPPER.append(INPUT_CREATE_NAME);
-    WRAPPER.append(INPUT_CREATE_COLOR);
-    ROOT?.append(WRAPPER);
+    const wrapper = document.createElement('div');
+    wrapper.classList.add('inputs_wrapper');
+    const input_create_name = document.createElement('input');
+    input_create_name.classList.add('input_add_new_car');
+    const input_create_color = document.createElement('input');
+    input_create_color.classList.add('input_add_new_color_car');
+    input_create_color.type = 'color';
+    wrapper.append(input_create_name);
+    wrapper.append(input_create_color);
+    ROOT?.append(wrapper);
 
-    const CREATE_CAR_BTN = document.createElement('button');
-    CREATE_CAR_BTN.innerHTML = 'Create car';
-    CREATE_CAR_BTN.classList.add('btn');
-    CREATE_CAR_BTN.classList.add('create_car_btn');
-    WRAPPER.appendChild(CREATE_CAR_BTN);
+    const create_car_btn = document.createElement('button');
+    create_car_btn.innerHTML = 'Create car';
+    create_car_btn.classList.add('btn');
+    create_car_btn.classList.add('create_car_btn');
+    wrapper.appendChild(create_car_btn);
 };
 
 const renderGarageInputsUpdate = () => {
-    const WRAPPER = document.createElement('div');
-    WRAPPER.classList.add('inputs_wrapper');
-    const INPUT_UPDATE_NAME = document.createElement('input');
-    const INPUT_UPDATE_COLOR = document.createElement('input');
-    INPUT_UPDATE_NAME.classList.add('input_update_name');
-    INPUT_UPDATE_COLOR.classList.add('input_update_color');
-    INPUT_UPDATE_COLOR.type = 'color';
-    WRAPPER.append(INPUT_UPDATE_NAME);
-    WRAPPER.append(INPUT_UPDATE_COLOR);
-    ROOT?.append(WRAPPER);
+    const wrapper = document.createElement('div');
+    wrapper.classList.add('inputs_wrapper');
+    const input_update_name = document.createElement('input');
+    const input_update_color = document.createElement('input');
+    input_update_name.classList.add('input_update_name');
+    input_update_color.classList.add('input_update_color');
+    input_update_color.type = 'color';
+    wrapper.append(input_update_name);
+    wrapper.append(input_update_color);
+    ROOT?.append(wrapper);
 
-    const UPDATE_CAR_BTN = document.createElement('button');
-    UPDATE_CAR_BTN.innerHTML = 'Update car';
-    UPDATE_CAR_BTN.classList.add('btn');
-    UPDATE_CAR_BTN.classList.add('update_btn');
-    WRAPPER.appendChild(UPDATE_CAR_BTN);
+    const update_car_btn = document.createElement('button');
+    update_car_btn.innerHTML = 'Update car';
+    update_car_btn.classList.add('btn');
+    update_car_btn.classList.add('update_btn');
+    wrapper.appendChild(update_car_btn);
 };
 
 const renderRaceResetGenerateBtns = () => {
-    const WRAPPER = document.createElement('div');
-    WRAPPER.classList.add('inputs_wrapper');
+    const wrapper = document.createElement('div');
+    wrapper.classList.add('inputs_wrapper');
 
-    const RACE_BTN = document.createElement('button');
-    RACE_BTN.innerHTML = 'Race';
-    RACE_BTN.classList.add('btn');
-    WRAPPER.appendChild(RACE_BTN);
+    const race_btn = document.createElement('button');
+    race_btn.innerHTML = 'Race';
+    race_btn.classList.add('btn');
+    wrapper.appendChild(race_btn);
 
-    const RESET_BTN = document.createElement('button');
-    RESET_BTN.innerHTML = 'Reset';
-    RESET_BTN.classList.add('btn');
-    WRAPPER.appendChild(RESET_BTN);
+    const reset_btn = document.createElement('button');
+    reset_btn.innerHTML = 'Reset';
+    reset_btn.classList.add('btn');
+    wrapper.appendChild(reset_btn);
 
-    const GENERATE_BTN = document.createElement('button');
-    GENERATE_BTN.innerHTML = 'Generate';
-    GENERATE_BTN.classList.add('btn');
-    WRAPPER.appendChild(GENERATE_BTN);
+    const generate_btn = document.createElement('button');
+    generate_btn.innerHTML = 'Generate';
+    generate_btn.classList.add('btn');
+    wrapper.appendChild(generate_btn);
 
-    ROOT?.append(WRAPPER);
+    ROOT?.append(wrapper);
 };
 
 export const showInfoAboutGarage = async () => {
     const amountOfCars = await getCars().then((res) => res.amount);
-    const GARAGE = document.createElement('h2');
-    GARAGE.classList.add('amount_cars');
-    GARAGE.innerHTML = `GARAGE ${amountOfCars}`;
-    ROOT?.append(GARAGE);
+    const garage = document.createElement('h2');
+    garage.classList.add('amount_cars');
+    garage.innerHTML = `GARAGE ${amountOfCars}`;
+    ROOT?.append(garage);
 
-    const PAGE = document.createElement('h2');
-    PAGE.innerHTML = `PAGE #1`;
-    ROOT?.append(PAGE);
+    const page = document.createElement('h2');
+    page.innerHTML = `PAGE #1`;
+    ROOT?.append(page);
 };
 
 export const renderCarSVG = (color: string) => {
-    const CONTAINER = document.createElement('div');
-    CONTAINER.classList.add('container');
-    ROOT?.append(CONTAINER);
-    const CAR_SVG = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    const CAR_USE = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+    const container = document.createElement('div');
+    container.classList.add('container');
+    ROOT?.append(container);
+    const car_svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    const car_use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
 
-    CAR_SVG.innerHTML = `
+    car_svg.innerHTML = `
     <g transform="translate(0.000000,128.000000) scale(0.100000,-0.100000)" stroke="none">
       <path d="M480 825 c-57 -15 -271 -48 -345 -53 l-90 -7 -24 -70 c-16 -46 -22
         -80 -18 -97 8 -32 62 -88 85 -88 9 0 29 -12 45 -27 41 -40 113 -40 154 0 l29
@@ -121,55 +118,55 @@ export const renderCarSVG = (color: string) => {
         -93 37z"></path>
     </g>`;
 
-    CAR_SVG.style.fill = color;
-    CAR_SVG.classList.add('car');
+    car_svg.style.fill = color;
+    car_svg.classList.add('car');
 
-    CAR_SVG.appendChild(CAR_USE);
-    CONTAINER?.append(CAR_SVG);
+    car_svg.appendChild(car_use);
+    container?.append(car_svg);
 
-    const START_BTN = document.createElement('button');
-    START_BTN.innerHTML = 'A';
-    START_BTN.classList.add('start_btn');
-    START_BTN.classList.add('a_b_btns');
-    CONTAINER.append(START_BTN);
+    const start_btn = document.createElement('button');
+    start_btn.innerHTML = 'A';
+    start_btn.classList.add('start_btn');
+    start_btn.classList.add('a_b_btns');
+    container.append(start_btn);
 
-    const STOP_BTN = document.createElement('button');
-    STOP_BTN.innerHTML = 'B';
-    STOP_BTN.classList.add('stop_btn');
-    STOP_BTN.classList.add('a_b_btns');
-    CONTAINER.append(STOP_BTN);
+    const stop_btn = document.createElement('button');
+    stop_btn.innerHTML = 'B';
+    stop_btn.classList.add('stop_btn');
+    stop_btn.classList.add('a_b_btns');
+    container.append(stop_btn);
 
-    CONTAINER.append(renderFlagSVG());
+    container.append(renderFlagSVG());
 };
 
 export const renderSelectAndRemoveBtns = (carName: string) => {
-    const WRAPPER = document.createElement('div');
-    WRAPPER.classList.add('wrapper_for_btns');
+    const wrapper = document.createElement('div');
+    wrapper.classList.add('wrapper_for_btns');
 
-    ROOT?.append(WRAPPER);
+    ROOT?.append(wrapper);
 
-    const SELECT_BTN = document.createElement('button');
-    SELECT_BTN.innerHTML = 'Select';
-    SELECT_BTN.classList.add('btn');
-    SELECT_BTN.classList.add('select_btn');
-    WRAPPER.append(SELECT_BTN);
+    const select_btn = document.createElement('button');
+    select_btn.innerHTML = 'Select';
+    select_btn.classList.add('btn');
+    select_btn.classList.add('select_btn');
+    wrapper.append(select_btn);
 
-    const REMOVE_BTN = document.createElement('button');
-    REMOVE_BTN.innerHTML = 'Remove';
-    REMOVE_BTN.classList.add('btn');
-    REMOVE_BTN.classList.add('remove_btn');
-    WRAPPER.append(REMOVE_BTN);
+    const remove_btn = document.createElement('button');
+    remove_btn.innerHTML = 'Remove';
+    remove_btn.classList.add('btn');
+    remove_btn.classList.add('remove_btn');
+    wrapper.append(remove_btn);
 
-    const CAR_NAME = document.createElement('h3');
-    CAR_NAME.innerHTML = carName;
-    WRAPPER.append(CAR_NAME);
+    const car_name = document.createElement('h3');
+    car_name.innerHTML = carName;
+    wrapper.append(car_name);
 };
 
 const renderFlagSVG = () => {
-    const FLAG_SVG = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    const FLAG_USE = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+    const flag_svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    const flag_use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
 
-    FLAG_SVG.innerHTML = `
+    flag_svg.innerHTML = `
     <g transform="translate(0.000000,64.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
       <path d="M6 614 c-4 -10 1 -25 11 -36 10 -11 77 -142 148 -291 118 -246 155
         -308 155 -263 0 9 -27 70 -60 136 l-60 120 32 20 c54 33 114 36 183 11 33 -13
@@ -189,9 +186,9 @@ const renderFlagSVG = () => {
         45 -30z"></path>
     </g>`;
 
-    FLAG_SVG.classList.add('flag');
-    FLAG_SVG.appendChild(FLAG_USE);
-    return FLAG_SVG;
+    flag_svg.classList.add('flag');
+    flag_svg.appendChild(flag_use);
+    return flag_svg;
 };
 
 const renderAllCarsFirst = async () => {
@@ -204,27 +201,27 @@ const renderAllCarsFirst = async () => {
 };
 
 const renderPagination = () => {
-    const PAGINATION_WRAPPER = document.createElement('div');
-    PAGINATION_WRAPPER.classList.add('pagination-wrapper');
+    const pagination_wrapper = document.createElement('div');
+    pagination_wrapper.classList.add('pagination-wrapper');
 
-    const LEFT_BTN = document.createElement('button');
-    LEFT_BTN.classList.add('pagination-btn');
-    LEFT_BTN.classList.add('left-btn');
-    LEFT_BTN.innerHTML = '<-';
-    PAGINATION_WRAPPER.append(LEFT_BTN);
+    const left_btn = document.createElement('button');
+    left_btn.classList.add('pagination-btn');
+    left_btn.classList.add('left-btn');
+    left_btn.innerHTML = '<-';
+    pagination_wrapper.append(left_btn);
 
-    const PAGE_NUMBER = document.createElement('div');
-    PAGE_NUMBER.classList.add('page_number');
-    PAGE_NUMBER.innerHTML = '1';
-    PAGINATION_WRAPPER.append(PAGE_NUMBER);
+    const page_number = document.createElement('div');
+    page_number.classList.add('page_number');
+    page_number.innerHTML = '1';
+    pagination_wrapper.append(page_number);
 
-    const RIGHT_BTN = document.createElement('button');
-    RIGHT_BTN.classList.add('pagination-btn');
-    RIGHT_BTN.classList.add('right-btn');
-    RIGHT_BTN.innerHTML = '->';
-    PAGINATION_WRAPPER.append(RIGHT_BTN);
+    const right_btn = document.createElement('button');
+    right_btn.classList.add('pagination-btn');
+    right_btn.classList.add('right-btn');
+    right_btn.innerHTML = '->';
+    pagination_wrapper.append(right_btn);
 
-    ROOT?.append(PAGINATION_WRAPPER);
+    ROOT?.append(pagination_wrapper);
 };
 
 export const firstRenderPage = async () => {
